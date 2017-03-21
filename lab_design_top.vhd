@@ -36,7 +36,7 @@ begin
 		);
 		
 	decoder: character_decoder
-		generic map (CLOCK_FREQUENCY => 40_000_000)
+		generic map (CLOCK_FREQUENCY => 40000000)
 		port map(clk => clock_pin,
 					charFromUART_valid => dataValid,
 					charFromUART => parallelDataOut,
@@ -59,7 +59,7 @@ begin
 		
 	DIP_debouncers: for i in 0 to 3 generate
 		dbncr: debouncer
-			generic map (DELAY_VALUE => 4_000_000)
+			generic map (DELAY_VALUE => 4000000)
 			port map(clk => clock_pin,
 						signal_in => DIP_pins(i),
 						signal_out => DIP_debounced(i)
