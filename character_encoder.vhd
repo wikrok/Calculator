@@ -13,6 +13,8 @@ architecture Behavioral of character_encoder is
 	signal DIP_value : std_logic_vector(7 downto 0) := (others=>'U');
 	signal DIP_valid : std_logic := 'U';
 begin
+	-- Detects change in DIP switch positions, encodes to the ASCII character for the hex value.
+	-- Sets DIP_valid flag high to denote ready for transmission.
 	do_DIP: process (clk)
 		variable DIP_last_value : std_logic_vector(3 downto 0) := (others=>'0');
 	begin
@@ -44,6 +46,8 @@ begin
 		end if sync_events;
 	end process do_DIP;
 	
+	-- Waits for either a pending character input or a DIP switch change.
+	-- On input/change, sends the character to the UART. Input character is prioritised over DIP input for transmission.
 	do_select: process (clk)
 		variable decoder_buffer : std_logic_vector(7 downto 0) := (others=>'U');
 		variable DIP_buffer : std_logic_vector(7 downto 0) := (others=>'U');

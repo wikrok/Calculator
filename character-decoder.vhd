@@ -17,6 +17,14 @@ architecture Behavioral of character_decoder is
 	signal LED_lo_req : std_logic := '0';
 	signal send_character_i : std_logic := '0';
 begin
+
+	-- Swaps case of alphabetical characters (A -> a, a -> A).
+	-- Numeric characters and operators/other characters pass straight through.
+	-- Blinks LEDS as follows:
+	--  LED: Hi Lo
+	-- Alpha	0	1
+	-- Num	1	0
+	-- Other	1	1
 	decoder_table: process (clk)
 		variable ASCII_value : integer range 0 to 255 := 0;
 	begin
@@ -54,6 +62,8 @@ begin
 	
 	send_character <= send_character_i;
 	
+	-- Timer for LED blinking. Starts whenever start_timer set high.
+	-- Sets LED to blink for 1s.
 	mk_timer: process (clk)
 		constant TERMINAL_COUNT : integer := CLOCK_FREQUENCY * 1;
 		variable timer_value : integer range 0 to TERMINAL_COUNT := 0;
@@ -74,6 +84,7 @@ begin
 		end if sync_events;
 	end process mk_timer;
 	
+	-- LED control process, sets LED status depending on timer and input conditions.
 	do_LEDs: process (clk)
 	begin
 		sync_events: if rising_edge(clk) then

@@ -1,3 +1,6 @@
+-- Defines IO pins, internal signals, creates UART component connected to encoder and decoder. 
+-- Decoder takes ASCII input from UART, alters the character, outputs in parallel to the encoder.
+-- Encoder takes parellel output from decoder, encodes to ASCII and sends to UART for transmission.
 entity lab2_design_top is
 	Port (reset_pin : in STD_LOGIC;
 			clock_pin : in STD_LOGIC;
@@ -10,6 +13,7 @@ entity lab2_design_top is
 end lab2_design_top;
 
 architecture structural of lab_design_top is
+-- Internal signals.
 	signal parallelDataOut : std_logic_vector(7 downto 0) := (others=>'U');
 	signal dataValid : std_logic := 'U';
 	signal parallelDataIn : std_logic_vector(7 downto 0) := (others=>'U');

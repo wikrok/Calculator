@@ -1,3 +1,6 @@
+-- Calculates two clock rates based off the UART baudrate.
+-- One pulse once per baud, one pulse per 16 bauds 
+
 entity UART_baudRateGenerator is
 	generic (BAUD_RATE : integer := 19200;
 				CLOCK_RATE : integer := 100000000);

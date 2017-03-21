@@ -91,7 +91,7 @@ begin
 						end if sampleStopBit;
 						isLineDown: if (lineDown = '1') then
 							checkLineLevel: if (serialDataIn = '1') then
-								lineDown <= '0';
+								lineDown <= '0';\
 								rxState <= IDLE;
 							end if checkLineLevel;
 						end if isLineDown;
@@ -104,6 +104,7 @@ begin
 	counter: process (clock)
 		variable internalCountValue : integer range 0 to 31 := 0;
 	begin
+	-- Synchronous - changeme
 		syncEvents: if rising_edge(clock) then
 			resetRun: if (reset = '1') then
 				internalCountValue := 0;

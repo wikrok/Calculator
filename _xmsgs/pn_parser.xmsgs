@@ -8,7 +8,10 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/phil/Documents/GitHub/Calculator/UART_receiver.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/phil/Documents/GitHub/Calculator/UART_receiver.vhd</arg>&quot; Line <arg fmt="%d" index="2">94</arg>. <arg fmt="%s" index="3">Syntax error near &quot;\&quot;.</arg>
 </msg>
 
 </messages>
