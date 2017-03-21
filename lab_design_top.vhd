@@ -23,7 +23,7 @@ architecture structural of lab_design_top is
 begin
 	make_UART: UART
 		generic map (BAUD_RATE => 9600,
-		CLOCK_RATE => 40000000)
+						 CLOCK_RATE => 40000000)
 		port map(reset => reset_pin,
 					clock => clock_pin,
 					serialDataIn => serialDataIn_pin,
