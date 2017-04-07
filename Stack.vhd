@@ -22,7 +22,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -33,39 +33,45 @@ entity charStack is
 	port(input : in STD_LOGIC_VECTOR (7 downto 0);
 		  output : out STD_LOGIC_VECTOR (7 downto 0);
 		  --stackDepth : out INTEGER (4 downto 0);
-		  push : in STD_LOGIC;
-		  pop : in STD_LOGIC;
-   	  readReady : out STD_LOGIC;
+		  pushpop : in STD_LOGIC;
+   	 --readReady : out STD_LOGIC;
 		  reset : in STD_LOGIC;
-		  full : out STD_LOGIC
+		  full : out STD_LOGIC;
+		  clk : in STD_LOGIC
 		  );
 end charStack;
 
 architecture Behavioral of charStack is
-	type stackType is array (4 downto 0) of STD_LOGIC_VECTOR (7 downto 0);
-	signal stackIndex : integer (5 downto 0);
-	signal stack : stackType;
+	type stackType is array (0 to 4) of STD_LOGIC_VECTOR (7 downto 0);
+	signal stack : stackType := (others => (others => '0'));
 	
+	signal stackIndex : integer := 0;
 
 begin
-process (reset, push, pop) begin
-	output <= stack(stackIndex);
-	--stackDepth <= stackIndex; 
-	full <= (stackIndex = '5');
-	
-	if reset'EVENT and reset = '1' then -- Reset the stack index, clear the contents of the first location.
+
+process (clk, reset, pushpop) begin
+	if rising_edge(reset) then
 		stackIndex <= 0;
-		stack(stackIndex) <= '0';
-	elsif push'EVENT and push = '1' then -- Add input to the stack.
-		if stackIndex < '5' then
-			-- If stackindex is 5 and therefore full, do nothing.
+		
+		stack <= (others => (others => '0'));
+		
+		full <= '0';
+	elsif rising_edge(clk) then
+		if (pushpop = '0' and stackIndex < 4) then
 			stack(stackIndex) <= input;
+			
+			if stackIndex + 1 = 4 then
+				full <= '1';
+			end if;
+			
 			stackIndex <= stackIndex + 1;
-		end if;
-	elsif pop'EVENT and pop = '1' then -- Remove the top of the stack.
-		if stackIndex > '0' then
-			-- If stackIndex is already 0, do nothing.
+ 
+		elsif (pushpop = '1' and stackIndex > 0) then
+			output <= stack(stackIndex - 1);
 			stackIndex <= stackIndex - 1;
+			if stackIndex < 4 then
+				full <= '0';
+			end if;
 		end if;
 	end if;
 end process;

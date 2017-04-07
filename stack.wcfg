@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/phil/Documents/GitHub/Calculator/StackTest_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="stacktest" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/stacktest/input" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">input[7:0]</obj_property>
+      <obj_property name="ObjectShortName">input[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stacktest/pushpop" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pushpop</obj_property>
+      <obj_property name="ObjectShortName">pushpop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stacktest/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stacktest/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stacktest/output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">output[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stacktest/full" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stacktest/uut/stack" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">stack[0:4]</obj_property>
+      <obj_property name="ObjectShortName">stack[0:4]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stacktest/uut/stackindex" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">stackindex</obj_property>
+      <obj_property name="ObjectShortName">stackindex</obj_property>
+   </wvobject>
+</wave_config>

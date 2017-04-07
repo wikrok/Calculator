@@ -43,29 +43,26 @@ ARCHITECTURE behavior OF StackTest IS
     PORT(
          input : IN  std_logic_vector(7 downto 0);
          output : OUT  std_logic_vector(7 downto 0);
-         push : IN  std_logic;
-         pop : IN  std_logic;
-         readReady : OUT  std_logic;
+         pushpop : IN  std_logic;
          reset : IN  std_logic;
-         full : OUT  std_logic
+         full : OUT  std_logic;
+			clk : IN std_logic
         );
     END COMPONENT;
     
 
    --Inputs
    signal input : std_logic_vector(7 downto 0) := (others => '0');
-   signal push : std_logic := '0';
-   signal pop : std_logic := '0';
+   signal pushpop : std_logic := '0';
    signal reset : std_logic := '0';
+	signal clk : std_logic := '0';
 
  	--Outputs
    signal output : std_logic_vector(7 downto 0);
-   signal readReady : std_logic;
    signal full : std_logic;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
- 
-   constant <clock>_period : time := 10 ns;
+
  
 BEGIN
  
@@ -73,34 +70,68 @@ BEGIN
    uut: charStack PORT MAP (
           input => input,
           output => output,
-          push => push,
-          pop => pop,
-          readReady => readReady,
+          pushpop => pushpop,
           reset => reset,
-          full => full
+          full => full,
+			 clk => clk
         );
+		  
+		  
+my_process : process is
+	begin
+		pushpop <= '0';
+		clk <= '0';
+		reset <= '0';
+		
+		reset <= '1', '0' after 20 ns;
+		
+		wait for 200 ns;
+				
+		input <= X"01";
+		wait for 20 ns;
+		pushpop <= '0';
+		clk <= '1', '0' after 20 ns;
+		
+		wait for 200 ns;
+		
+		input <= X"02";
+		wait for 20 ns;
+		pushpop <= '0';
+		clk <= '1', '0' after 20 ns;
 
-   -- Clock process definitions
-   <clock>_process :process
-   begin
-		<clock> <= '0';
-		wait for <clock>_period/2;
-		<clock> <= '1';
-		wait for <clock>_period/2;
-   end process;
- 
+		wait for 200 ns;
+		
+		input <= X"03";
+		wait for 20 ns;
+		pushpop <= '0';
+		clk <= '1', '0' after 20 ns;
 
-   -- Stimulus process
-   stim_proc: process
-   begin		
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
-
-      wait for <clock>_period*10;
-
-      -- insert stimulus here 
-
-      wait;
-   end process;
-
+		wait for 200 ns;
+		
+		input <= X"04";
+		wait for 20 ns;
+		pushpop <= '0';
+		clk <= '1', '0' after 20 ns;		
+		
+		wait for 200 ns;
+		
+		input <= X"05";
+		wait for 20 ns;
+		pushpop <= '0';
+		clk <= '1', '0' after 20 ns;
+		
+		
+		wait for 200 ns;
+		
+		pushpop <= '1';
+		clk <= '1', '0' after 20 ns;
+		
+		wait for 200 ns;
+		
+		pushpop <= '1';
+		clk <= '1', '0' after 20 ns;
+	
+	
+		wait for 2000 ns;
+ end process;
 END;

@@ -5,56 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompiler" num="488" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/StackTest.vhd" Line 68: Illegal identifier : <arg fmt="%s" index="1">_period</arg>
-</msg>
-
-<msg type="error" file="HDLCompiler" num="488" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/StackTest.vhd" Line 84: Illegal identifier : <arg fmt="%s" index="1">_process</arg>
-</msg>
-
-<msg type="error" file="HDLCompiler" num="488" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/StackTest.vhd" Line 87: Illegal identifier : <arg fmt="%s" index="1">_period</arg>
-</msg>
-
-<msg type="error" file="HDLCompiler" num="488" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/StackTest.vhd" Line 89: Illegal identifier : <arg fmt="%s" index="1">_period</arg>
-</msg>
-
-<msg type="error" file="HDLCompiler" num="488" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/StackTest.vhd" Line 99: Illegal identifier : <arg fmt="%s" index="1">_period</arg>
-</msg>
-
-<msg type="error" file="HDLCompiler" num="535" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 46: Index constraint prefix <arg fmt="%s" index="1">integer</arg> should be an array type
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 52: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 54: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 57: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 58: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="303" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 58: Character <arg fmt="%s" index="1">&apos;0&apos;</arg> is not in type <arg fmt="%s" index="2">std_logic_vector</arg>
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 62: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 63: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 60: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 68: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 66: &lt;<arg fmt="%s" index="1">stackindex</arg>&gt; is not declared.
-</msg>
-
-<msg type="error" file="HDLCompiler" num="854" delta="unknown" >"C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" Line 44: Unit &lt;<arg fmt="%s" index="1">behavioral</arg>&gt; ignored due to previous errors.
-</msg>
-
 </messages>
 
