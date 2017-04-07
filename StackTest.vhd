@@ -44,6 +44,7 @@ ARCHITECTURE behavior OF StackTest IS
          input : IN  std_logic_vector(7 downto 0);
          output : OUT  std_logic_vector(7 downto 0);
          pushpop : IN  std_logic;
+			stackDepth : OUT integer;
          reset : IN  std_logic;
          full : OUT  std_logic;
 			clk : IN std_logic
@@ -60,6 +61,7 @@ ARCHITECTURE behavior OF StackTest IS
  	--Outputs
    signal output : std_logic_vector(7 downto 0);
    signal full : std_logic;
+	signal stackDepth : integer;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
 
@@ -73,7 +75,8 @@ BEGIN
           pushpop => pushpop,
           reset => reset,
           full => full,
-			 clk => clk
+			 clk => clk,
+			 stackDepth => stackDepth
         );
 		  
 		  
@@ -131,6 +134,16 @@ my_process : process is
 		pushpop <= '1';
 		clk <= '1', '0' after 20 ns;
 	
+			wait for 200 ns;
+		
+		pushpop <= '1';
+		clk <= '1', '0' after 20 ns;
+		
+		wait for 200 ns;
+		
+		pushpop <= '1';
+		clk <= '1', '0' after 20 ns;
+
 	
 		wait for 2000 ns;
  end process;

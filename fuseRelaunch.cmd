@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Users/phil/Documents/GitHub/Calculator/StackTest_isim_beh.exe" -prj "C:/Users/phil/Documents/GitHub/Calculator/StackTest_beh.prj" "work.StackTest" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/phil/Documents/GitHub/Calculator/TestIntergenator_isim_beh.exe" -prj "C:/Users/phil/Documents/GitHub/Calculator/TestIntergenator_beh.prj" "work.TestIntergenator" 

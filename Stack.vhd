@@ -32,9 +32,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity charStack is
 	port(input : in STD_LOGIC_VECTOR (7 downto 0);
 		  output : out STD_LOGIC_VECTOR (7 downto 0);
-		  --stackDepth : out INTEGER (4 downto 0);
+		  stackDepth : out INTEGER;
 		  pushpop : in STD_LOGIC;
-   	 --readReady : out STD_LOGIC;
 		  reset : in STD_LOGIC;
 		  full : out STD_LOGIC;
 		  clk : in STD_LOGIC
@@ -49,12 +48,12 @@ architecture Behavioral of charStack is
 
 begin
 
+stackDepth <= stackIndex;
+
 process (clk, reset, pushpop) begin
 	if rising_edge(reset) then
-		stackIndex <= 0;
-		
+		stackIndex <= 0;		
 		stack <= (others => (others => '0'));
-		
 		full <= '0';
 	elsif rising_edge(clk) then
 		if (pushpop = '0' and stackIndex < 4) then
