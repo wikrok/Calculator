@@ -91,7 +91,7 @@ begin
 						end if sampleStopBit;
 						isLineDown: if (lineDown = '1') then
 							checkLineLevel: if (serialDataIn = '1') then
-								lineDown <= '0';\
+								lineDown <= '0';
 								rxState <= IDLE;
 							end if checkLineLevel;
 						end if isLineDown;

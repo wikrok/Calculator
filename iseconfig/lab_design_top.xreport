@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-03-21T13:17:52</DateModified>
+  <DateModified>2017-04-07T11:57:37</DateModified>
   <ModuleName>lab_design_top</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>C:/Users/phil/Documents/GitHub/Calculator/iseconfig/lab_design_top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/phil/Documents/GitHub/Calculator</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/Users/phil/Documents/GitHub/Calculator\</ImplementationReportsDirectory>
   <DateInitialized>2017-03-21T13:06:37</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

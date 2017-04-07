@@ -1,0 +1,2 @@
+vhdl isim_temp "Stack.vhd"
+vhdl isim_temp "StackTest.vhd"

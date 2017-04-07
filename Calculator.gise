@@ -21,8 +21,44 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="Calculator.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="StackTest_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1491569001" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1491569001">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1491569031" xil_pn:in_ck="478040044603919526" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1491569031">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Stack.vhd"/>
+      <outfile xil_pn:name="StackTest.vhd"/>
+      <outfile xil_pn:name="StateMachine.vhd"/>
+      <outfile xil_pn:name="UART_baudRateGenerator.vhd"/>
+      <outfile xil_pn:name="UART_receiver.vhd"/>
+      <outfile xil_pn:name="UART_transmitter.vhd"/>
+      <outfile xil_pn:name="character-decoder.vhd"/>
+      <outfile xil_pn:name="character_encoder.vhd"/>
+      <outfile xil_pn:name="lab_design_top.vhd"/>
+      <outfile xil_pn:name="uart.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1491569001" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-9044832904953873877" xil_pn:start_ts="1491569001">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+    </transform>
+    <transform xil_pn:end_ts="1491569001" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2793873426928892759" xil_pn:start_ts="1491569001">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+    </transform>
+    <transform xil_pn:end_ts="1491569001" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="5340287788464085367" xil_pn:start_ts="1491569001">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
 
 </generated_project>
