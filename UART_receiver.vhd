@@ -1,3 +1,6 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
 entity UART_receiver is
 	Port (reset : in STD_LOGIC;
 			clock : in STD_LOGIC;

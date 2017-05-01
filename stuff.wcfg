@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/phil/Documents/GitHub/Calculator/uartBufferTest_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="std_logic_1164" />
+            <top_module name="uartbuffertest" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/uartbuffertest/input" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">input[7:0]</obj_property>
+      <obj_property name="ObjectShortName">input[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/writeclk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">writeclk</obj_property>
+      <obj_property name="ObjectShortName">writeclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uarttxready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uarttxready</obj_property>
+      <obj_property name="ObjectShortName">uarttxready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">output[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uarttxrequest" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uarttxrequest</obj_property>
+      <obj_property name="ObjectShortName">uarttxrequest</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/writeclk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">writeclk_period</obj_property>
+      <obj_property name="ObjectShortName">writeclk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/buff" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buff[0:63]</obj_property>
+      <obj_property name="ObjectShortName">buff[0:63]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/inputindex" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">inputindex</obj_property>
+      <obj_property name="ObjectShortName">inputindex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/outputindex" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">outputindex</obj_property>
+      <obj_property name="ObjectShortName">outputindex</obj_property>
+   </wvobject>
+</wave_config>

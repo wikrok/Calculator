@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.19 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.20 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: lab_design_top.prj
 
@@ -107,32 +107,26 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" into library work
 Parsing entity <UART_transmitter>.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 2: <std_logic> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 3: <std_logic> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 4: <std_logic> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 5: <std_logic_vector> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 6: <std_logic> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 7: <std_logic> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 8: <std_logic> is not declared.
-ERROR:HDLCompiler:854 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 1: Unit <uart_transmitter> ignored due to previous errors.
 Parsing architecture <Behavioral> of entity <uart_transmitter>.
-ERROR:HDLCompiler:374 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 12: Entity <uart_transmitter> is not yet compiled.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 17: <std_logic_vector> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 18: <integer> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 19: <std_logic> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 24: <ready> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 25: <go> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 26: <serialdataout> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 29: <go> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 30: <datatotx> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 28: <transmitrequest> is not declared.
-ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" Line 36: <ready> is not declared.
-Sorry, too many errors..
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\UART_receiver.vhd" into library work
+Parsing entity <UART_receiver>.
+Parsing architecture <Behavioral> of entity <uart_receiver>.
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\UART_baudRateGenerator.vhd" into library work
+Parsing entity <UART_baudRateGenerator>.
+Parsing architecture <BEHAVIORAL> of entity <uart_baudrategenerator>.
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\uart.vhd" into library work
+Parsing entity <UART>.
+Parsing architecture <Behavioral> of entity <uart>.
+ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\uart.vhd" Line 24: <uart_baudrategenerator> is not declared.
+ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\uart.vhd" Line 33: <uart_transmitter> is not declared.
+ERROR:HDLCompiler:69 - "C:\Users\phil\Documents\GitHub\Calculator\uart.vhd" Line 43: <uart_receiver> is not declared.
+ERROR:HDLCompiler:854 - "C:\Users\phil\Documents\GitHub\Calculator\uart.vhd" Line 19: Unit <behavioral> ignored due to previous errors.
+VHDL file C:\Users\phil\Documents\GitHub\Calculator\uart.vhd ignored due to errors
 --> 
 
-Total memory usage is 241788 kilobytes
+Total memory usage is 241956 kilobytes
 
-Number of errors   :   19 (   0 filtered)
+Number of errors   :    4 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

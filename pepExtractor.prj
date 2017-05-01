@@ -1,2 +1,1 @@
-work	"Intergenator.vhd"
-work	"Stack.vhd"
+work	"UART-tx-buffer.vhd"

@@ -1,3 +1,6 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
 entity UART is
 	generic (BAUD_RATE : integer := 9600;
 				CLOCK_RATE : integer := 25000000);

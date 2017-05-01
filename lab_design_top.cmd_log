@@ -1,1 +1,6 @@
 xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.syr" 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.syr" 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.syr" 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.syr" 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.syr" 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab_design_top.syr" 

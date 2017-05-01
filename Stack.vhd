@@ -51,7 +51,7 @@ begin
 stackDepth <= stackIndex;
 
 process (clk, reset, pushpop) begin
-	if rising_edge(reset) then
+	if reset = '1' then
 		stackIndex <= 0;		
 		stack <= (others => (others => '0'));
 		full <= '0';

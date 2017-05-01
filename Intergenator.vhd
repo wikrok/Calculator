@@ -66,6 +66,8 @@ architecture Behavioral of Intergenator is
 	
 	signal placeCounter : integer := 0;
 	signal thingToCountTo : integer := 0;
+	
+	
 
 
 

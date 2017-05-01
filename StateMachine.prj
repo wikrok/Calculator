@@ -1,0 +1,4 @@
+vhdl work "Stack.vhd"
+vhdl work "UART-tx-buffer.vhd"
+vhdl work "Intergenator.vhd"
+vhdl work "StateMachine.vhd"
