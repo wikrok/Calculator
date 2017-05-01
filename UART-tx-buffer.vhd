@@ -51,7 +51,7 @@ architecture Behavioral of UART_tx_buffer is
 begin
 
 my_process :	process (writeClk, reset) begin
-		if rising_edge(reset) then
+		if (reset = '1') then
 			buff <= (others => (others => '0'));
 			inputIndex <= 0;
 		elsif rising_edge(writeClk) then
