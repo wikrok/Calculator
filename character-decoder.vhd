@@ -1,3 +1,7 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
 entity character_decoder is
 	generic (CLOCK_FREQUENCY : integer := 40_000_000);
 	port (clk : in STD_LOGIC;
@@ -27,6 +31,7 @@ begin
 	-- Other	1	1
 	decoder_table: process (clk)
 		variable ASCII_value : integer range 0 to 255 := 0;
+		variable new_ASCII_value : integer range 0 to 255 := 0;
 	begin
 		sync_events: if rising_edge(clk) then
 			send_character_i <= '0';

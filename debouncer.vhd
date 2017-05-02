@@ -1,3 +1,6 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
 entity debouncer is
 	Generic (DELAY_VALUE : integer := 100);
 	Port (clk : in STD_LOGIC;

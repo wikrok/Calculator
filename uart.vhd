@@ -21,7 +21,7 @@ architecture Behavioral of UART is
 	signal baudRateEnable_x16 : std_logic := 'U';
 	
 begin
-	rateGen: UART_baudRateGenerator
+	rateGen: entity work.UART_baudRateGenerator
 		generic map (BAUD_RATE => BAUD_RATE,
 						CLOCK_RATE => CLOCK_RATE)
 		port map(reset => reset,
@@ -30,7 +30,7 @@ begin
 					baudRateEnable_x16 => baudRateEnable_x16
 		);
 		
-	xmit: UART_transmitter 
+	xmit: entity work.UART_transmitter 
 		port map(reset => reset,
 					clock => clock,
 					baudRateEnable => baudRateEnable,
@@ -40,9 +40,10 @@ begin
 					serialDataOut => serialDataOut
 		);
 	
-	rcvr: UART_receiver 
+	rcvr: entity work.UART_receiver 
 		port map(reset => reset,
 					clock => clock,
+					baudRateEnable_x16 => baudRateEnable_x16,
 					serialDataIn => serialDataIn,
 					parallelDataOut => parallelDataOut,
 					dataValid => dataValid

@@ -1,3 +1,6 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
 entity character_encoder is
 	Port (clk : in STD_LOGIC;
 			character_decoded : in STD_LOGIC;

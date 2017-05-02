@@ -1,6 +1,9 @@
 -- Defines IO pins, internal signals, creates UART component connected to encoder and decoder. 
 -- Decoder takes ASCII input from UART, alters the character, outputs in parallel to the encoder.
 -- Encoder takes parellel output from decoder, encodes to ASCII and sends to UART for transmission.
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
 entity lab2_design_top is
 	Port (reset_pin : in STD_LOGIC;
 			clock_pin : in STD_LOGIC;
@@ -12,20 +15,20 @@ entity lab2_design_top is
 	);
 end lab2_design_top;
 
-architecture structural of lab_design_top is
+architecture structural of lab2_design_top is
 -- Internal signals.
-	signal parallelDataOut : std_logic_vector(7 downto 0) := (others=>'U');
-	signal dataValid : std_logic := 'U';
-	signal parallelDataIn : std_logic_vector(7 downto 0) := (others=>'U');
-	signal transmitRequest : std_logic := 'U';
-	signal tx_ready : std_logic := 'U';
-	signal send_character : std_logic := 'U';
-	signal character_to_send : std_logic_vector(7 downto 0) := (others=>'U');
-	signal DIP_debounced : std_logic_vector(3 downto 0) := (others=>'0');
-	signal gnd : std_logic := '0';
+	signal parallelDataOut : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
+	signal dataValid : STD_LOGIC := 'U';
+	signal parallelDataIn : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
+	signal transmitRequest : STD_LOGIC := 'U';
+	signal tx_ready : STD_LOGIC := 'U';
+	signal send_character : STD_LOGIC := 'U';
+	signal character_to_send : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
+	signal DIP_debounced : STD_LOGIC_VECTOR(3 downto 0) := (others=>'0');
+	signal gnd : STD_LOGIC := '0';
 
 begin
-	make_UART: UART
+	make_UART: entity work.UART
 		generic map (BAUD_RATE => 9600,
 						 CLOCK_RATE => 40000000)
 		port map(reset => reset_pin,
@@ -39,7 +42,7 @@ begin
 					serialDataOut => serialDataOut_pin
 		);
 		
-	decoder: character_decoder
+	decoder: entity work.character_decoder
 		generic map (CLOCK_FREQUENCY => 40000000)
 		port map(clk => clock_pin,
 					charFromUART_valid => dataValid,
@@ -50,7 +53,7 @@ begin
 					character_to_send => character_to_send
 		);
 		
-	encoder: character_encoder
+	encoder: entity work.character_encoder
 		port map(clk => clock_pin,
 					character_decoded => send_character,
 					character_to_send => character_to_send,
@@ -62,7 +65,7 @@ begin
 		
 		
 	DIP_debouncers: for i in 0 to 3 generate
-		dbncr: debouncer
+		dbncr: entity work.debouncer
 			generic map (DELAY_VALUE => 4000000)
 			port map(clk => clock_pin,
 						signal_in => DIP_pins(i),
