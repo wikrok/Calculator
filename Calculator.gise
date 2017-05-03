@@ -77,24 +77,12 @@
     <transform xil_pn:end_ts="1493835545" xil_pn:in_ck="-5995168720883333259" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1493835545">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="DeIntegernator.vhd"/>
-      <outfile xil_pn:name="Intergenator.vhd"/>
-      <outfile xil_pn:name="LogicVectorToInt.vhd"/>
-      <outfile xil_pn:name="Stack.vhd"/>
-      <outfile xil_pn:name="StackTest.vhd"/>
-      <outfile xil_pn:name="StateMachine.vhd"/>
-      <outfile xil_pn:name="TestIntegernator2.vhd"/>
-      <outfile xil_pn:name="TestStateMachine.vhd"/>
-      <outfile xil_pn:name="TestVecotrIntShizzle.vhd"/>
-      <outfile xil_pn:name="UART-tx-buffer.vhd"/>
-      <outfile xil_pn:name="UART_baudRateGenerator.vhd"/>
-      <outfile xil_pn:name="UART_receiver.vhd"/>
-      <outfile xil_pn:name="UART_transmitter.vhd"/>
-      <outfile xil_pn:name="character-decoder.vhd"/>
-      <outfile xil_pn:name="character_encoder.vhd"/>
-      <outfile xil_pn:name="lab_design_top.vhd"/>
-      <outfile xil_pn:name="uart.vhd"/>
-      <outfile xil_pn:name="uartBufferTest.vhd"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1493835454" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="4434870115928851094" xil_pn:start_ts="1493835454">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -111,41 +99,36 @@
     <transform xil_pn:end_ts="1493835545" xil_pn:in_ck="-5995168720883333259" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1493835545">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="DeIntegernator.vhd"/>
-      <outfile xil_pn:name="Intergenator.vhd"/>
-      <outfile xil_pn:name="LogicVectorToInt.vhd"/>
-      <outfile xil_pn:name="Stack.vhd"/>
-      <outfile xil_pn:name="StackTest.vhd"/>
-      <outfile xil_pn:name="StateMachine.vhd"/>
-      <outfile xil_pn:name="TestIntegernator2.vhd"/>
-      <outfile xil_pn:name="TestStateMachine.vhd"/>
-      <outfile xil_pn:name="TestVecotrIntShizzle.vhd"/>
-      <outfile xil_pn:name="UART-tx-buffer.vhd"/>
-      <outfile xil_pn:name="UART_baudRateGenerator.vhd"/>
-      <outfile xil_pn:name="UART_receiver.vhd"/>
-      <outfile xil_pn:name="UART_transmitter.vhd"/>
-      <outfile xil_pn:name="character-decoder.vhd"/>
-      <outfile xil_pn:name="character_encoder.vhd"/>
-      <outfile xil_pn:name="lab_design_top.vhd"/>
-      <outfile xil_pn:name="uart.vhd"/>
-      <outfile xil_pn:name="uartBufferTest.vhd"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1493835550" xil_pn:in_ck="-5995168720883333259" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1459423336703152140" xil_pn:start_ts="1493835545">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="testbench_beh.prj"/>
-      <outfile xil_pn:name="testbench_isim_beh.exe"/>
-      <outfile xil_pn:name="xilinxsim.ini"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1493835550" xil_pn:in_ck="-9092471874733415132" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="5406838117933684601" xil_pn:start_ts="1493835550">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="testbench_isim_beh.wdb"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1491581619" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1491581619">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -183,16 +166,9 @@
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="StateMachine.lso"/>
-      <outfile xil_pn:name="StateMachine.prj"/>
-      <outfile xil_pn:name="StateMachine.syr"/>
-      <outfile xil_pn:name="StateMachine.xst"/>
-      <outfile xil_pn:name="StateMachine_stx_beh.prj"/>
-      <outfile xil_pn:name="StateMachine_xst.xrpt"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1493675221" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8950217066873356786" xil_pn:start_ts="1493675221">
       <status xil_pn:value="SuccessfullyRun"/>

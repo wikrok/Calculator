@@ -10,13 +10,13 @@
          <ClosedNode>/lab_design_top - structural C:|Users|phil|Documents|GitHub|Calculator|lab_design_top.vhd/make_UART - UART - Behavioral</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>make_UART - UART - Behavioral (C:/Users/phil/Documents/GitHub/Calculator/uart.vhd)</SelectedItem>
+         <SelectedItem>LogicVectorToInt - Behavioral (C:/Users/phil/Documents/GitHub/Calculator/LogicVectorToInt.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >4</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b4000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b40000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000225000000020000000000000000000000000200000064ffffffff000000810000000300000002000002250000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>make_UART - UART - Behavioral (C:/Users/phil/Documents/GitHub/Calculator/uart.vhd)</CurrentItem>
+      <CurrentItem>LogicVectorToInt - Behavioral (C:/Users/phil/Documents/GitHub/Calculator/LogicVectorToInt.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -65,13 +65,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012a000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012a0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
@@ -80,18 +80,31 @@
          <ClosedNode>/StateMachine - Behavioral C:|Users|phil|Documents|GitHub|Calculator|StateMachine.vhd/IntB - Intergenator - Behavioral</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>uartBufferTest - behavior (C:/Users/phil/Documents/GitHub/Calculator/uartBufferTest.vhd)</SelectedItem>
+         <SelectedItem>testbench - behavior (C:/Users/phil/Documents/GitHub/Calculator/TestStateMachine.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >13</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >11</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000225000000020000000000000000000000000200000064ffffffff000000810000000300000002000002250000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>uartBufferTest - behavior (C:/Users/phil/Documents/GitHub/Calculator/uartBufferTest.vhd)</CurrentItem>
+      <CurrentItem>testbench - behavior (C:/Users/phil/Documents/GitHub/Calculator/TestStateMachine.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012a000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012a0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem></SelectedItem>
@@ -102,19 +115,6 @@
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
-   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem>Simulate Behavioral Model</SelectedItem>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012a000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012a0000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Simulate Behavioral Model</CurrentItem>
-   </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
+   <CurrentView>Behavioral Simulation</CurrentView>
 </Project>
