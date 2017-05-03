@@ -1,22 +1,22 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/phil/Documents/GitHub/Calculator/testbench_isim_beh.exe -prj C:/Users/phil/Documents/GitHub/Calculator/testbench_beh.prj work.testbench 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/phil/Documents/GitHub/Calculator/TestSerialiser_isim_beh.exe -prj C:/Users/phil/Documents/GitHub/Calculator/TestSerialiser_beh.prj work.TestSerialiser 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/UART-tx-buffer.vhd" into library work
-Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/StateMachine.vhd" into library work
-Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/TestStateMachine.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/Serialiser.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/TestSerialiser.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
-Compiling architecture behavioral of entity UART_tx_buffer [uart_tx_buffer_default]
-Compiling architecture behavioral of entity StateMachine [\StateMachine(1000)\]
-Compiling architecture behavior of entity testbench
+Compiling architecture behavioral of entity charStack [charstack_default]
+Compiling architecture behavioral of entity Serialiser [serialiser_default]
+Compiling architecture behavior of entity testserialiser
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 8 VHDL Units
-Built simulation executable C:/Users/phil/Documents/GitHub/Calculator/testbench_isim_beh.exe
-Fuse Memory Usage: 35392 KB
-Fuse CPU Usage: 624 ms
+Built simulation executable C:/Users/phil/Documents/GitHub/Calculator/TestSerialiser_isim_beh.exe
+Fuse Memory Usage: 35232 KB
+Fuse CPU Usage: 656 ms

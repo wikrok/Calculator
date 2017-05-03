@@ -42,7 +42,7 @@ entity charStack is
 end charStack;
 
 architecture Behavioral of charStack is
-	type stackType is array (0 to 4) of STD_LOGIC_VECTOR (7 downto 0);
+	type stackType is array (0 to 8) of STD_LOGIC_VECTOR (7 downto 0);
 	signal stack : stackType := (others => (others => '0'));
 	
 	signal stackIndex : integer := 0;
@@ -60,7 +60,7 @@ process (clk, reset, push, pop) begin
 		if (push = '1' and pop = '0' and stackIndex < 4) then
 			stack(stackIndex) <= input;
 			
-			if stackIndex + 1 = 4 then
+			if stackIndex + 1 = 8 then
 				full <= '1';
 			end if;
 			
@@ -69,7 +69,7 @@ process (clk, reset, push, pop) begin
 		elsif (pop = '1' and push = '0' and stackIndex > 0) then
 			output <= stack(stackIndex - 1);
 			stackIndex <= stackIndex - 1;
-			if stackIndex < 4 then
+			if stackIndex < 8 then
 				full <= '0';
 			end if;
 		end if;

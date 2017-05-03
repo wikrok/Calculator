@@ -1,0 +1,3 @@
+vhdl work "Stack.vhd"
+vhdl work "Serialiser.vhd"
+vhdl work "TestSerialiser.vhd"
