@@ -42,8 +42,8 @@ entity StateMachine is
 end StateMachine;
 
 architecture Behavioral of StateMachine is
-	type STATETYPE is (Rst, Idle, NegDigA, DigA, DigOp, WaitIntA, NegDigB, DigB, WaitIntB, DigEq, WaitResult, WaitError);
-	type OPERATOR is (Plus, Minus, Divide, Multiply);
+	type STATETYPE is (Rst, Idle, NegDigA, DigA, DigOp, WaitIntA, NegDigB, DigB, WaitIntB, DigEq, Negate, WaitResult, WaitError);
+	type OPERATOR is (Plus, Minus, Divide, Multiply, Modulus);
 	signal State: STATETYPE;
 	signal NegA : STD_LOGIC := '0';
 	signal NegB : STD_LOGIC := '0';
@@ -53,19 +53,12 @@ architecture Behavioral of StateMachine is
 	signal result : INTEGER := 0;
 	signal strResult : STRING (1 to 10);
 	signal strError : STRING (1 to 20);
+	signal unsA : SIGNED (1 to 15);
+	signal unsB : SIGNED (1 to 15);
+	signal unsResult : SIGNED (1 to 29);
+	signal inputCount	: UNSIGNED (1 to 3);
 	
-	COMPONENT Intergenator
-    PORT(
-			clk : IN std_logic;
-         DataIn : IN  std_logic_vector(7 downto 0);
-         DataValid : IN  std_logic;
-         enable : IN  std_logic;
-         reset : IN  std_logic;
-         done : OUT  std_logic;
-         output : OUT  integer
-        );
-    END COMPONENT;
-	 
+	
 	 COMPONENT UART_tx_buffer
 	 PORT (
 			input : in STD_LOGIC_VECTOR (7 downto 0);
@@ -119,25 +112,7 @@ architecture Behavioral of StateMachine is
 
 begin
 
-   IntA: Intergenator PORT MAP (
-			 clk => clk,
-          DataIn => inputChar,
-          DataValid => dataValidA,
-          enable => enableA,
-          reset => reset,
-          done => doneA,
-          output => outputA
-        );
-		  
-	   IntB: Intergenator PORT MAP (
-          DataIn => inputChar,
-          DataValid => dataValidB,
-          enable => enableB,
-          reset => reset,
-          done => doneB,
-          output => outputB
-        );
-		  
+  
 		uartBuff: UART_tx_buffer PORT MAP (
 			input => buffInput,
 			output => buffOutput,
@@ -147,16 +122,7 @@ begin
 			uartTxReady => buffUartTxReady
 			);
 			
-		stack: charStack PORT MAP (
-          input => inputChar,
-          output => stackOutput,
-          push => push,
-			 pop => pop,
-          reset => reset,
-          full => full,
-			 clk => clk,
-			 stackDepth => stackDepth
-        );
+
 				
 
 
@@ -185,6 +151,10 @@ begin
 				reset <= '0';
 				State <= NegDigA;
 				push <= '0';
+				unsA <= b"000000000000000";
+				unsB <= b"000000000000000";
+				unsResult <= X"0000000" & b"0";
+				inputCount <= b"000";
 		
 			when NegDigA =>
 				if uartTxReady = '1' then 
@@ -198,7 +168,10 @@ begin
 						State <= DigA;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						dataValidA <= '1';
+						unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						inputCount <= inputCount + b"01";
+						
+						-- dataValidA <= '1';
 						State <= DigOp;
 					else 
 						--Error and reset.
@@ -220,7 +193,11 @@ begin
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						dataValidA <= '1';
+						-- dataValidA <= '1';
+						unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						inputCount <= inputCount + b"01";
+
+						
 						State <= DigOp;
 					else 
 						--Error and reset.
@@ -240,9 +217,16 @@ begin
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						dataValidA <= '1';
-						State <= DigOp;
-					elsif ((inputChar = X"2B") OR (inputChar = X"2D") OR (inputChar = X"2A") OR (inputChar = X"2F")) then --It's a +-*/ operator!
+						if inputCount = b"100" then
+							-- Error
+							State <= Rst;
+						else 
+							unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+							inputCount <= inputCount + b"01";
+							State <= DigOp;
+						end if;
+
+					elsif ((inputChar = X"2B") OR (inputChar = X"2D") OR (inputChar = X"2A") OR (inputChar = X"2F") OR (inputChar = X"25")) then --It's a +-*/ operator!
 						-- Store operator and move to NegDigB.
 						case (inputChar) is
 							when X"2B" =>
@@ -256,10 +240,15 @@ begin
 								
 							when X"2F" =>
 								op <= Divide;
+								
+							when X"25" =>
+								op <= Modulus;
+								
 							when others =>
 								-- Error message goes here.
 								State <= WaitError;
 						end case;
+						inputCount <= b"000";
 						State <= NegDigB;
 					else
 						--Error and reset.
@@ -283,7 +272,8 @@ begin
 						State <= DigB;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigEq
-						dataValidB <= '1';
+						unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						inputCount <= inputCount + b"01";
 						State <= DigEq;
 					else 
 						--Error and reset.
@@ -297,14 +287,15 @@ begin
 				end if;
 					
 			when DigB =>
-				if uartTxValid = '1' then
+				if uartTxReady = '1' then
 					-- Echoes back the UART input.
 					buffInput <= inputChar;
 					buffWriteClk <= '1';
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigEq
-						dataValidB <= '1';
+						unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						inputCount <= inputCount + b"01";
 						State <= DigEq;
 					else 
 						--Error and reset.
@@ -317,18 +308,22 @@ begin
 				end if;
 				
 			when DigEq =>
-			if uartTxValid = '1' then
+				if uartTxReady = '1' then
 					-- Echoes back the UART input.
 					buffInput <= inputChar;
 					buffWriteClk <= '1';
 					
 					if inputChar = X"3D" then	--It's an equals sign
-						--UNLEASH the integers.
-						enableA <= '1';			
-						enableB <= '1';
-						State <= WaitResult;
+						State <= Negate;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then -- it's a number
-						dataValidB <= '1';
+						if inputCount = b"100" then
+							-- Error
+							State <= Rst;
+						else 
+							unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+							inputCount <= inputCount + b"01";
+							State <= DigOp;
+						end if;						
 						State <= DigEq;
 					else
 						--Generic error and reset.
@@ -339,44 +334,67 @@ begin
 					buffWriteClk <= '0';
 					dataValidB <= '0';
 				end if;
-				State <= NegDigA;	
+				
+			when Negate =>
+				-- Negativates the integers.
+				if negA = '1' then
+					unsA <= resize((unsA * (-1)), 15);
+				end if;
+				
+				if negB = '1' then
+					unsB <= resize((unsB * (-1)), 15);
+				end if;
 
+				State <= WaitResult;
+			
 			when WaitResult =>
-				if (doneA = '1') and (doneB = '1') then
-						enableA <= '0';
-						enableB <= '0';
-				
-						numA <= outputA;
-						numB <= outputB;
-				
-						-- Negativates the integers.
-						if negA = '1' then
-							numA <= numA * (-1);
-						end if;
-						
-						if negB = '1' then
-							numB <= numB * (-1);
-						end if;
-						
-						-- Actually does the maths.
+								
+					-- Actually does the maths.
 						case (op) is
 							when Plus =>
 								result <= numA + numB;
-							
+								unsResult <= resize((unsA + unsB), 29);
+							 
 							when Minus =>
 								result <= numA - numB;
+								unsResult <= resize((unsA - unsB), 29);
 							
 							when Multiply =>
 								result <= numA * numB;
+								unsResult <= resize((unsA * unsB), 29);
 								
 							when Divide =>
-								result <= numA / numB;
+								unsResult <= resize((unsA / unsB), 29);
+								
+							when Modulus =>
+								unsResult <= resize((unsA mod unsB), 29);
+								
+						
 						end case;
 						--TODO - make a Deintergenator wot does this.
 						-- strResult <= integer'IMAGE(result);
-						-- stringToBuff(strResult);						
-					end if;
-					
+						-- stringToBuff(strResult);	
+
+							-- TODO : HOW TO OUTPUT TEH ANSWER.
+							-- 1. Check for negative answer, set flag.
+							-- 2. Un-negate negative answer, convert to unsigned.
+							-- 3. Send negative sign if needed.
+							-- 4. a. Convert unsinged to ascii. (divive by 10 (= remaining digits), mod 10 (= output digit) until division anwer is 0)
+							--		b. Transmit ascii character by character.
+							-- 5. Profit.
+							-- 6. Reset. 
+						
+							-- GENERAL TODO
+							-- 1. Tidy up code.
+							-- 2. Write output code.
+							-- 3. Error handling and outputting.
+							-- 4. Possible refactoring depenidng how suicidal we're feeling.
+							-- 5. Shove on the metal. 
+							-- 7. TEST!
+							-- 8. Write things about it.
+						
+						State <= Rst;
+						
 			when WaitError =>
 				-- Do error handling.
 				

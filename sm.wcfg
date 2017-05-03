@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/phil/Documents/GitHub/Calculator/testbench_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/testbench/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/extreset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">extreset</obj_property>
+      <obj_property name="ObjectShortName">extreset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/inputchar" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inputchar[7:0]</obj_property>
+      <obj_property name="ObjectShortName">inputchar[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uarttxready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uarttxready</obj_property>
+      <obj_property name="ObjectShortName">uarttxready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/outputchar" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">outputchar[7:0]</obj_property>
+      <obj_property name="ObjectShortName">outputchar[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/outputready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">outputready</obj_property>
+      <obj_property name="ObjectShortName">outputready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/unsa" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">unsa[1:15]</obj_property>
+      <obj_property name="ObjectShortName">unsa[1:15]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/op" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">op</obj_property>
+      <obj_property name="ObjectShortName">op</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/unsb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">unsb[1:15]</obj_property>
+      <obj_property name="ObjectShortName">unsb[1:15]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/inputcount" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inputcount[1:3]</obj_property>
+      <obj_property name="ObjectShortName">inputcount[1:3]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/unsresult" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">unsresult[1:29]</obj_property>
+      <obj_property name="ObjectShortName">unsresult[1:29]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/nega" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">nega</obj_property>
+      <obj_property name="ObjectShortName">nega</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/negb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">negb</obj_property>
+      <obj_property name="ObjectShortName">negb</obj_property>
+   </wvobject>
+</wave_config>

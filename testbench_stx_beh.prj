@@ -1,5 +1,3 @@
-vhdl isim_temp "Stack.vhd"
 vhdl isim_temp "UART-tx-buffer.vhd"
-vhdl isim_temp "Intergenator.vhd"
 vhdl isim_temp "StateMachine.vhd"
 vhdl isim_temp "TestStateMachine.vhd"

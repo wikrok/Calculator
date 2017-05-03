@@ -1,0 +1,2 @@
+vhdl isim_temp "LogicVectorToInt.vhd"
+vhdl isim_temp "TestVecotrIntShizzle.vhd"

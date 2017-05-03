@@ -27,6 +27,7 @@
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+USE IEEE.numeric_std.ALL;
  
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -51,6 +52,8 @@ ARCHITECTURE behavior OF TestVecotrIntShizzle IS
    --Inputs
    signal vectorIn : std_logic_vector(7 downto 0) := (others => '0');
    signal clk : std_logic := '0';
+	signal temp : integer ;
+	signal strTemp : string (1 to 10);
 
  	--Outputs
    signal intOut : INTEGER;
@@ -87,6 +90,12 @@ BEGIN
 
 
 		vectorIn <= X"07";
+		
+		temp <= 3;
+						-- strResult <= integer'IMAGE(result);
+
+		strTemp <= integer'IMAGE(temp);
+
 
       wait;
    end process;
