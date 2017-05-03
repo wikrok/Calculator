@@ -33,7 +33,8 @@ entity charStack is
 	port(input : in STD_LOGIC_VECTOR (7 downto 0);
 		  output : out STD_LOGIC_VECTOR (7 downto 0);
 		  stackDepth : out INTEGER;
-		  pushpop : in STD_LOGIC;
+		  push : in STD_LOGIC;
+		  pop : in STD_LOGIC;
 		  reset : in STD_LOGIC;
 		  full : out STD_LOGIC;
 		  clk : in STD_LOGIC
@@ -50,13 +51,13 @@ begin
 
 stackDepth <= stackIndex;
 
-process (clk, reset, pushpop) begin
+process (clk, reset, push, pop) begin
 	if reset = '1' then
 		stackIndex <= 0;		
 		stack <= (others => (others => '0'));
 		full <= '0';
 	elsif rising_edge(clk) then
-		if (pushpop = '0' and stackIndex < 4) then
+		if (push = '1' and pop = '0' and stackIndex < 4) then
 			stack(stackIndex) <= input;
 			
 			if stackIndex + 1 = 4 then
@@ -65,7 +66,7 @@ process (clk, reset, pushpop) begin
 			
 			stackIndex <= stackIndex + 1;
  
-		elsif (pushpop = '1' and stackIndex > 0) then
+		elsif (pop = '1' and push = '0' and stackIndex > 0) then
 			output <= stack(stackIndex - 1);
 			stackIndex <= stackIndex - 1;
 			if stackIndex < 4 then

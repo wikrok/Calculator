@@ -40,21 +40,23 @@ ARCHITECTURE behavior OF StackTest IS
     -- Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT charStack
-    PORT(
-         input : IN  std_logic_vector(7 downto 0);
-         output : OUT  std_logic_vector(7 downto 0);
-         pushpop : IN  std_logic;
-			stackDepth : OUT integer;
-         reset : IN  std_logic;
-         full : OUT  std_logic;
-			clk : IN std_logic
-        );
+	 port(
+		  input : in STD_LOGIC_VECTOR (7 downto 0);
+		  output : out STD_LOGIC_VECTOR (7 downto 0);
+		  stackDepth : out INTEGER;
+		  push : in STD_LOGIC;
+		  pop : in STD_LOGIC;
+		  reset : in STD_LOGIC;
+		  full : out STD_LOGIC;
+		  clk : in STD_LOGIC
+		  );
     END COMPONENT;
     
 
    --Inputs
    signal input : std_logic_vector(7 downto 0) := (others => '0');
-   signal pushpop : std_logic := '0';
+   signal push : std_logic := '0';
+	signal pop : std_logic := '0';
    signal reset : std_logic := '0';
 	signal clk : std_logic := '0';
 
@@ -72,7 +74,8 @@ BEGIN
    uut: charStack PORT MAP (
           input => input,
           output => output,
-          pushpop => pushpop,
+          push => push,
+			 pop => pop,
           reset => reset,
           full => full,
 			 clk => clk,
@@ -82,7 +85,8 @@ BEGIN
 		  
 my_process : process is
 	begin
-		pushpop <= '0';
+		push <= '0';
+		pop <= '0';
 		clk <= '0';
 		reset <= '0';
 		
@@ -92,56 +96,57 @@ my_process : process is
 				
 		input <= X"01";
 		wait for 20 ns;
-		pushpop <= '0';
+		push <= '1';
 		clk <= '1', '0' after 20 ns;
 		
 		wait for 200 ns;
 		
 		input <= X"02";
 		wait for 20 ns;
-		pushpop <= '0';
+		push <= '1';
 		clk <= '1', '0' after 20 ns;
 
 		wait for 200 ns;
 		
 		input <= X"03";
 		wait for 20 ns;
-		pushpop <= '0';
+		push <= '1';
 		clk <= '1', '0' after 20 ns;
 
 		wait for 200 ns;
 		
 		input <= X"04";
 		wait for 20 ns;
-		pushpop <= '0';
+		push <= '1';
 		clk <= '1', '0' after 20 ns;		
 		
 		wait for 200 ns;
 		
 		input <= X"05";
 		wait for 20 ns;
-		pushpop <= '0';
+		push <= '1';
 		clk <= '1', '0' after 20 ns;
 		
 		
 		wait for 200 ns;
 		
-		pushpop <= '1';
+		push <= '0';
+		pop <= '1';
 		clk <= '1', '0' after 20 ns;
 		
 		wait for 200 ns;
 		
-		pushpop <= '1';
+		pop <= '1';
 		clk <= '1', '0' after 20 ns;
 	
-			wait for 200 ns;
+		wait for 200 ns;
 		
-		pushpop <= '1';
+		pop <= '1';
 		clk <= '1', '0' after 20 ns;
 		
 		wait for 200 ns;
 		
-		pushpop <= '1';
+		pop <= '1';
 		clk <= '1', '0' after 20 ns;
 
 	

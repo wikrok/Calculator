@@ -49,6 +49,18 @@ ARCHITECTURE behavior OF TestIntergenator IS
          output : OUT  integer
         );
     END COMPONENT;
+	 
+   COMPONENT charStack
+    PORT(
+         input : IN  std_logic_vector(7 downto 0);
+         output : OUT  std_logic_vector(7 downto 0);
+         pushpop : IN  std_logic;
+			stackDepth : OUT integer;
+         reset : IN  std_logic;
+         full : OUT  std_logic;
+			clk : IN std_logic
+        );
+    END COMPONENT;
     
 
    --Inputs
@@ -65,6 +77,17 @@ ARCHITECTURE behavior OF TestIntergenator IS
  
  
 BEGIN
+
+   stack: charStack PORT MAP (
+          input => stackInput,
+          output => stackOutput,
+          push => push,
+			 pop => pop,
+          reset => reset,
+          full => full,
+			 clk => clk,
+			 stackDepth => stackDepth
+        );
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: Intergenator PORT MAP (

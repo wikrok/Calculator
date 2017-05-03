@@ -1,0 +1,3 @@
+vhdl work "Stack.vhd"
+vhdl work "Intergenator.vhd"
+vhdl work "TestIntegernator2.vhd"

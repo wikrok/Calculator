@@ -32,8 +32,8 @@ use ieee.numeric_std.ALL;
 
 entity StateMachine is
 	generic (TPD : TIME := 1 ns);
-	port(clk : in STD_LOGIC; -- UART dataValid
-		  reset : in STD_LOGIC;
+	port(clk : in STD_LOGIC;
+		  extReset : in STD_LOGIC;
 		  inputChar : in STD_LOGIC_VECTOR (7 downto 0);
 		  uartTxReady : in STD_LOGIC;
 		  outputChar : out STD_LOGIC_VECTOR (7 downto 0);
@@ -42,7 +42,7 @@ entity StateMachine is
 end StateMachine;
 
 architecture Behavioral of StateMachine is
-	type STATETYPE is (NegDigA, DigA, DigOp, NegDigB, DigB, DigEq);
+	type STATETYPE is (Rst, Idle, NegDigA, DigA, DigOp, WaitIntA, NegDigB, DigB, WaitIntB, DigEq, WaitResult, WaitError);
 	type OPERATOR is (Plus, Minus, Divide, Multiply);
 	signal State: STATETYPE;
 	signal NegA : STD_LOGIC := '0';
@@ -56,8 +56,9 @@ architecture Behavioral of StateMachine is
 	
 	COMPONENT Intergenator
     PORT(
-         uartDataIn : IN  std_logic_vector(7 downto 0);
-         uartDataValid : IN  std_logic;
+			clk : IN std_logic;
+         DataIn : IN  std_logic_vector(7 downto 0);
+         DataValid : IN  std_logic;
          enable : IN  std_logic;
          reset : IN  std_logic;
          done : OUT  std_logic;
@@ -75,6 +76,19 @@ architecture Behavioral of StateMachine is
 			uartTxReady : in STD_LOGIC
 			);
 	END COMPONENT;	
+	
+	 COMPONENT charStack
+    PORT(
+         input : IN  std_logic_vector(7 downto 0);
+         output : OUT  std_logic_vector(7 downto 0);
+         push : IN std_logic;
+			pop : IN  std_logic;
+			stackDepth : OUT integer;
+         reset : IN  std_logic;
+         full : OUT  std_logic;
+			clk : IN std_logic
+        );
+    END COMPONENT;
 				
 	 
 	    --Inputs
@@ -85,6 +99,10 @@ architecture Behavioral of StateMachine is
 	signal buffInput : std_logic_vector (7 downto 0); -- := (others => (others => '0'));
 	signal buffWriteClk : std_logic := '0';
 	signal buffUartTxReady : std_logic := '0';
+	signal reset : std_logic := '0';
+	signal push : std_logic := '0';
+	signal pop : std_logic := '0';
+	
 
  	--Outputs
    signal doneA : std_logic;
@@ -93,14 +111,18 @@ architecture Behavioral of StateMachine is
    signal outputB : integer;
 	signal buffOutput : std_logic_vector (7 downto 0);
 	signal buffTxRequest : std_logic;
+	signal stackOputput : std_logic_vector (7 downto 0);
+	signal full : std_logic;
+	signal stackDepth : integer;
 	
 
 
 begin
 
    IntA: Intergenator PORT MAP (
-          uartDataIn => inputChar,
-          uartDataValid => dataValidA,
+			 clk => clk,
+          DataIn => inputChar,
+          DataValid => dataValidA,
           enable => enableA,
           reset => reset,
           done => doneA,
@@ -108,8 +130,8 @@ begin
         );
 		  
 	   IntB: Intergenator PORT MAP (
-          uartDataIn => inputChar,
-          uartDataValid => dataValidB,
+          DataIn => inputChar,
+          DataValid => dataValidB,
           enable => enableB,
           reset => reset,
           done => doneB,
@@ -124,151 +146,244 @@ begin
 			writeClk => buffWriteClk,
 			uartTxReady => buffUartTxReady
 			);
+			
+		stack: charStack PORT MAP (
+          input => inputChar,
+          output => stackOutput,
+          push => push,
+			 pop => pop,
+          reset => reset,
+          full => full,
+			 clk => clk,
+			 stackDepth => stackDepth
+        );
 				
 
 
 -- process (CLK, Reset)
-process
+process (CLK, Reset)
 
 procedure stringToBuff(str : string) is
 	begin
 		for i in 1 to str'LENGTH loop
 			buffInput <= std_logic_vector(to_unsigned(character'pos(str(i)), 8));
 			buffWriteClk <= '1', '0' after 20 ns;
-			wait until buffWriteClk = '0';
+	--		wait until buffWriteClk = '0';
 		end loop;		
 end procedure;
 
 begin
 
-wait until (CLK = '1' or Reset = '1');
-	if Reset = '1' then 
-		State <= NegDigA;
-	elsif CLK'EVENT and CLK = '1' then
-		-- Echoes the input back out to the UART.
-		buffInput <= inputChar;
-		buffWriteClk <= '1', '0' after 20 ns;
+
+	if extReset = '1' then 
+		State <= Rst;
+		reset <= '1';
 		
+	elsif rising_edge(clk) then
 		case State is
+			when Rst =>
+				reset <= '0';
+				State <= NegDigA;
+				push <= '0';
+		
 			when NegDigA =>
-				if inputChar = X"2D" then -- Negative sign
-					--Set neg flag and move to DigA
-					NegA <= '1';
-					State <= DigA;
-				elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
-					--Store digit and move to DigOp
-					dataValidA <= '1', '0' after 20 ns;
-					State <= DigOp;
-				else 
-					--Error and reset.
+				if uartTxReady = '1' then 
+					-- Echoes back the UART input.
+					buffInput <= inputChar;
+					buffWriteClk <= '1';
+					
+					if inputChar = X"2D" then -- Negative sign
+						--Set neg flag and move to DigA
+						NegA <= '1';
+						State <= DigA;
+					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
+						--Store digit and move to DigOp
+						dataValidA <= '1';
+						State <= DigOp;
+					else 
+						--Error and reset.
+						State <= WaitError;
+						strError <= "        Error: NaN/N";
+						stringToBuff(strError);
+					end if;
+				else
 					State <= NegDigA;
-					strError <= "        Error: NaN/N";
-					stringToBuff(strError);
+					dataValidA <= '0';
+					buffWriteClk <= '0';
 				end if;
 			
 			when DigA =>
-				if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
-					--Store digit and move to DigOp
-					dataValidA <= '1', '0' after 20 ns;
-					State <= DigOp;
-				else 
-					--Error and reset.
-					State <= NegDigA;
+				if uartTxReady = '1' then
+					-- Echoes back the UART input.
+					buffInput <= inputChar;
+					buffWriteClk <= '1';
+					
+					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
+						--Store digit and move to DigOp
+						dataValidA <= '1';
+						State <= DigOp;
+					else 
+						--Error and reset.
+						State <= WaitError;
+					end if;
+				else
+					State <= DigA;
+					dataValidA <= '0';
+					buffWriteClk <= '0';				
 				end if;
 				
 			when DigOp =>
-				if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
-					--Store digit and move to DigOp
-					dataValidA <= '1', '0' after 20 ns;
-					State <= DigOp;
-				elsif ((inputChar = X"2B") OR (inputChar = X"2D") OR (inputChar = X"2A") OR (inputChar = X"2F")) then --It's a +-*/ operator!
-					-- Store operator and move to NegDigB.
-					case (inputChar) is
-						when X"2B" =>
-							op <= Plus;
-						
-						when X"2D" =>
-							op <= Minus;
-						
-						when X"2A" =>
-							op <= Multiply;
+				if uartTxReady = '1' then
+					-- Echoes back the UART input.
+					buffInput <= inputChar;
+					buffWriteClk <= '1';
+					
+					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
+						--Store digit and move to DigOp
+						dataValidA <= '1';
+						State <= DigOp;
+					elsif ((inputChar = X"2B") OR (inputChar = X"2D") OR (inputChar = X"2A") OR (inputChar = X"2F")) then --It's a +-*/ operator!
+						-- Store operator and move to NegDigB.
+						case (inputChar) is
+							when X"2B" =>
+								op <= Plus;
 							
-						when X"2F" =>
-							op <= Divide;
-					end case;
-					State <= NegDigB;
-				else
-					--Error and reset.
-					State <= NegDigA;
+							when X"2D" =>
+								op <= Minus;
+							
+							when X"2A" =>
+								op <= Multiply;
+								
+							when X"2F" =>
+								op <= Divide;
+							when others =>
+								-- Error message goes here.
+								State <= WaitError;
+						end case;
+						State <= NegDigB;
+					else
+						--Error and reset.
+						State <= WaitError;
+					end if;
+				else 
+					State <= DigOp;
+					buffWriteClk <= '0';
+					dataValidA <= '0';
 				end if;
 				
 			when NegDigB =>
-				if inputChar = X"2D" then -- Negative sign
-					--Set neg flag and move to DigB
-					NegB <= '1';
-					State <= DigB;
-				elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
-					--Store digit and move to DigEq
-					dataValidB <= '1', '0' after 20 ns;
-					State <= DigEq;
-				else 
-					--Error and reset.
-					State <= NegDigA;
+				if uartTxReady = '1' then
+					-- Echoes back the UART input.
+					buffInput <= inputChar;
+					buffWriteClk <= '1';
+					
+					if inputChar = X"2D" then -- Negative sign
+						--Set neg flag and move to DigB
+						NegB <= '1';
+						State <= DigB;
+					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
+						--Store digit and move to DigEq
+						dataValidB <= '1';
+						State <= DigEq;
+					else 
+						--Error and reset.
+						State <= WaitError;
+					end if;
+				else
+					State <= NegDigB;
+					buffWriteClk <= '0';
+					dataValidA <= '0';
+					dataValidB <= '0';
 				end if;
 					
 			when DigB =>
-				if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
-					--Store digit and move to DigEq
-					dataValidB <= '1', '0' after 20 ns;
-					State <= DigEq;
-				else 
-					--Error and reset.
-					State <= NegDigA;
+				if uartTxValid = '1' then
+					-- Echoes back the UART input.
+					buffInput <= inputChar;
+					buffWriteClk <= '1';
+					
+					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
+						--Store digit and move to DigEq
+						dataValidB <= '1';
+						State <= DigEq;
+					else 
+						--Error and reset.
+						State <= WaitError;
+					end if;
+				else
+					State <= DigB;
+					buffWriteClk <= '0';
+					dataValidB <= '0';				
 				end if;
 				
 			when DigEq =>
-				if inputChar = X"3D" then	--It's an equals sign
-					--DO maths
-					enableA <= '1', '0' after 20 ns;
-					wait until doneA = '1';
-					numA <= outputA;
+			if uartTxValid = '1' then
+					-- Echoes back the UART input.
+					buffInput <= inputChar;
+					buffWriteClk <= '1';
 					
-					enableB <= '1', '0' after 20 ns;
-					wait until doneB = '1';
-					numB <= outputB;
-					
-					if negA = '1' then
-						numA <= numA * (-1);
+					if inputChar = X"3D" then	--It's an equals sign
+						--UNLEASH the integers.
+						enableA <= '1';			
+						enableB <= '1';
+						State <= WaitResult;
+					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then -- it's a number
+						dataValidB <= '1';
+						State <= DigEq;
+					else
+						--Generic error and reset.
+						State <= WaitError;
 					end if;
-					
-					if negB = '1' then
-						numB <= numB * (-1);
-					end if;
-					
-					case (op) is
-						when Plus =>
-							result <= numA + numB;
-						
-						when Minus =>
-							result <= numA - numB;
-						
-						when Multiply =>
-							result <= numA * numB;
-							
-						when Divide =>
-							result <= numA / numB;
-					end case;
-					
-					--TODO - make a Deintergenator wot does this.
-					strResult <= integer'IMAGE(result);
-					stringToBuff(strResult);
-					
-				elsif inputChar = X"88" then -- PLACEHOLDER - error state.
-				 	-- Error and reset, many errors.
 				else
-					--Generic error and reset.
+					State <= DigEq;
+					buffWriteClk <= '0';
+					dataValidB <= '0';
 				end if;
-				State <= NegDigA;			
+				State <= NegDigA;	
+
+			when WaitResult =>
+				if (doneA = '1') and (doneB = '1') then
+						enableA <= '0';
+						enableB <= '0';
+				
+						numA <= outputA;
+						numB <= outputB;
+				
+						-- Negativates the integers.
+						if negA = '1' then
+							numA <= numA * (-1);
+						end if;
+						
+						if negB = '1' then
+							numB <= numB * (-1);
+						end if;
+						
+						-- Actually does the maths.
+						case (op) is
+							when Plus =>
+								result <= numA + numB;
+							
+							when Minus =>
+								result <= numA - numB;
+							
+							when Multiply =>
+								result <= numA * numB;
+								
+							when Divide =>
+								result <= numA / numB;
+						end case;
+						--TODO - make a Deintergenator wot does this.
+						-- strResult <= integer'IMAGE(result);
+						-- stringToBuff(strResult);						
+					end if;
+					
+			when WaitError =>
+				-- Do error handling.
+				
+				State <= Rst;
+
+			when Others =>
+				State <= Rst; 
 				
 		end case;
 	end if;

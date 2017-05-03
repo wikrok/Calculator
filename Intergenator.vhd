@@ -30,94 +30,111 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity Intergenator is
-	port(uartDataIn : IN STD_LOGIC_VECTOR (7 downto 0);
-		  uartDataValid : IN STD_LOGIC;
+	port(clk : IN STD_LOGIC;
+		  stackIn : IN STD_LOGIC_VECTOR (7 downto 0);
+		  stackPop : OUT STD_LOGIC;
+		  stackDepth : IN INTEGER;
+--		  DataValid : IN STD_LOGIC;
 		  enable : IN STD_LOGIC;
 		  reset : IN STD_LOGIC;
+		  neg : IN STD_LOGIC;
 		  done : OUT STD_LOGIC;
 		  output : OUT INTEGER
 		  );		  
 end Intergenator;
 
 architecture Behavioral of Intergenator is
-    COMPONENT charStack
-    PORT(
-         input : IN  std_logic_vector(7 downto 0);
-         output : OUT  std_logic_vector(7 downto 0);
-         pushpop : IN  std_logic;
-			stackDepth : OUT integer;
-         reset : IN  std_logic;
-         full : OUT  std_logic;
-			clk : IN std_logic
-        );
-    END COMPONENT;
-	 
-	    --Inputs
-   signal pushpop : std_logic := '0';
-	signal clk : std_logic := '0';
-	signal stackInput : std_logic_vector (7 downto 0);
-
- 	--Outputs
-   signal stackOutput : std_logic_vector(7 downto 0);
-   signal full : std_logic;
-	signal stackDepth : integer;
+	type STATETYPE is (Idle, Pop, Calculate, Increment, Result);
 
 	signal intToOutput : integer := 0;
-	
 	signal placeCounter : integer := 0;
-	signal thingToCountTo : integer := 0;
 	
+	signal temp : signed (15 downto 0);
+	
+	signal State: STATETYPE;
 	
 
+begin		  
 
-
-begin
-
-
-
-   stack: charStack PORT MAP (
-          input => stackInput,
-          output => stackOutput,
-          pushpop => pushpop,
-          reset => reset,
-          full => full,
-			 clk => clk,
-			 stackDepth => stackDepth
-        );
-		  
-		  
-
-my_process : process is begin
-
-	wait until (enable = '1' or reset = '1' or uartDataValid = '1'); 
+my_process : process (reset, clk, enable)  is begin
 	
-	if (reset = '1') then
-		--Reset things.
-		pushpop <= '0';
+	if reset = '1' then
+		State <= Idle;
+		Done <= '0';
+		stackPop <= '0';
+		output <= 0;
 		placeCounter <= 0;
-		done <= '0';
-		thingToCountTo <= 0;
-		intToOutput <= 0;
-	elsif (uartDataValid = '1') then
-		stackInput <= std_logic_vector(unsigned(uartDataIn) - 48);
-		pushpop <= '0';
-		clk <= '1', '0' after 20 ns;
-		intToOutput <= 0;
-	elsif (enable = '1') then
-		thingToCountTo <= stackDepth;
-		pushpop <= '1';
-		
-		wait for 10 ns;
-		for i in 0 to thingToCountTo - 1 loop
-			clk <= '1' after 20 ns, '0' after 40 ns;
-			wait for 40 ns;
-			intToOutput <= intToOutput + (to_integer(unsigned(stackOutput)) * (10**i));
-		 end loop;
-		wait for 10 ns;		
-		output <= intToOutput;
-		done <= '1';
+		temp <= X"0000";
+		--DEBUG REMOVE ME
+		intToOutput <= 42;
+	elsif rising_edge(clk) then
+		case State is
+			when Idle =>
+				if enable = '1' then
+					State <= Pop;
+					intToOutput <= 0;
+					
+				else
+					State <= Idle;
+				end if;
+				
+			when Pop =>
+				stackPop <= '1';
+				State <= Calculate;
+			
+			when Calculate =>
+				if stackDepth /= 0 then
+					--intToOutput <= to_integer(unsigned(stackIn));
+					--temp <= temp + (signed(stackIn) * signed((10**placeCounter)));
+					-- intToOutput <= 43;
+					intToOutput <= (intToOutput * 10) + (to_integer(unsigned(stackIn)));
+					stackPop <= '0';
+					State <= Increment;
+				else 
+					intToOutput <= (intToOutput * 10) + (to_integer(unsigned(stackIn)));
+					--temp <= temp + (signed(stackIn) * (10**placeCounter));
+					--intToOutput <= intToOutput + (to_integer(unsigned(stackIn)) * (10**placeCounter));
+					stackPop <= '0';
+					State <= Result;
+				end if;
+			
+			when Increment =>
+				placeCounter <= placeCounter + 1;
+				State <= Pop;
+				
+			when Result =>
+				State <= Idle;
+				
+				if neg = '0' then
+					output <= intToOutput;
+				else
+					output <= intToOutput * (-1);
+				end if;
+				done <= '1';
+				
+				placeCounter <= 0;
+				stackPop <= '0';
+		end case;
 	end if;
-		
 end process;
+
 end Behavioral;
+
+	
+	
+	
+	
+	
+	
+-- LEGACY WRITING TO THE STACK CODE	
+	
+	--elsif rising_edge(clk) then
+--		if DataValid = '1' then
+--			stackInput <= std_logic_vector(unsigned(DataIn) - 48);
+--			push <= '1';
+--			pop <= '0';
+--			intToOutput <= 0;
+
+--end process;
+--end Behavioral;
 
