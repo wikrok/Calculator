@@ -1,1 +1,7 @@
+work	"BuffWriteOr.vhd"
+work	"BufferMultiplexer.vhd"
 work	"Serialiser.vhd"
+work	"Stack.vhd"
+work	"StateMachine.vhd"
+work	"TopLevel.vhd"
+work	"UART-tx-buffer.vhd"

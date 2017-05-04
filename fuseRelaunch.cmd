@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Users/phil/Documents/GitHub/Calculator/testbench_isim_beh.exe" -prj "C:/Users/phil/Documents/GitHub/Calculator/testbench_beh.prj" "work.testbench" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TestDesignTop_isim_beh.exe" -prj "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TestDesignTop_beh.prj" "work.TestDesignTop" 

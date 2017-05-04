@@ -138,26 +138,20 @@ process (clk, reset, enable) is begin
 				push <= '1';
 				pop <= '0';
 				State <= ASCII;
-			
 
-				
 			when RetrieveDigit =>
-				transmitRequest <= '1';
-				
+				transmitRequest <= '0';			
 				push <= '0';
 				pop <= '1'; 
 				State <= WaitRetrieve;
 
-			
 			when WaitRetrieve =>
 				pop <= '0';
-				transmitRequest <= '0';
-
 				State <= TxDigit;
 			
 			when TxDigit =>		
-			digit <= StackOutput;
-				parallelDataOut <= digit;
+				transmitRequest <= '1';
+				parallelDataOut <= StackOutput;
 				if stackDepth = 0 then
 					State <= Idle;
 					done <= '1';
