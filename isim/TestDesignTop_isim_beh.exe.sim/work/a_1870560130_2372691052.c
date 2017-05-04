@@ -21,7 +21,11 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 static const char *ng0 = "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TestDesignTop.vhd";
+=======
+static const char *ng0 = "C:/Users/seb/Documents/GitHub/Calculator/TestStateMachine.vhd";
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
 
 
 
@@ -140,6 +144,7 @@ LAB2:    xsi_set_current_line(106, ng0);
 LAB6:    *((char **)t1) = &&LAB7;
 
 LAB1:    return;
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB4:    xsi_set_current_line(109, ng0);
     t2 = (t0 + 1592U);
     t3 = *((char **)t2);
@@ -159,6 +164,12 @@ LAB8:    xsi_set_current_line(112, ng0);
     t2 = (t0 + 5304);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB4:    xsi_set_current_line(70, ng0);
+    t2 = (t0 + 6404);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -204,10 +215,17 @@ LAB13:    goto LAB12;
 
 LAB15:    goto LAB13;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB16:    xsi_set_current_line(117, ng0);
     t2 = (t0 + 5312);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB12:    xsi_set_current_line(75, ng0);
+    t2 = (t0 + 6412);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -253,10 +271,17 @@ LAB21:    goto LAB20;
 
 LAB23:    goto LAB21;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB24:    xsi_set_current_line(122, ng0);
     t2 = (t0 + 5320);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB20:    xsi_set_current_line(80, ng0);
+    t2 = (t0 + 6420);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -302,10 +327,17 @@ LAB29:    goto LAB28;
 
 LAB31:    goto LAB29;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB32:    xsi_set_current_line(127, ng0);
     t2 = (t0 + 5328);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB28:    xsi_set_current_line(85, ng0);
+    t2 = (t0 + 6428);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -351,10 +383,17 @@ LAB37:    goto LAB36;
 
 LAB39:    goto LAB37;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB40:    xsi_set_current_line(133, ng0);
     t2 = (t0 + 5336);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB36:    xsi_set_current_line(91, ng0);
+    t2 = (t0 + 6436);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -400,10 +439,17 @@ LAB45:    goto LAB44;
 
 LAB47:    goto LAB45;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB48:    xsi_set_current_line(140, ng0);
     t2 = (t0 + 5344);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB44:    xsi_set_current_line(98, ng0);
+    t2 = (t0 + 6444);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -449,10 +495,17 @@ LAB53:    goto LAB52;
 
 LAB55:    goto LAB53;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB56:    xsi_set_current_line(145, ng0);
     t2 = (t0 + 5352);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB52:    xsi_set_current_line(103, ng0);
+    t2 = (t0 + 6452);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -498,10 +551,17 @@ LAB61:    goto LAB60;
 
 LAB63:    goto LAB61;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB64:    xsi_set_current_line(150, ng0);
     t2 = (t0 + 5360);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB60:    xsi_set_current_line(108, ng0);
+    t2 = (t0 + 6460);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -547,10 +607,17 @@ LAB69:    goto LAB68;
 
 LAB71:    goto LAB69;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB72:    xsi_set_current_line(155, ng0);
     t2 = (t0 + 5368);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB68:    xsi_set_current_line(113, ng0);
+    t2 = (t0 + 6468);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);
@@ -596,10 +663,17 @@ LAB77:    goto LAB76;
 
 LAB79:    goto LAB77;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_1870560130_2372691052.c
 LAB80:    xsi_set_current_line(160, ng0);
     t2 = (t0 + 5376);
     t4 = (t0 + 2596);
     t5 = (t4 + 32U);
+=======
+LAB76:    xsi_set_current_line(118, ng0);
+    t2 = (t0 + 6476);
+    t4 = (t0 + 3872);
+    t5 = (t4 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_1949178628_2372691052.c
     t6 = *((char **)t5);
     t8 = (t6 + 40U);
     t9 = *((char **)t8);

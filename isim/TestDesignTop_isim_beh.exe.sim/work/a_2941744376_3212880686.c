@@ -21,7 +21,11 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
 static const char *ng0 = "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/Serialiser.vhd";
+=======
+static const char *ng0 = "C:/Users/seb/Documents/GitHub/Calculator/Serialiser.vhd";
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
 extern char *IEEE_P_1242562249;
 extern char *IEEE_P_2592010699;
 
@@ -185,10 +189,17 @@ LAB6:    t16 = (t0 + 2908);
     memcpy(t11, t1, 8U);
     xsi_driver_first_trans_fast(t5);
     xsi_set_current_line(96, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3124);
     t2 = (t1 + 32U);
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
+=======
+    t1 = (t0 + 5440);
+    t2 = (t1 + 56U);
+    t5 = *((char **)t2);
+    t6 = (t5 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast_port(t1);
@@ -198,7 +209,11 @@ LAB5:    xsi_size_not_matching(29U, t14, 0);
     goto LAB6;
 
 LAB7:    xsi_set_current_line(99, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t2 = (t0 + 1236U);
+=======
+    t2 = (t0 + 2152U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t4 = *((unsigned char *)t5);
     t2 = (char *)((nl0) + t4);
@@ -207,15 +222,26 @@ LAB7:    xsi_set_current_line(99, ng0);
 LAB9:    goto LAB3;
 
 LAB10:    xsi_set_current_line(101, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t6 = (t0 + 3124);
     t7 = (t6 + 32U);
     t8 = *((char **)t7);
     t11 = (t8 + 40U);
+=======
+    t6 = (t0 + 5440);
+    t7 = (t6 + 56U);
+    t8 = *((char **)t7);
+    t11 = (t8 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t12 = *((char **)t11);
     *((unsigned char *)t12) = (unsigned char)2;
     xsi_driver_first_trans_fast_port(t6);
     xsi_set_current_line(102, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 868U);
+=======
+    t1 = (t0 + 1512U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
     t4 = (t3 == (unsigned char)3);
@@ -223,8 +249,13 @@ LAB10:    xsi_set_current_line(101, ng0);
         goto LAB18;
 
 LAB20:    xsi_set_current_line(107, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -234,7 +265,11 @@ LAB20:    xsi_set_current_line(107, ng0);
 LAB19:    goto LAB9;
 
 LAB11:    xsi_set_current_line(111, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 1328U);
+=======
+    t1 = (t0 + 2312U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t2 = *((char **)t1);
     t1 = (t0 + 6076U);
     t3 = ieee_p_1242562249_sub_2479218856_1035706684(IEEE_P_1242562249, t2, t1, 0);
@@ -242,8 +277,13 @@ LAB11:    xsi_set_current_line(111, ng0);
         goto LAB21;
 
 LAB23:    xsi_set_current_line(117, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -253,15 +293,24 @@ LAB23:    xsi_set_current_line(117, ng0);
 LAB22:    goto LAB9;
 
 LAB12:    xsi_set_current_line(121, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3124);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5440);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast_port(t1);
     xsi_set_current_line(122, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 1328U);
+=======
+    t1 = (t0 + 2312U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t2 = *((char **)t1);
     t1 = (t0 + 6076U);
     t5 = ieee_p_1242562249_sub_3481121704_1035706684(IEEE_P_1242562249, t9, t2, t1);
@@ -272,16 +321,26 @@ LAB12:    xsi_set_current_line(121, ng0);
     if (t3 == 1)
         goto LAB24;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
 LAB25:    t7 = (t0 + 2908);
     t8 = (t7 + 32U);
+=======
+LAB25:    t7 = (t0 + 5056);
+    t8 = (t7 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t11 = *((char **)t8);
     t12 = (t11 + 40U);
     t16 = *((char **)t12);
     memcpy(t16, t5, 29U);
     xsi_driver_first_trans_fast(t7);
     xsi_set_current_line(123, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -290,15 +349,24 @@ LAB25:    t7 = (t0 + 2908);
     goto LAB9;
 
 LAB13:    xsi_set_current_line(126, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3016);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5248);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(127, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 1328U);
+=======
+    t1 = (t0 + 2312U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t2 = *((char **)t1);
     t1 = (t0 + 6076U);
     t5 = (t0 + 6296);
@@ -334,8 +402,13 @@ LAB13:    xsi_set_current_line(126, ng0);
         goto LAB26;
 
 LAB28:    xsi_set_current_line(131, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -345,7 +418,11 @@ LAB28:    xsi_set_current_line(131, ng0);
 LAB27:    goto LAB9;
 
 LAB14:    xsi_set_current_line(135, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 1328U);
+=======
+    t1 = (t0 + 2312U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t2 = *((char **)t1);
     t1 = (t0 + 6076U);
     t5 = ieee_p_1242562249_sub_3461525680_1035706684(IEEE_P_1242562249, t10, t2, t1, 10);
@@ -357,15 +434,24 @@ LAB14:    xsi_set_current_line(135, ng0);
     if (t3 == 1)
         goto LAB29;
 
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
 LAB30:    t8 = (t0 + 2908);
     t11 = (t8 + 32U);
+=======
+LAB30:    t8 = (t0 + 5056);
+    t11 = (t8 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t12 = *((char **)t11);
     t16 = (t12 + 40U);
     t18 = *((char **)t16);
     memcpy(t18, t6, 29U);
     xsi_driver_first_trans_fast(t8);
     xsi_set_current_line(137, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 1420U);
+=======
+    t1 = (t0 + 2472U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t2 = *((char **)t1);
     t1 = (t0 + 3088);
     t5 = (t1 + 32U);
@@ -375,24 +461,39 @@ LAB30:    t8 = (t0 + 2908);
     memcpy(t8, t2, 8U);
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(138, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3016);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5248);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)3;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(139, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3052);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5312);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(140, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -401,32 +502,52 @@ LAB30:    t8 = (t0 + 2908);
     goto LAB9;
 
 LAB15:    xsi_set_current_line(143, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3124);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5440);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast_port(t1);
     xsi_set_current_line(144, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3016);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5248);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(145, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3052);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5312);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)3;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(146, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -435,43 +556,75 @@ LAB15:    xsi_set_current_line(143, ng0);
     goto LAB9;
 
 LAB16:    xsi_set_current_line(149, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3052);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5312);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(150, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+    t5 = *((char **)t2);
+    t6 = (t5 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)7;
     xsi_driver_first_trans_fast(t1);
     goto LAB9;
 
 LAB17:    xsi_set_current_line(153, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3124);
     t2 = (t1 + 32U);
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
+=======
+    t1 = (t0 + 5440);
+    t2 = (t1 + 56U);
+    t5 = *((char **)t2);
+    t6 = (t5 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)3;
     xsi_driver_first_trans_fast_port(t1);
     xsi_set_current_line(154, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 1604U);
     t2 = *((char **)t1);
     t1 = (t0 + 3160);
     t5 = (t1 + 32U);
     t6 = *((char **)t5);
     t7 = (t6 + 40U);
+=======
+    t1 = (t0 + 2792U);
+    t2 = *((char **)t1);
+    t1 = (t0 + 5504);
+    t5 = (t1 + 56U);
+    t6 = *((char **)t5);
+    t7 = (t6 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t8 = *((char **)t7);
     memcpy(t8, t2, 8U);
     xsi_driver_first_trans_fast_port(t1);
     xsi_set_current_line(155, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 1696U);
+=======
+    t1 = (t0 + 2952U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t2 = *((char **)t1);
     t13 = *((int *)t2);
     t3 = (t13 == 0);
@@ -479,8 +632,13 @@ LAB17:    xsi_set_current_line(153, ng0);
         goto LAB31;
 
 LAB33:    xsi_set_current_line(159, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -490,26 +648,45 @@ LAB33:    xsi_set_current_line(159, ng0);
 LAB32:    goto LAB9;
 
 LAB18:    xsi_set_current_line(103, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 776U);
     t5 = *((char **)t1);
     t1 = (t0 + 2908);
     t6 = (t1 + 32U);
     t7 = *((char **)t6);
     t8 = (t7 + 40U);
+=======
+    t1 = (t0 + 1352U);
+    t5 = *((char **)t1);
+    t1 = (t0 + 5056);
+    t6 = (t1 + 56U);
+    t7 = *((char **)t6);
+    t8 = (t7 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t11 = *((char **)t8);
     memcpy(t11, t5, 29U);
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(104, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)1;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(105, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2980);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5184);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -518,25 +695,41 @@ LAB18:    xsi_set_current_line(103, ng0);
     goto LAB19;
 
 LAB21:    xsi_set_current_line(113, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = (t0 + 6288);
     t7 = (t0 + 3160);
     t8 = (t7 + 32U);
+=======
+    t5 = (t0 + 8732);
+    t7 = (t0 + 5504);
+    t8 = (t7 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t11 = *((char **)t8);
     t12 = (t11 + 40U);
     t16 = *((char **)t12);
     memcpy(t16, t5, 8U);
     xsi_driver_first_trans_fast_port(t7);
     xsi_set_current_line(114, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 3124);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5440);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)3;
     xsi_driver_first_trans_fast_port(t1);
     xsi_set_current_line(115, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -548,11 +741,19 @@ LAB24:    xsi_size_not_matching(29U, t22, 0);
     goto LAB25;
 
 LAB26:    xsi_set_current_line(128, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t19 = (t0 + 1328U);
     t20 = *((char **)t19);
     t19 = (t0 + 6076U);
     t21 = ieee_p_1242562249_sub_136421016_1035706684(IEEE_P_1242562249, t25, t20, t19, 10);
     t26 = (t0 + 6325);
+=======
+    t19 = (t0 + 2312U);
+    t20 = *((char **)t19);
+    t19 = (t0 + 8520U);
+    t21 = ieee_p_1242562249_sub_136421016_1035706684(IEEE_P_1242562249, t25, t20, t19, 10);
+    t26 = (t0 + 8769);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t29 = (t28 + 0U);
     t30 = (t29 + 0U);
     *((int *)t30) = 0;
@@ -567,16 +768,28 @@ LAB26:    xsi_set_current_line(128, ng0);
     *((unsigned int *)t30) = t14;
     t30 = ieee_p_1242562249_sub_3273497107_1035706684(IEEE_P_1242562249, t24, t21, t25, t26, t28);
     t32 = ieee_p_1242562249_sub_3410769178_1035706684(IEEE_P_1242562249, t23, t30, t24, 8);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t33 = (t0 + 2944);
     t34 = (t33 + 32U);
     t35 = *((char **)t34);
     t36 = (t35 + 40U);
+=======
+    t33 = (t0 + 5120);
+    t34 = (t33 + 56U);
+    t35 = *((char **)t34);
+    t36 = (t35 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t37 = *((char **)t36);
     memcpy(t37, t32, 8U);
     xsi_driver_first_trans_fast(t33);
     xsi_set_current_line(129, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);
@@ -588,16 +801,26 @@ LAB29:    xsi_size_not_matching(29U, t14, 0);
     goto LAB30;
 
 LAB31:    xsi_set_current_line(156, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2872);
     t5 = (t1 + 32U);
+=======
+    t1 = (t0 + 4992);
+    t5 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t6 = *((char **)t5);
     t7 = (t6 + 40U);
     t8 = *((char **)t7);
     *((unsigned char *)t8) = (unsigned char)0;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(157, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t1 = (t0 + 2980);
     t2 = (t1 + 32U);
+=======
+    t1 = (t0 + 5184);
+    t2 = (t1 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_2941744376_3212880686.c
     t5 = *((char **)t2);
     t6 = (t5 + 40U);
     t7 = *((char **)t6);

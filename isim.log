@@ -1,4 +1,5 @@
 ISim log file
+<<<<<<< HEAD
 Running: C:\Users\PC157\Desktop\Phil Seb VHDL\Calculator-Not-Integers\TestDesignTop_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TestDesignTop_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 ----------------------------------------------------------------------
@@ -14,6 +15,14 @@ WARNING:Security:42 - Your software subscription period has lapsed. Your current
 
 ----------------------------------------------------------------------
 This is a Full version of ISim.
+=======
+Running: C:\Users\seb\Documents\GitHub\Calculator\testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/seb/Documents/GitHub/Calculator/testbench_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+>>>>>>> origin/Not-Integers
 Time resolution is 1 ps
 # onerror resume
 # wave add /

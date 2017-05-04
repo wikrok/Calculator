@@ -1,11 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
+<<<<<<< HEAD
   <DateModified>2017-05-04T14:38:32</DateModified>
   <ModuleName>StateMachine</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/iseconfig/StateMachine.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers\</ImplementationReportsDirectory>
+=======
+  <DateModified>2017-05-04T11:36:29</DateModified>
+  <ModuleName>StateMachine</ModuleName>
+  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SavedFilePath>C:/Users/seb/Documents/GitHub/Calculator/iseconfig/StateMachine.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/seb/Documents/GitHub/Calculator\</ImplementationReportsDirectory>
+>>>>>>> origin/Not-Integers
   <DateInitialized>2017-05-03T11:26:18</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

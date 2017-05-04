@@ -319,7 +319,10 @@ begin
 				startSerialiser <= '0';
 				muxSel <= b"01";
 				if serialiserDone = '1' then
+<<<<<<< HEAD
 					muxSel <= b"00";
+=======
+>>>>>>> origin/Not-Integers
 					State <= Rst;
 				else
 					State <= WaitResult;

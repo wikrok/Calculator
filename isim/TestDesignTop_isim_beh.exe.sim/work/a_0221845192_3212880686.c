@@ -21,7 +21,11 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_0221845192_3212880686.c
 static const char *ng0 = "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/BufferMultiplexer.vhd";
+=======
+static const char *ng0 = "C:/Users/seb/Documents/GitHub/Calculator/BufferMultiplexer.vhd";
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_0221845192_3212880686.c
 
 
 
@@ -44,7 +48,11 @@ static void work_a_0221845192_3212880686_p_0(char *t0)
 LAB0:    xsi_set_current_line(47, ng0);
     t1 = (t0 + 960U);
     t2 = *((char **)t1);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_0221845192_3212880686.c
     t1 = (t0 + 3478);
+=======
+    t1 = (t0 + 5154);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_0221845192_3212880686.c
     t4 = 1;
     if (2U == 2U)
         goto LAB5;
@@ -56,7 +64,11 @@ LAB7:    if (t4 != 0)
 
 LAB4:    t1 = (t0 + 960U);
     t2 = *((char **)t1);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_0221845192_3212880686.c
     t1 = (t0 + 3480);
+=======
+    t1 = (t0 + 5156);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_0221845192_3212880686.c
     t4 = 1;
     if (2U == 2U)
         goto LAB13;
@@ -68,7 +80,11 @@ LAB15:    if (t4 != 0)
 
 LAB12:    t1 = (t0 + 960U);
     t2 = *((char **)t1);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_0221845192_3212880686.c
     t1 = (t0 + 3482);
+=======
+    t1 = (t0 + 5158);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_0221845192_3212880686.c
     t4 = 1;
     if (2U == 2U)
         goto LAB21;

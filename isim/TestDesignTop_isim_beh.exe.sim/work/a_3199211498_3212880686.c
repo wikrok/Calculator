@@ -21,7 +21,11 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_3199211498_3212880686.c
 static const char *ng0 = "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/UART-tx-buffer.vhd";
+=======
+static const char *ng0 = "C:/Users/seb/Documents/GitHub/Calculator/UART-tx-buffer.vhd";
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_3199211498_3212880686.c
 extern char *IEEE_P_2592010699;
 
 unsigned char ieee_p_2592010699_sub_1744673427_503743352(char *, char *, unsigned int , unsigned int );
@@ -209,9 +213,15 @@ LAB2:    xsi_set_current_line(70, ng0);
     *((int *)t8) = 0;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(71, ng0);
+<<<<<<< HEAD:isim/TestDesignTop_isim_beh.exe.sim/work/a_3199211498_3212880686.c
     t1 = (t0 + 5525);
     t5 = (t0 + 2580);
     t6 = (t5 + 32U);
+=======
+    t1 = (t0 + 7801);
+    t5 = (t0 + 4488);
+    t6 = (t5 + 56U);
+>>>>>>> origin/Not-Integers:isim/testbench_isim_beh.exe.sim/work/a_3199211498_3212880686.c
     t7 = *((char **)t6);
     t8 = (t7 + 40U);
     t9 = *((char **)t8);
