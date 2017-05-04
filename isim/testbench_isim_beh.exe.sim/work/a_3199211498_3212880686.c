@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/phil/Documents/GitHub/Calculator/UART-tx-buffer.vhd";
+static const char *ng0 = "C:/Users/seb/Documents/GitHub/Calculator/UART-tx-buffer.vhd";
 extern char *IEEE_P_2592010699;
 
 unsigned char ieee_p_2592010699_sub_1258338084_503743352(char *, char *, unsigned int , unsigned int );
@@ -223,7 +223,7 @@ LAB2:    xsi_set_current_line(71, ng0);
     *((int *)t8) = 0;
     xsi_driver_first_trans_fast(t1);
     xsi_set_current_line(72, ng0);
-    t1 = (t0 + 7897);
+    t1 = (t0 + 7881);
     t5 = (t0 + 4488);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
