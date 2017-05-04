@@ -45,9 +45,9 @@ ARCHITECTURE behavior OF TestDesignTop IS
          clock_pin : IN  std_logic;
          serialDataIn_pin : IN  std_logic;
          serialDataOut_pin : OUT  std_logic;
-         LED_hi_pin : OUT  std_logic;
-         LED_lo_pin : OUT  std_logic;
-         DIP_pins : IN  std_logic_vector(3 downto 0);
+--         LED_hi_pin : OUT  std_logic;
+--         LED_lo_pin : OUT  std_logic;
+--         DIP_pins : IN  std_logic_vector(3 downto 0);
          parallelDataOut : IN  std_logic_vector(7 downto 0);
          dataValid : IN  std_logic;
 			tx_ready : IN STD_LOGIC
@@ -81,9 +81,9 @@ BEGIN
           clock_pin => clock_pin,
           serialDataIn_pin => serialDataIn_pin,
           serialDataOut_pin => serialDataOut_pin,
-          LED_hi_pin => LED_hi_pin,
-          LED_lo_pin => LED_lo_pin,
-          DIP_pins => DIP_pins,
+--          LED_hi_pin => LED_hi_pin,
+--          LED_lo_pin => LED_lo_pin,
+--          DIP_pins => DIP_pins,
           parallelDataOut => parallelDataIn,
           dataValid => txIsReady,
 			 tx_ready => tx_ready

@@ -8,8 +8,7 @@ USE ieee.std_logic_1164.ALL;
 entity UART_baudRateGenerator is
 	generic (BAUD_RATE : integer := 19200;
 				CLOCK_RATE : integer := 100000000);
-	port (reset : in STD_LOGIC;
-			clock : in STD_LOGIC;
+	port (clock : in STD_LOGIC;
 			baudRateEnable : out STD_LOGIC;
 			baudRateEnable_x16 : out STD_LOGIC
 	);

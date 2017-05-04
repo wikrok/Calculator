@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/seb/Desktop/Calculator-Not-Integers/uartBufferTest_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="uartbuffertest" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/uartbuffertest/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/input" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">input[7:0]</obj_property>
+      <obj_property name="ObjectShortName">input[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/write" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">write</obj_property>
+      <obj_property name="ObjectShortName">write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/inputindex" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">inputindex</obj_property>
+      <obj_property name="ObjectShortName">inputindex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/uarttxready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uarttxready</obj_property>
+      <obj_property name="ObjectShortName">uarttxready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">output[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/outputindex" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">outputindex</obj_property>
+      <obj_property name="ObjectShortName">outputindex</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/uarttxrequest" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">uarttxrequest</obj_property>
+      <obj_property name="ObjectShortName">uarttxrequest</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uartbuffertest/uut/buff" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buff[0:63]</obj_property>
+      <obj_property name="ObjectShortName">buff[0:63]</obj_property>
+      <wvobject fp_name="/uartbuffertest/uut/buff[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">buff[0]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">buff[1]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">buff[2]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">buff[3]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">buff[4]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">buff[5]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">buff[6]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">buff[7]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">buff[8]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">buff[9]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">buff[10]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">buff[11]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">buff[12]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">buff[13]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">buff[14]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">buff[15]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[16]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[16]</obj_property>
+         <obj_property name="ObjectShortName">buff[16]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[17]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[17]</obj_property>
+         <obj_property name="ObjectShortName">buff[17]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[18]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[18]</obj_property>
+         <obj_property name="ObjectShortName">buff[18]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[19]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[19]</obj_property>
+         <obj_property name="ObjectShortName">buff[19]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[20]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[20]</obj_property>
+         <obj_property name="ObjectShortName">buff[20]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[21]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[21]</obj_property>
+         <obj_property name="ObjectShortName">buff[21]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[22]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[22]</obj_property>
+         <obj_property name="ObjectShortName">buff[22]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[23]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[23]</obj_property>
+         <obj_property name="ObjectShortName">buff[23]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[24]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[24]</obj_property>
+         <obj_property name="ObjectShortName">buff[24]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[25]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[25]</obj_property>
+         <obj_property name="ObjectShortName">buff[25]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[26]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[26]</obj_property>
+         <obj_property name="ObjectShortName">buff[26]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27]</obj_property>
+         <obj_property name="ObjectShortName">buff[27]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28]</obj_property>
+         <obj_property name="ObjectShortName">buff[28]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29]</obj_property>
+         <obj_property name="ObjectShortName">buff[29]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30]</obj_property>
+         <obj_property name="ObjectShortName">buff[30]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31]</obj_property>
+         <obj_property name="ObjectShortName">buff[31]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[32]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[32]</obj_property>
+         <obj_property name="ObjectShortName">buff[32]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[33]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[33]</obj_property>
+         <obj_property name="ObjectShortName">buff[33]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[34]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[34]</obj_property>
+         <obj_property name="ObjectShortName">buff[34]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[35]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[35]</obj_property>
+         <obj_property name="ObjectShortName">buff[35]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[36]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[36]</obj_property>
+         <obj_property name="ObjectShortName">buff[36]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[37]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[37]</obj_property>
+         <obj_property name="ObjectShortName">buff[37]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[38]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[38]</obj_property>
+         <obj_property name="ObjectShortName">buff[38]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[39]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[39]</obj_property>
+         <obj_property name="ObjectShortName">buff[39]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[40]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[40]</obj_property>
+         <obj_property name="ObjectShortName">buff[40]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[41]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[41]</obj_property>
+         <obj_property name="ObjectShortName">buff[41]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[42]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[42]</obj_property>
+         <obj_property name="ObjectShortName">buff[42]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[43]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[43]</obj_property>
+         <obj_property name="ObjectShortName">buff[43]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[44]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[44]</obj_property>
+         <obj_property name="ObjectShortName">buff[44]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[45]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[45]</obj_property>
+         <obj_property name="ObjectShortName">buff[45]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[46]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[46]</obj_property>
+         <obj_property name="ObjectShortName">buff[46]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[47]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[47]</obj_property>
+         <obj_property name="ObjectShortName">buff[47]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[48]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[48]</obj_property>
+         <obj_property name="ObjectShortName">buff[48]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[49]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[49]</obj_property>
+         <obj_property name="ObjectShortName">buff[49]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[50]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[50]</obj_property>
+         <obj_property name="ObjectShortName">buff[50]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[51]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[51]</obj_property>
+         <obj_property name="ObjectShortName">buff[51]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[52]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[52]</obj_property>
+         <obj_property name="ObjectShortName">buff[52]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[53]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[53]</obj_property>
+         <obj_property name="ObjectShortName">buff[53]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[54]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[54]</obj_property>
+         <obj_property name="ObjectShortName">buff[54]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[55]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[55]</obj_property>
+         <obj_property name="ObjectShortName">buff[55]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[56]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[56]</obj_property>
+         <obj_property name="ObjectShortName">buff[56]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[57]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[57]</obj_property>
+         <obj_property name="ObjectShortName">buff[57]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[58]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[58]</obj_property>
+         <obj_property name="ObjectShortName">buff[58]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[59]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[59]</obj_property>
+         <obj_property name="ObjectShortName">buff[59]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[60]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[60]</obj_property>
+         <obj_property name="ObjectShortName">buff[60]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[61]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[61]</obj_property>
+         <obj_property name="ObjectShortName">buff[61]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[62]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[62]</obj_property>
+         <obj_property name="ObjectShortName">buff[62]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uartbuffertest/uut/buff[63]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[63]</obj_property>
+         <obj_property name="ObjectShortName">buff[63]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

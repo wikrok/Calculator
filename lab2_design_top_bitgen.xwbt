@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\PC157\Desktop\Phil Seb VHDL\Calculator-Not-Integers\lab2_design_top.ncd
+OUTFILE=C:\Users\PC157\Desktop\Phil Seb VHDL\Calculator-Not-Integers\lab2_design_top.bit
+FAMILY=Spartan6
+PART=xc6slx9-2csg324
+WORKINGDIR=C:\Users\PC157\Desktop\Phil Seb VHDL\Calculator-Not-Integers
+LICENSE=ISE
+USER_INFO=176705904_174114966_210595457_368

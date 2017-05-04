@@ -1,0 +1,1539 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: lab2_design_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "lab2_design_top.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "lab2_design_top"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-csg324
+
+---- Source Options
+Top Module Name                    : lab2_design_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_transmitter.vhd" into library work
+Parsing entity <UART_transmitter>.
+Parsing architecture <Behavioral> of entity <uart_transmitter>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_receiver.vhd" into library work
+Parsing entity <UART_receiver>.
+Parsing architecture <Behavioral> of entity <uart_receiver>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_baudRateGenerator.vhd" into library work
+Parsing entity <UART_baudRateGenerator>.
+Parsing architecture <BEHAVIORAL> of entity <uart_baudrategenerator>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\Stack.vhd" into library work
+Parsing entity <charStack>.
+Parsing architecture <Behavioral> of entity <charstack>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\uart.vhd" into library work
+Parsing entity <UART>.
+Parsing architecture <Behavioral> of entity <uart>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\UART-tx-buffer.vhd" into library work
+Parsing entity <UART_tx_buffer>.
+Parsing architecture <Behavioral> of entity <uart_tx_buffer>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\StateMachine.vhd" into library work
+Parsing entity <StateMachine>.
+Parsing architecture <Behavioral> of entity <statemachine>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\Serialiser.vhd" into library work
+Parsing entity <Serialiser>.
+Parsing architecture <Behavioral> of entity <serialiser>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\BuffWriteOr.vhd" into library work
+Parsing entity <BuffWriteOr>.
+Parsing architecture <Behavioral> of entity <buffwriteor>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\BufferMultiplexer.vhd" into library work
+Parsing entity <BufferMultiplexer>.
+Parsing architecture <Behavioral> of entity <buffermultiplexer>.
+Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\TopLevel.vhd" into library work
+Parsing entity <lab2_design_top>.
+Parsing architecture <structural> of entity <lab2_design_top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <lab2_design_top> (architecture <structural>) from library <work>.
+WARNING:HDLCompiler:871 - "C:\Users\seb\Desktop\Calculator-Not-Integers\TopLevel.vhd" Line 32: Using initial value '0' for gnd since it is never assigned
+WARNING:HDLCompiler:871 - "C:\Users\seb\Desktop\Calculator-Not-Integers\TopLevel.vhd" Line 44: Using initial value "UUUUUUUU" for temp since it is never assigned
+
+Elaborating entity <UART> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <UART_baudRateGenerator> (architecture <BEHAVIORAL>) with generics from library <work>.
+
+Elaborating entity <UART_transmitter> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <UART_receiver> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <StateMachine> (architecture <Behavioral>) with generics from library <work>.
+INFO:HDLCompiler:679 - "C:\Users\seb\Desktop\Calculator-Not-Integers\StateMachine.vhd" Line 333. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:1127 - "C:\Users\seb\Desktop\Calculator-Not-Integers\StateMachine.vhd" Line 63: Assignment to strerror ignored, since the identifier is never used
+
+Elaborating entity <Serialiser> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <charStack> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <BufferMultiplexer> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <BuffWriteOr> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <UART_tx_buffer> (architecture <Behavioral>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <lab2_design_top>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\TopLevel.vhd".
+    Summary:
+	no macro.
+Unit <lab2_design_top> synthesized.
+
+Synthesizing Unit <UART>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\uart.vhd".
+        BAUD_RATE = 9600
+        CLOCK_RATE = 40000000
+    Summary:
+	no macro.
+Unit <UART> synthesized.
+
+Synthesizing Unit <UART_baudRateGenerator>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_baudRateGenerator.vhd".
+        BAUD_RATE = 9600
+        CLOCK_RATE = 40000000
+    Found 9-bit register for signal <make_x16en.clockCount>.
+    Found 1-bit register for signal <baudRateEnable>.
+    Found 13-bit register for signal <make_baudEn.clockCount>.
+    Found 1-bit register for signal <baudRateEnable_x16>.
+    Found 9-bit adder for signal <make_x16en.clockCount[8]_GND_6_o_add_0_OUT> created at line 26.
+    Found 13-bit adder for signal <make_baudEn.clockCount[12]_GND_6_o_add_4_OUT> created at line 39.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  24 D-type flip-flop(s).
+Unit <UART_baudRateGenerator> synthesized.
+
+Synthesizing Unit <UART_transmitter>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_transmitter.vhd".
+    Found 1-bit register for signal <ready>.
+    Found 1-bit register for signal <tx_sm.go>.
+    Found 1-bit register for signal <serialDataOut>.
+    Found 8-bit register for signal <tx_sm.dataToTX>.
+    Found 3-bit register for signal <tx_sm.bitToSend>.
+    Found 2-bit register for signal <txState>.
+    Found finite state machine <FSM_0> for signal <txState>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clock (rising_edge)                            |
+    | Reset              | reset (positive)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit adder for signal <tx_sm.bitToSend[2]_GND_7_o_add_5_OUT> created at line 55.
+    Found 1-bit 8-to-1 multiplexer for signal <tx_sm.bitToSend[2]_tx_sm.dataToTX[7]_Mux_3_o> created at line 51.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  14 D-type flip-flop(s).
+	inferred   7 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <UART_transmitter> synthesized.
+
+Synthesizing Unit <UART_receiver>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_receiver.vhd".
+    Found 1-bit register for signal <dataValid>.
+    Found 1-bit register for signal <countLoad>.
+    Found 1-bit register for signal <countEnable>.
+    Found 1-bit register for signal <lineDown>.
+    Found 3-bit register for signal <rx_sm.bitsReceived>.
+    Found 5-bit register for signal <countValue>.
+    Found 8-bit register for signal <parallelDataOut>.
+    Found 5-bit register for signal <counter.internalCountValue>.
+    Found 1-bit register for signal <countDone>.
+    Found 2-bit register for signal <rxState>.
+    Found finite state machine <FSM_1> for signal <rxState>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 16                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clock (rising_edge)                            |
+    | Reset              | reset (positive)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit adder for signal <rx_sm.bitsReceived[2]_GND_8_o_add_9_OUT> created at line 80.
+    Found 5-bit subtractor for signal <GND_8_o_GND_8_o_sub_41_OUT<4:0>> created at line 124.
+    Found 1-bit 4-to-1 multiplexer for signal <rxState[1]_GND_8_o_Mux_22_o> created at line 51.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  26 D-type flip-flop(s).
+	inferred  19 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <UART_receiver> synthesized.
+
+Synthesizing Unit <StateMachine>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\StateMachine.vhd".
+    Found 1-bit register for signal <reset>.
+    Found 4-bit register for signal <State>.
+    Found 2-bit register for signal <muxSel>.
+    Found 15-bit register for signal <unsA>.
+    Found 15-bit register for signal <unsB>.
+    Found 29-bit register for signal <unsResult>.
+    Found 3-bit register for signal <inputCount>.
+    Found 8-bit register for signal <outputChar>.
+    Found 1-bit register for signal <bufferTxRequest>.
+    Found 1-bit register for signal <NegA>.
+    Found 3-bit register for signal <op>.
+    Found 1-bit register for signal <NegB>.
+    Found 29-bit register for signal <signedOutput>.
+    Found 1-bit register for signal <startSerialiser>.
+    Found finite state machine <FSM_2> for signal <State>.
+    -----------------------------------------------------------------------
+    | States             | 13                                             |
+    | Transitions        | 39                                             |
+    | Inputs             | 8                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | extReset (positive)                            |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | rst                                            |
+    | Power Up State     | rst                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 16-bit subtractor for signal <n0190> created at line 1411.
+    Found 16-bit subtractor for signal <n0192> created at line 1411.
+    Found 15-bit adder for signal <unsA[1]_inputChar[7]_add_97_OUT> created at line 151.
+    Found 15-bit adder for signal <unsB[1]_inputChar[7]_add_166_OUT> created at line 249.
+    Found 3-bit adder for signal <inputCount[1]_GND_9_o_add_167_OUT> created at line 250.
+    Found 15-bit adder for signal <unsA[1]_unsB[1]_add_186_OUT> created at line 280.
+    Found 8-bit subtractor for signal <inputChar[7]_GND_9_o_sub_97_OUT<7:0>> created at line 151.
+    Found 15-bit subtractor for signal <unsA[1]_unsB[1]_sub_188_OUT<14:0>> created at line 283.
+    Found 15x5-bit multiplier for signal <n0144> created at line 1411.
+    Found 15x5-bit multiplier for signal <n0173> created at line 1411.
+    Found 15x15-bit multiplier for signal <n0196> created at line 286.
+    Found 29-bit 5-to-1 multiplexer for signal <op[2]_X_9_o_wide_mux_191_OUT> created at line 278.
+    Found 8-bit comparator greater for signal <n0011> created at line 145
+    Found 8-bit comparator greater for signal <n0013> created at line 145
+    Summary:
+	inferred   3 Multiplier(s).
+	inferred   8 Adder/Subtractor(s).
+	inferred 109 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  19 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <StateMachine> synthesized.
+
+Synthesizing Unit <div_15s_15s>.
+    Related source file is "".
+    Found 15-bit subtractor for signal <a[14]_unary_minus_1_OUT> created at line 0.
+    Found 15-bit subtractor for signal <b[14]_unary_minus_3_OUT> created at line 0.
+    Found 30-bit adder for signal <n0896> created at line 0.
+    Found 30-bit adder for signal <GND_13_o_b[14]_add_5_OUT> created at line 0.
+    Found 29-bit adder for signal <n0900> created at line 0.
+    Found 29-bit adder for signal <GND_13_o_b[14]_add_7_OUT> created at line 0.
+    Found 28-bit adder for signal <n0904> created at line 0.
+    Found 28-bit adder for signal <GND_13_o_b[14]_add_9_OUT> created at line 0.
+    Found 27-bit adder for signal <n0908> created at line 0.
+    Found 27-bit adder for signal <GND_13_o_b[14]_add_11_OUT> created at line 0.
+    Found 26-bit adder for signal <n0912> created at line 0.
+    Found 26-bit adder for signal <GND_13_o_b[14]_add_13_OUT> created at line 0.
+    Found 25-bit adder for signal <n0916> created at line 0.
+    Found 25-bit adder for signal <GND_13_o_b[14]_add_15_OUT> created at line 0.
+    Found 24-bit adder for signal <n0920> created at line 0.
+    Found 24-bit adder for signal <GND_13_o_b[14]_add_17_OUT> created at line 0.
+    Found 23-bit adder for signal <n0924> created at line 0.
+    Found 23-bit adder for signal <GND_13_o_b[14]_add_19_OUT> created at line 0.
+    Found 22-bit adder for signal <n0928> created at line 0.
+    Found 22-bit adder for signal <GND_13_o_b[14]_add_21_OUT> created at line 0.
+    Found 21-bit adder for signal <n0932> created at line 0.
+    Found 21-bit adder for signal <GND_13_o_b[14]_add_23_OUT> created at line 0.
+    Found 20-bit adder for signal <n0936> created at line 0.
+    Found 20-bit adder for signal <GND_13_o_b[14]_add_25_OUT> created at line 0.
+    Found 19-bit adder for signal <n0940> created at line 0.
+    Found 19-bit adder for signal <GND_13_o_b[14]_add_27_OUT> created at line 0.
+    Found 18-bit adder for signal <n0944> created at line 0.
+    Found 18-bit adder for signal <GND_13_o_b[14]_add_29_OUT> created at line 0.
+    Found 17-bit adder for signal <n0948> created at line 0.
+    Found 17-bit adder for signal <GND_13_o_b[14]_add_31_OUT> created at line 0.
+    Found 16-bit adder for signal <n0952> created at line 0.
+    Found 16-bit adder for signal <GND_13_o_b[14]_add_33_OUT> created at line 0.
+    Found 16-bit adder for signal <GND_13_o_BUS_0001_add_36_OUT[15:0]> created at line 0.
+    Found 30-bit comparator greater for signal <BUS_0001_INV_521_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0002_INV_520_o> created at line 0
+    Found 28-bit comparator greater for signal <BUS_0003_INV_519_o> created at line 0
+    Found 27-bit comparator greater for signal <BUS_0004_INV_518_o> created at line 0
+    Found 26-bit comparator greater for signal <BUS_0005_INV_517_o> created at line 0
+    Found 25-bit comparator greater for signal <BUS_0006_INV_516_o> created at line 0
+    Found 24-bit comparator greater for signal <BUS_0007_INV_515_o> created at line 0
+    Found 23-bit comparator greater for signal <BUS_0008_INV_514_o> created at line 0
+    Found 22-bit comparator greater for signal <BUS_0009_INV_513_o> created at line 0
+    Found 21-bit comparator greater for signal <BUS_0010_INV_512_o> created at line 0
+    Found 20-bit comparator greater for signal <BUS_0011_INV_511_o> created at line 0
+    Found 19-bit comparator greater for signal <BUS_0012_INV_510_o> created at line 0
+    Found 18-bit comparator greater for signal <BUS_0013_INV_509_o> created at line 0
+    Found 17-bit comparator greater for signal <BUS_0014_INV_508_o> created at line 0
+    Found 16-bit comparator greater for signal <BUS_0015_INV_507_o> created at line 0
+    Found 15-bit comparator greater for signal <BUS_0016_INV_506_o> created at line 0
+    Summary:
+	inferred  33 Adder/Subtractor(s).
+	inferred  16 Comparator(s).
+	inferred 214 Multiplexer(s).
+Unit <div_15s_15s> synthesized.
+
+Synthesizing Unit <mod_15s_15s>.
+    Related source file is "".
+    Found 15-bit subtractor for signal <a[14]_unary_minus_1_OUT> created at line 0.
+    Found 15-bit subtractor for signal <b[14]_unary_minus_3_OUT> created at line 0.
+    Found 30-bit adder for signal <n0930> created at line 0.
+    Found 30-bit adder for signal <GND_15_o_b[14]_add_5_OUT> created at line 0.
+    Found 29-bit adder for signal <n0934> created at line 0.
+    Found 29-bit adder for signal <GND_15_o_b[14]_add_7_OUT> created at line 0.
+    Found 28-bit adder for signal <n0938> created at line 0.
+    Found 28-bit adder for signal <GND_15_o_b[14]_add_9_OUT> created at line 0.
+    Found 27-bit adder for signal <n0942> created at line 0.
+    Found 27-bit adder for signal <GND_15_o_b[14]_add_11_OUT> created at line 0.
+    Found 26-bit adder for signal <n0946> created at line 0.
+    Found 26-bit adder for signal <GND_15_o_b[14]_add_13_OUT> created at line 0.
+    Found 25-bit adder for signal <n0950> created at line 0.
+    Found 25-bit adder for signal <GND_15_o_b[14]_add_15_OUT> created at line 0.
+    Found 24-bit adder for signal <n0954> created at line 0.
+    Found 24-bit adder for signal <GND_15_o_b[14]_add_17_OUT> created at line 0.
+    Found 23-bit adder for signal <n0958> created at line 0.
+    Found 23-bit adder for signal <GND_15_o_b[14]_add_19_OUT> created at line 0.
+    Found 22-bit adder for signal <n0962> created at line 0.
+    Found 22-bit adder for signal <GND_15_o_b[14]_add_21_OUT> created at line 0.
+    Found 21-bit adder for signal <n0966> created at line 0.
+    Found 21-bit adder for signal <GND_15_o_b[14]_add_23_OUT> created at line 0.
+    Found 20-bit adder for signal <n0970> created at line 0.
+    Found 20-bit adder for signal <GND_15_o_b[14]_add_25_OUT> created at line 0.
+    Found 19-bit adder for signal <n0974> created at line 0.
+    Found 19-bit adder for signal <GND_15_o_b[14]_add_27_OUT> created at line 0.
+    Found 18-bit adder for signal <n0978> created at line 0.
+    Found 18-bit adder for signal <GND_15_o_b[14]_add_29_OUT> created at line 0.
+    Found 17-bit adder for signal <n0982> created at line 0.
+    Found 17-bit adder for signal <GND_15_o_b[14]_add_31_OUT> created at line 0.
+    Found 16-bit adder for signal <n0986> created at line 0.
+    Found 16-bit adder for signal <GND_15_o_b[14]_add_33_OUT> created at line 0.
+    Found 15-bit adder for signal <n0990> created at line 0.
+    Found 15-bit adder for signal <a[14]_b[14]_add_35_OUT> created at line 0.
+    Found 15-bit adder for signal <n0994> created at line 0.
+    Found 15-bit adder for signal <b[14]_a[14]_add_37_OUT> created at line 0.
+    Found 15-bit adder for signal <GND_15_o_a[14]_add_38_OUT[14:0]> created at line 0.
+    Found 30-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 28-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 27-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 26-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 25-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 23-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 22-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 21-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 20-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 19-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 18-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 17-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 16-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 15-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Summary:
+	inferred  37 Adder/Subtractor(s).
+	inferred  16 Comparator(s).
+	inferred 258 Multiplexer(s).
+Unit <mod_15s_15s> synthesized.
+
+Synthesizing Unit <Serialiser>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\Serialiser.vhd".
+INFO:Xst:3210 - "C:\Users\seb\Desktop\Calculator-Not-Integers\Serialiser.vhd" line 75: Output port <full> of the instance <stack> is unconnected or connected to loadless signal.
+    Found 29-bit register for signal <number>.
+    Found 8-bit register for signal <digit>.
+    Found 8-bit register for signal <stackInput>.
+    Found 3-bit register for signal <State>.
+    Found 1-bit register for signal <done>.
+    Found 1-bit register for signal <push>.
+    Found 1-bit register for signal <pop>.
+    Found 1-bit register for signal <transmitRequest>.
+    Found 8-bit register for signal <parallelDataOut>.
+    Found finite state machine <FSM_3> for signal <State>.
+    -----------------------------------------------------------------------
+    | States             | 8                                              |
+    | Transitions        | 12                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | reset (positive)                               |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 29-bit adder for signal <n0049> created at line 128.
+    Found 29-bit subtractor for signal <number[1]_unary_minus_6_OUT<28:0>> created at line 0.
+    Found 29-bit comparator greater for signal <GND_17_o_number[1]_LessThan_3_o> created at line 111
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  57 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   3 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <Serialiser> synthesized.
+
+Synthesizing Unit <charStack>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\Stack.vhd".
+    Found 8-bit register for signal <stack<0>>.
+    Found 8-bit register for signal <stack<1>>.
+    Found 8-bit register for signal <stack<2>>.
+    Found 8-bit register for signal <stack<3>>.
+    Found 8-bit register for signal <stack<4>>.
+    Found 8-bit register for signal <stack<5>>.
+    Found 8-bit register for signal <stack<6>>.
+    Found 8-bit register for signal <stack<7>>.
+    Found 8-bit register for signal <stack<8>>.
+    Found 32-bit register for signal <stackIndex>.
+    Found 1-bit register for signal <full>.
+    Found 8-bit register for signal <output>.
+    Found 33-bit subtractor for signal <n0077> created at line 70.
+    Found 32-bit adder for signal <stackIndex[31]_GND_18_o_add_12_OUT> created at line 63.
+    Found 8-bit 9-to-1 multiplexer for signal <stackIndex[31]_X_11_o_wide_mux_17_OUT> created at line 70.
+    Found 32-bit comparator greater for signal <GND_18_o_stackIndex[31]_LessThan_2_o> created at line 60
+    Found 32-bit comparator greater for signal <stackIndex[31]_GND_18_o_LessThan_16_o> created at line 69
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred 113 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <charStack> synthesized.
+
+Synthesizing Unit <mod_29s_5s>.
+    Related source file is "".
+    Found 29-bit subtractor for signal <a[28]_unary_minus_1_OUT> created at line 0.
+    Found 34-bit adder for signal <GND_20_o_b[4]_add_5_OUT> created at line 0.
+    Found 33-bit adder for signal <GND_20_o_b[4]_add_7_OUT> created at line 0.
+    Found 32-bit adder for signal <GND_20_o_b[4]_add_9_OUT> created at line 0.
+    Found 31-bit adder for signal <GND_20_o_b[4]_add_11_OUT> created at line 0.
+    Found 30-bit adder for signal <GND_20_o_b[4]_add_13_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_b[4]_add_15_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_17_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_19_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_21_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_23_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_25_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_27_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_29_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_31_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_33_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_35_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_37_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_39_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_41_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_43_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_45_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_47_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_49_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_51_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_53_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_55_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_57_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_59_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_61_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_20_o_add_63_OUT> created at line 0.
+    Found 5-bit adder for signal <b[4]_a[28]_add_65_OUT[4:0]> created at line 0.
+    Found 34-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 33-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 31-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 30-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0017> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0018> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0019> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0020> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0021> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0022> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0023> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0024> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0025> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0026> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0027> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0028> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0029> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0030> created at line 0
+    Summary:
+	inferred  32 Adder/Subtractor(s).
+	inferred  30 Comparator(s).
+	inferred 848 Multiplexer(s).
+Unit <mod_29s_5s> synthesized.
+
+Synthesizing Unit <div_29s_5s>.
+    Related source file is "".
+    Found 29-bit subtractor for signal <a[28]_unary_minus_1_OUT> created at line 0.
+    Found 30-bit adder for signal <GND_23_o_BUS_0001_add_64_OUT[29:0]> created at line 0.
+    Found 34-bit adder for signal <GND_23_o_b[4]_add_5_OUT> created at line 0.
+    Found 33-bit adder for signal <GND_23_o_b[4]_add_7_OUT> created at line 0.
+    Found 32-bit adder for signal <GND_23_o_b[4]_add_9_OUT> created at line 0.
+    Found 31-bit adder for signal <GND_23_o_b[4]_add_11_OUT> created at line 0.
+    Found 30-bit adder for signal <GND_23_o_b[4]_add_13_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_b[4]_add_15_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_17_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_19_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_21_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_23_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_25_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_27_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_29_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_31_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_33_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_35_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_37_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_39_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_41_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_43_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_45_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_47_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_49_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_51_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_53_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_55_OUT> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_57_OUT[28:0]> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_59_OUT[28:0]> created at line 0.
+    Found 29-bit adder for signal <a[28]_GND_23_o_add_61_OUT[28:0]> created at line 0.
+    Found 34-bit comparator greater for signal <BUS_0001_INV_2907_o> created at line 0
+    Found 33-bit comparator greater for signal <BUS_0002_INV_2906_o> created at line 0
+    Found 32-bit comparator greater for signal <BUS_0003_INV_2905_o> created at line 0
+    Found 31-bit comparator greater for signal <BUS_0004_INV_2904_o> created at line 0
+    Found 30-bit comparator greater for signal <BUS_0005_INV_2903_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0006_INV_2902_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0007_INV_2901_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0008_INV_2900_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0009_INV_2899_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0010_INV_2898_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0011_INV_2897_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0012_INV_2896_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0013_INV_2895_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0014_INV_2894_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0015_INV_2893_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0016_INV_2892_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0017_INV_2891_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0018_INV_2890_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0019_INV_2889_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0020_INV_2888_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0021_INV_2887_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0022_INV_2886_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0023_INV_2885_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0024_INV_2884_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0025_INV_2883_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0026_INV_2882_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0027_INV_2881_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0028_INV_2880_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0029_INV_2879_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0030_INV_2878_o> created at line 0
+    Summary:
+	inferred  31 Adder/Subtractor(s).
+	inferred  30 Comparator(s).
+	inferred 759 Multiplexer(s).
+Unit <div_29s_5s> synthesized.
+
+Synthesizing Unit <BufferMultiplexer>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\BufferMultiplexer.vhd".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <BufferMultiplexer> synthesized.
+
+Synthesizing Unit <BuffWriteOr>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\BuffWriteOr.vhd".
+    Summary:
+	no macro.
+Unit <BuffWriteOr> synthesized.
+
+Synthesizing Unit <UART_tx_buffer>.
+    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\UART-tx-buffer.vhd".
+    Found 8-bit register for signal <buff<1>>.
+    Found 8-bit register for signal <buff<2>>.
+    Found 8-bit register for signal <buff<3>>.
+    Found 8-bit register for signal <buff<4>>.
+    Found 8-bit register for signal <buff<5>>.
+    Found 8-bit register for signal <buff<6>>.
+    Found 8-bit register for signal <buff<7>>.
+    Found 8-bit register for signal <buff<8>>.
+    Found 8-bit register for signal <buff<9>>.
+    Found 8-bit register for signal <buff<10>>.
+    Found 8-bit register for signal <buff<11>>.
+    Found 8-bit register for signal <buff<12>>.
+    Found 8-bit register for signal <buff<13>>.
+    Found 8-bit register for signal <buff<14>>.
+    Found 8-bit register for signal <buff<15>>.
+    Found 8-bit register for signal <buff<16>>.
+    Found 8-bit register for signal <buff<17>>.
+    Found 8-bit register for signal <buff<18>>.
+    Found 8-bit register for signal <buff<19>>.
+    Found 8-bit register for signal <buff<20>>.
+    Found 8-bit register for signal <buff<21>>.
+    Found 8-bit register for signal <buff<22>>.
+    Found 8-bit register for signal <buff<23>>.
+    Found 8-bit register for signal <buff<24>>.
+    Found 8-bit register for signal <buff<25>>.
+    Found 8-bit register for signal <buff<26>>.
+    Found 8-bit register for signal <buff<27>>.
+    Found 8-bit register for signal <buff<28>>.
+    Found 8-bit register for signal <buff<29>>.
+    Found 8-bit register for signal <buff<30>>.
+    Found 8-bit register for signal <buff<31>>.
+    Found 8-bit register for signal <buff<32>>.
+    Found 8-bit register for signal <buff<33>>.
+    Found 8-bit register for signal <buff<34>>.
+    Found 8-bit register for signal <buff<35>>.
+    Found 8-bit register for signal <buff<36>>.
+    Found 8-bit register for signal <buff<37>>.
+    Found 8-bit register for signal <buff<38>>.
+    Found 8-bit register for signal <buff<39>>.
+    Found 8-bit register for signal <buff<40>>.
+    Found 8-bit register for signal <buff<41>>.
+    Found 8-bit register for signal <buff<42>>.
+    Found 8-bit register for signal <buff<43>>.
+    Found 8-bit register for signal <buff<44>>.
+    Found 8-bit register for signal <buff<45>>.
+    Found 8-bit register for signal <buff<46>>.
+    Found 8-bit register for signal <buff<47>>.
+    Found 8-bit register for signal <buff<48>>.
+    Found 8-bit register for signal <buff<49>>.
+    Found 8-bit register for signal <buff<50>>.
+    Found 8-bit register for signal <buff<51>>.
+    Found 8-bit register for signal <buff<52>>.
+    Found 8-bit register for signal <buff<53>>.
+    Found 8-bit register for signal <buff<54>>.
+    Found 8-bit register for signal <buff<55>>.
+    Found 8-bit register for signal <buff<56>>.
+    Found 8-bit register for signal <buff<57>>.
+    Found 8-bit register for signal <buff<58>>.
+    Found 8-bit register for signal <buff<59>>.
+    Found 8-bit register for signal <buff<60>>.
+    Found 8-bit register for signal <buff<61>>.
+    Found 8-bit register for signal <buff<62>>.
+    Found 8-bit register for signal <buff<63>>.
+    Found 8-bit register for signal <buff<0>>.
+    Found 32-bit register for signal <inputIndex>.
+    Found 32-bit register for signal <outputIndex>.
+    Found 1-bit register for signal <uartTxRequest>.
+    Found 8-bit register for signal <output>.
+    Found 32-bit adder for signal <n0340> created at line 57.
+    Found 32-bit adder for signal <n0407> created at line 71.
+INFO:Xst:3019 - HDL ADVISOR - 512 flip-flops were inferred for signal <buff>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Found 8-bit 64-to-1 multiplexer for signal <outputIndex[5]_buff[63][7]_wide_mux_197_OUT> created at line 70.
+    Found 32-bit comparator not equal for signal <n0196> created at line 68
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred 585 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <UART_tx_buffer> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 3
+ 15x15-bit multiplier                                  : 1
+ 15x5-bit multiplier                                   : 2
+# Adders/Subtractors                                   : 152
+ 13-bit adder                                          : 1
+ 15-bit adder                                          : 8
+ 15-bit subtractor                                     : 5
+ 16-bit adder                                          : 5
+ 16-bit subtractor                                     : 2
+ 17-bit adder                                          : 4
+ 18-bit adder                                          : 4
+ 19-bit adder                                          : 4
+ 20-bit adder                                          : 4
+ 21-bit adder                                          : 4
+ 22-bit adder                                          : 4
+ 23-bit adder                                          : 4
+ 24-bit adder                                          : 4
+ 25-bit adder                                          : 4
+ 26-bit adder                                          : 4
+ 27-bit adder                                          : 4
+ 28-bit adder                                          : 4
+ 29-bit adder                                          : 54
+ 29-bit subtractor                                     : 3
+ 3-bit adder                                           : 3
+ 30-bit adder                                          : 7
+ 31-bit adder                                          : 2
+ 32-bit adder                                          : 5
+ 33-bit adder                                          : 2
+ 33-bit subtractor                                     : 1
+ 34-bit adder                                          : 2
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 1
+ 8-bit subtractor                                      : 1
+ 9-bit adder                                           : 1
+# Registers                                            : 119
+ 1-bit register                                        : 21
+ 13-bit register                                       : 1
+ 15-bit register                                       : 2
+ 2-bit register                                        : 1
+ 29-bit register                                       : 3
+ 3-bit register                                        : 4
+ 32-bit register                                       : 3
+ 5-bit register                                        : 2
+ 8-bit register                                        : 81
+ 9-bit register                                        : 1
+# Comparators                                          : 98
+ 15-bit comparator greater                             : 1
+ 15-bit comparator lessequal                           : 1
+ 16-bit comparator greater                             : 1
+ 16-bit comparator lessequal                           : 1
+ 17-bit comparator greater                             : 1
+ 17-bit comparator lessequal                           : 1
+ 18-bit comparator greater                             : 1
+ 18-bit comparator lessequal                           : 1
+ 19-bit comparator greater                             : 1
+ 19-bit comparator lessequal                           : 1
+ 20-bit comparator greater                             : 1
+ 20-bit comparator lessequal                           : 1
+ 21-bit comparator greater                             : 1
+ 21-bit comparator lessequal                           : 1
+ 22-bit comparator greater                             : 1
+ 22-bit comparator lessequal                           : 1
+ 23-bit comparator greater                             : 1
+ 23-bit comparator lessequal                           : 1
+ 24-bit comparator greater                             : 1
+ 24-bit comparator lessequal                           : 1
+ 25-bit comparator greater                             : 1
+ 25-bit comparator lessequal                           : 1
+ 26-bit comparator greater                             : 1
+ 26-bit comparator lessequal                           : 1
+ 27-bit comparator greater                             : 1
+ 27-bit comparator lessequal                           : 1
+ 28-bit comparator greater                             : 1
+ 28-bit comparator lessequal                           : 1
+ 29-bit comparator greater                             : 27
+ 29-bit comparator lessequal                           : 26
+ 30-bit comparator greater                             : 2
+ 30-bit comparator lessequal                           : 2
+ 31-bit comparator greater                             : 1
+ 31-bit comparator lessequal                           : 1
+ 32-bit comparator greater                             : 3
+ 32-bit comparator lessequal                           : 1
+ 32-bit comparator not equal                           : 1
+ 33-bit comparator greater                             : 1
+ 33-bit comparator lessequal                           : 1
+ 34-bit comparator greater                             : 1
+ 34-bit comparator lessequal                           : 1
+ 8-bit comparator greater                              : 2
+# Multiplexers                                         : 2131
+ 1-bit 2-to-1 multiplexer                              : 2088
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+ 15-bit 2-to-1 multiplexer                             : 11
+ 16-bit 2-to-1 multiplexer                             : 1
+ 2-bit 2-to-1 multiplexer                              : 2
+ 29-bit 2-to-1 multiplexer                             : 8
+ 29-bit 5-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 7
+ 30-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 5-bit 2-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 5
+ 8-bit 64-to-1 multiplexer                             : 1
+ 8-bit 9-to-1 multiplexer                              : 1
+# FSMs                                                 : 4
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <inputIndex_6> in Unit <uartBuff> is equivalent to the following 25 FFs/Latches, which will be removed : <inputIndex_7> <inputIndex_8> <inputIndex_9> <inputIndex_10> <inputIndex_11> <inputIndex_12> <inputIndex_13> <inputIndex_14> <inputIndex_15> <inputIndex_16> <inputIndex_17> <inputIndex_18> <inputIndex_19> <inputIndex_20> <inputIndex_21> <inputIndex_22> <inputIndex_23> <inputIndex_24> <inputIndex_25> <inputIndex_26> <inputIndex_27> <inputIndex_28> <inputIndex_29> <inputIndex_30> <inputIndex_31> 
+INFO:Xst:2261 - The FF/Latch <outputIndex_6> in Unit <uartBuff> is equivalent to the following 25 FFs/Latches, which will be removed : <outputIndex_7> <outputIndex_8> <outputIndex_9> <outputIndex_10> <outputIndex_11> <outputIndex_12> <outputIndex_13> <outputIndex_14> <outputIndex_15> <outputIndex_16> <outputIndex_17> <outputIndex_18> <outputIndex_19> <outputIndex_20> <outputIndex_21> <outputIndex_22> <outputIndex_23> <outputIndex_24> <outputIndex_25> <outputIndex_26> <outputIndex_27> <outputIndex_28> <outputIndex_29> <outputIndex_30> <outputIndex_31> 
+WARNING:Xst:1426 - The value init of the FF/Latch NegA hinder the constant cleaning in the block make_StateMachine.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <countValue_4> has a constant value of 0 in block <rcvr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <inputIndex_6> has a constant value of 0 in block <uartBuff>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <outputIndex_6> has a constant value of 0 in block <uartBuff>. This FF/Latch will be trimmed during the optimization process.
+
+Synthesizing (advanced) Unit <UART_baudRateGenerator>.
+The following registers are absorbed into counter <make_x16en.clockCount>: 1 register on signal <make_x16en.clockCount>.
+The following registers are absorbed into counter <make_baudEn.clockCount>: 1 register on signal <make_baudEn.clockCount>.
+Unit <UART_baudRateGenerator> synthesized (advanced).
+
+Synthesizing (advanced) Unit <UART_receiver>.
+The following registers are absorbed into counter <counter.internalCountValue>: 1 register on signal <counter.internalCountValue>.
+The following registers are absorbed into counter <rx_sm.bitsReceived>: 1 register on signal <rx_sm.bitsReceived>.
+Unit <UART_receiver> synthesized (advanced).
+
+Synthesizing (advanced) Unit <UART_transmitter>.
+The following registers are absorbed into counter <tx_sm.bitToSend>: 1 register on signal <tx_sm.bitToSend>.
+Unit <UART_transmitter> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 3
+ 15x15-bit multiplier                                  : 1
+ 15x5-bit multiplier                                   : 2
+# Adders/Subtractors                                   : 117
+ 13-bit adder                                          : 1
+ 15-bit adder                                          : 4
+ 15-bit adder carry in                                 : 32
+ 15-bit subtractor                                     : 5
+ 16-bit adder                                          : 1
+ 16-bit subtractor                                     : 2
+ 29-bit adder                                          : 59
+ 29-bit subtractor                                     : 3
+ 3-bit adder                                           : 1
+ 30-bit adder                                          : 1
+ 32-bit adder                                          : 1
+ 32-bit subtractor                                     : 1
+ 5-bit adder                                           : 2
+ 6-bit adder                                           : 2
+ 8-bit subtractor                                      : 1
+ 9-bit adder                                           : 1
+# Counters                                             : 5
+ 13-bit up counter                                     : 1
+ 3-bit up counter                                      : 2
+ 5-bit down counter                                    : 1
+ 9-bit up counter                                      : 1
+# Registers                                            : 895
+ Flip-Flops                                            : 895
+# Comparators                                          : 98
+ 15-bit comparator greater                             : 1
+ 15-bit comparator lessequal                           : 1
+ 16-bit comparator greater                             : 1
+ 16-bit comparator lessequal                           : 1
+ 17-bit comparator greater                             : 1
+ 17-bit comparator lessequal                           : 1
+ 18-bit comparator greater                             : 1
+ 18-bit comparator lessequal                           : 1
+ 19-bit comparator greater                             : 1
+ 19-bit comparator lessequal                           : 1
+ 20-bit comparator greater                             : 1
+ 20-bit comparator lessequal                           : 1
+ 21-bit comparator greater                             : 1
+ 21-bit comparator lessequal                           : 1
+ 22-bit comparator greater                             : 1
+ 22-bit comparator lessequal                           : 1
+ 23-bit comparator greater                             : 1
+ 23-bit comparator lessequal                           : 1
+ 24-bit comparator greater                             : 1
+ 24-bit comparator lessequal                           : 1
+ 25-bit comparator greater                             : 1
+ 25-bit comparator lessequal                           : 1
+ 26-bit comparator greater                             : 1
+ 26-bit comparator lessequal                           : 1
+ 27-bit comparator greater                             : 1
+ 27-bit comparator lessequal                           : 1
+ 28-bit comparator greater                             : 1
+ 28-bit comparator lessequal                           : 1
+ 29-bit comparator greater                             : 27
+ 29-bit comparator lessequal                           : 26
+ 30-bit comparator greater                             : 2
+ 30-bit comparator lessequal                           : 2
+ 31-bit comparator greater                             : 1
+ 31-bit comparator lessequal                           : 1
+ 32-bit comparator greater                             : 3
+ 32-bit comparator lessequal                           : 1
+ 32-bit comparator not equal                           : 1
+ 33-bit comparator greater                             : 1
+ 33-bit comparator lessequal                           : 1
+ 34-bit comparator greater                             : 1
+ 34-bit comparator lessequal                           : 1
+ 8-bit comparator greater                              : 2
+# Multiplexers                                         : 2128
+ 1-bit 2-to-1 multiplexer                              : 2088
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+ 15-bit 2-to-1 multiplexer                             : 11
+ 16-bit 2-to-1 multiplexer                             : 1
+ 2-bit 2-to-1 multiplexer                              : 2
+ 29-bit 2-to-1 multiplexer                             : 8
+ 29-bit 5-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 5
+ 30-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 5-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 5
+ 8-bit 64-to-1 multiplexer                             : 1
+ 8-bit 9-to-1 multiplexer                              : 1
+# FSMs                                                 : 4
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <countValue_4> has a constant value of 0 in block <UART_receiver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch NegA hinder the constant cleaning in the block StateMachine.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <outputIndex_6> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_7> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_8> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_9> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_10> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_11> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_12> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_13> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_14> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_15> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_16> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_17> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_18> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_19> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_20> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_21> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_22> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_23> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_24> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_25> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_26> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_27> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_28> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_29> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_30> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputIndex_31> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_6> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_7> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_8> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_9> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_10> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_11> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_12> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_13> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_14> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_15> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_16> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_17> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_18> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_19> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_20> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_21> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_22> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_23> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_24> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_25> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_26> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_27> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_28> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_29> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_30> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <inputIndex_31> has a constant value of 0 in block <UART_tx_buffer>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <make_UART/xmit/FSM_0> on signal <txState[1:2]> with gray encoding.
+----------------------------
+ State          | Encoding
+----------------------------
+ idle           | 00
+ send_start_bit | 01
+ send_data_bits | 11
+ send_stop_bit  | 10
+----------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <make_UART/rcvr/FSM_1> on signal <rxState[1:2]> with user encoding.
+---------------------------
+ State         | Encoding
+---------------------------
+ idle          | 00
+ rcv_start_bit | 01
+ rcv_data_bits | 10
+ rcv_stop_bit  | 11
+---------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <make_StateMachine/FSM_2> on signal <State[1:4]> with user encoding.
+------------------------
+ State      | Encoding
+------------------------
+ rst        | 0000
+ sendnl     | 0001
+ negdiga    | 0010
+ diga       | 0011
+ digop      | 0100
+ negdigb    | 0101
+ digb       | 0110
+ digeq      | 0111
+ negate     | 1000
+ calcresult | 1001
+ sendresult | 1010
+ waitresult | 1011
+ waiterror  | 1100
+------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <outputSerialiser/FSM_3> on signal <State[1:3]> with user encoding.
+---------------------------
+ State         | Encoding
+---------------------------
+ idle          | 000
+ checkneg      | 001
+ negate        | 010
+ ascii         | 011
+ storedigit    | 100
+ retrievedigit | 101
+ waitretrieve  | 110
+ txdigit       | 111
+---------------------------
+WARNING:Xst:1426 - The value init of the FF/Latch countValue_0 hinder the constant cleaning in the block UART_receiver.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1426 - The value init of the FF/Latch countValue_1 hinder the constant cleaning in the block UART_receiver.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1426 - The value init of the FF/Latch countValue_2 hinder the constant cleaning in the block UART_receiver.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1710 - FF/Latch <muxSel_1> (without init value) has a constant value of 0 in block <StateMachine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <digit_7> (without init value) has a constant value of 0 in block <Serialiser>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <stackInput_7> (without init value) has a constant value of 0 in block <Serialiser>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <countValue_0> in Unit <UART_receiver> is equivalent to the following 2 FFs/Latches, which will be removed : <countValue_1> <countValue_2> 
+INFO:Xst:2261 - The FF/Latch <digit_4> in Unit <Serialiser> is equivalent to the following FF/Latch, which will be removed : <digit_5> 
+INFO:Xst:2261 - The FF/Latch <stackInput_4> in Unit <Serialiser> is equivalent to the following FF/Latch, which will be removed : <stackInput_5> 
+
+Optimizing unit <lab2_design_top> ...
+
+Optimizing unit <UART_transmitter> ...
+
+Optimizing unit <UART_receiver> ...
+
+Optimizing unit <UART_baudRateGenerator> ...
+
+Optimizing unit <StateMachine> ...
+
+Optimizing unit <UART_tx_buffer> ...
+
+Optimizing unit <Serialiser> ...
+
+Optimizing unit <charStack> ...
+WARNING:Xst:1710 - FF/Latch <outputSerialiser/parallelDataOut_7> (without init value) has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/output_7> (without init value) has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_8_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_7_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_6_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_5_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_4_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_3_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_1_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_0_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_2_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <outputSerialiser/stack/full> of sequential type is unconnected in block <lab2_design_top>.
+WARNING:Xst:1293 - FF/Latch <outputSerialiser/stack/stackIndex_13> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_12> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_11> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_10> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_9> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_8> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_7> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_6> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_5> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_4> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_8_6> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_8_5> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_8_4> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_8_3> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_8_2> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_8_1> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stack_8_0> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_31> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_30> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_29> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_28> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_27> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_26> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_25> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_24> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_23> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_22> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_21> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_20> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_19> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_18> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_17> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_16> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_15> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <outputSerialiser/stack/stackIndex_14> has a constant value of 0 in block <lab2_design_top>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/stack_0_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/stack_0_4> 
+INFO:Xst:2261 - The FF/Latch <make_UART/rateGen/make_baudEn.clockCount_0> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <make_UART/rateGen/make_x16en.clockCount_0> 
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/stack_1_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/stack_1_4> 
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/stack_2_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/stack_2_4> 
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/stack_3_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/stack_3_4> 
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/stack_4_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/stack_4_4> 
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/stack_5_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/stack_5_4> 
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/stack_6_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/stack_6_4> 
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/output_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/output_4> 
+INFO:Xst:2261 - The FF/Latch <outputSerialiser/stack/stack_7_5> in Unit <lab2_design_top> is equivalent to the following FF/Latch, which will be removed : <outputSerialiser/stack/stack_7_4> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block lab2_design_top, actual ratio is 72.
+FlipFlop outputSerialiser/number_1 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 823
+ Flip-Flops                                            : 823
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : lab2_design_top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 6473
+#      GND                         : 1
+#      INV                         : 207
+#      LUT1                        : 43
+#      LUT2                        : 124
+#      LUT3                        : 566
+#      LUT4                        : 322
+#      LUT5                        : 1249
+#      LUT6                        : 1350
+#      MUXCY                       : 1364
+#      MUXF7                       : 52
+#      VCC                         : 1
+#      XORCY                       : 1194
+# FlipFlops/Latches                : 823
+#      FD                          : 3
+#      FDC                         : 8
+#      FDCE                        : 622
+#      FDE                         : 151
+#      FDPE                        : 1
+#      FDR                         : 28
+#      FDRE                        : 9
+#      FDSE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 3
+#      IBUF                        : 2
+#      OBUF                        : 1
+# DSPs                             : 1
+#      DSP48A1                     : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9csg324-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             823  out of  11440     7%  
+ Number of Slice LUTs:                 3861  out of   5720    67%  
+    Number used as Logic:              3861  out of   5720    67%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   4415
+   Number with an unused Flip Flop:    3592  out of   4415    81%  
+   Number with an unused LUT:           554  out of   4415    12%  
+   Number of fully used LUT-FF pairs:   269  out of   4415     6%  
+   Number of unique control sets:       114
+
+IO Utilization: 
+ Number of IOs:                           4
+ Number of bonded IOBs:                   4  out of    200     2%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+ Number of DSP48A1s:                      1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clock_pin                          | BUFGP                  | 824   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 84.144ns (Maximum Frequency: 11.884MHz)
+   Minimum input arrival time before clock: 6.478ns
+   Maximum output required time after clock: 4.118ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clock_pin'
+  Clock period: 84.144ns (frequency: 11.884MHz)
+  Total number of paths / destination ports: 83652538743820172000000000000000000 / 1756
+-------------------------------------------------------------------------
+Delay:               84.144ns (Levels of Logic = 148)
+  Source:            outputSerialiser/number_26 (FF)
+  Destination:       outputSerialiser/number_1 (FF)
+  Source Clock:      clock_pin rising
+  Destination Clock: clock_pin rising
+
+  Data Path: outputSerialiser/number_26 to outputSerialiser/number_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            17   0.525   1.208  outputSerialiser/number_26 (outputSerialiser/number_26)
+     INV:I->O              1   0.255   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_lut<3>_INV_0 (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_lut<3>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<5> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<6> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<7> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<8> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<9> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<10> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<11> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<12> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<13> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<13>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<14> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<14>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<15> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<15>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<16> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<16>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<17> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<17>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<18> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<18>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<19> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<19>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<20> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<20>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<21> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<21>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<22> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<22>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<23> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<23>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<24> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<24>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<25> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<25>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<26> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<26>)
+     MUXCY:CI->O           0   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<27> (outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_cy<27>)
+     XORCY:CI->O          11   0.206   1.469  outputSerialiser/number[1]_GND_17_o_div_11/Msub_a[28]_unary_minus_1_OUT_xor<28> (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_unary_minus_1_OUT<28>)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0007_INV_2901_o1_G (N1674)
+     MUXF7:I1->O          11   0.175   1.039  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0007_INV_2901_o1 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0007_INV_2901_o)
+     LUT6:I5->O            8   0.254   0.944  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0008_INV_2900_o_SW0 (N58)
+     LUT4:I3->O           11   0.254   1.039  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2571_o11 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2572_o)
+     LUT6:I5->O           11   0.254   1.039  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0009_INV_2899_o (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0009_INV_2899_o1)
+     LUT3:I2->O           12   0.254   1.177  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0009_INV_2899_o11 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0009_INV_2899_o)
+     LUT5:I3->O            3   0.250   0.766  outputSerialiser/number[1]_GND_17_o_div_11/Madd_a[28]_GND_23_o_add_23_OUT_cy<24>11 (outputSerialiser/number[1]_GND_17_o_div_11/Madd_a[28]_GND_23_o_add_23_OUT_cy<24>)
+     LUT6:I5->O           10   0.254   1.008  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2629_o131 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2632_o)
+     LUT4:I3->O            6   0.254   0.876  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0011_INV_2897_o12 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0011_INV_2897_o11)
+     LUT4:I3->O           11   0.254   1.039  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0011_INV_2897_o13 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0011_INV_2897_o)
+     LUT6:I5->O           16   0.254   1.182  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2658_o131 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2661_o)
+     LUT6:I5->O            1   0.254   0.682  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2687_o13_SW1 (N609)
+     LUT6:I5->O           15   0.254   1.155  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2687_o13 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2687_o)
+     LUT6:I5->O           13   0.254   1.098  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0013_INV_2895_o1 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0013_INV_2895_o)
+     LUT6:I5->O            5   0.254   1.069  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2716_o181 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2724_o)
+     LUT6:I3->O           25   0.235   1.403  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0014_INV_2894_o12 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0014_INV_2894_o11)
+     LUT6:I5->O            4   0.254   1.234  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2745_o151 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2750_o)
+     LUT6:I1->O           19   0.254   1.261  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2774_o1111_SW0 (N1002)
+     LUT6:I5->O            4   0.254   1.259  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2774_o171 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2781_o)
+     LUT6:I0->O           25   0.254   1.403  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0016_INV_2892_o22 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0016_INV_2892_o21)
+     LUT6:I5->O            6   0.254   0.876  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2803_o191 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2812_o)
+     LUT6:I5->O           26   0.254   1.528  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0017_INV_2891_o21 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0017_INV_2891_o2)
+     LUT5:I3->O            2   0.250   0.726  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0017_INV_2891_o23_1 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0017_INV_2891_o231)
+     LUT6:I5->O           24   0.254   1.488  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0018_INV_2890_o21 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0018_INV_2890_o2)
+     LUT6:I4->O           16   0.250   1.182  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0018_INV_2890_o23 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0018_INV_2890_o)
+     LUT6:I5->O           38   0.254   1.728  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0019_INV_2889_o21 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0019_INV_2889_o2)
+     LUT5:I3->O            4   0.250   1.234  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2890_o1161 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2906_o)
+     LUT6:I1->O           29   0.254   1.578  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0020_INV_2888_o21 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0020_INV_2888_o2)
+     LUT6:I4->O            1   0.250   0.682  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0020_INV_2888_o24_1 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0020_INV_2888_o241)
+     LUT6:I5->O            3   0.254   0.766  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0021_INV_2887_o24_SW0 (N1034)
+     LUT6:I5->O            8   0.254   0.944  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0021_INV_2887_o24_2 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0021_INV_2887_o241)
+     LUT4:I3->O            1   0.254   1.112  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2948_o1161 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2964_o)
+     LUT6:I1->O           43   0.254   1.704  outputSerialiser/number[1]_GND_17_o_div_11/BUS_0022_INV_2886_o31 (outputSerialiser/number[1]_GND_17_o_div_11/BUS_0022_INV_2886_o3)
+     LUT6:I5->O            3   0.254   1.196  outputSerialiser/number[1]_GND_17_o_div_11/Mmux_a[28]_a[28]_MUX_2977_o1151 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_2992_o)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_lut<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_lut<1>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_cy<3>)
+     MUXCY:CI->O          68   0.235   1.961  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0023_INV_2885_o_cy<4>)
+     LUT5:I4->O            6   0.254   1.306  outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_3026_o1 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_3055_o_bdd0)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_lut<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<3>)
+     MUXCY:CI->O          88   0.235   2.116  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0024_INV_2884_o_cy<4>)
+     LUT5:I4->O            6   0.254   1.306  outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_3056_o1 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_3085_o_bdd0)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_lut<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<3>)
+     MUXCY:CI->O          70   0.235   1.976  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0025_INV_2883_o_cy<4>)
+     LUT5:I4->O            6   0.254   1.306  outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_3086_o1 (outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_3115_o_bdd0)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_lut<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<3>)
+     MUXCY:CI->O          95   0.235   2.170  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0026_INV_2882_o_cy<4>)
+     LUT5:I4->O            6   0.254   1.306  outputSerialiser/number[1]_GND_17_o_div_11/a[28]_a[28]_MUX_3116_o1 (outputSerialiser/number[1]_GND_17_o_div_11/n2079<5>_bdd4)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_lut<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<3>)
+     MUXCY:CI->O         103   0.235   2.218  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0027_INV_2881_o_cy<4>)
+     LUT5:I4->O            3   0.254   1.196  outputSerialiser/number[1]_GND_17_o_div_11/n2193<4>1 (outputSerialiser/number[1]_GND_17_o_div_11/n2193<4>)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_lut<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<4>)
+     MUXCY:CI->O          80   0.235   2.054  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<5> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0028_INV_2880_o_cy<5>)
+     LUT5:I4->O            2   0.254   1.156  outputSerialiser/number[1]_GND_17_o_div_11/n2197<3>1 (outputSerialiser/number[1]_GND_17_o_div_11/n2197<3>)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_lut<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<4>)
+     MUXCY:CI->O          29   0.235   1.470  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<5> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0029_INV_2879_o_cy<5>)
+     LUT5:I4->O            2   0.254   1.156  outputSerialiser/number[1]_GND_17_o_div_11/n2079<2>1 (outputSerialiser/number[1]_GND_17_o_div_11/n2079<2>)
+     LUT5:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_lut<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<0> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<4>)
+     MUXCY:CI->O           2   0.235   0.726  outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<5> (outputSerialiser/number[1]_GND_17_o_div_11/Mcompar_BUS_0030_INV_2878_o_cy<5>)
+     LUT1:I0->O            1   0.254   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<0>_rt (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<0>_rt)
+     MUXCY:S->O            1   0.215   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<0> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<1> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<2> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<3> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<4> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<5> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<6> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<7> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<8> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<9> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<10> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<11> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<12> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<13> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<13>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<14> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<14>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<15> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<15>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<16> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<16>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<17> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<17>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<18> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<18>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<19> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<19>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<20> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<20>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<21> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<21>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<22> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<22>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<23> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<23>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<24> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<24>)
+     MUXCY:CI->O           1   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<25> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<25>)
+     MUXCY:CI->O           0   0.023   0.000  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<26> (outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_cy<26>)
+     XORCY:CI->O           2   0.206   0.726  outputSerialiser/number[1]_GND_17_o_div_11/Madd_GND_23_o_BUS_0001_add_64_OUT[29:0]_xor<27> (outputSerialiser/number[1]_GND_17_o_div_11/GND_23_o_BUS_0001_add_64_OUT[29:0]<27>)
+     LUT6:I5->O            1   0.254   0.000  outputSerialiser/State[2]_number[1]_wide_mux_15_OUT<27>1 (outputSerialiser/State[2]_number[1]_wide_mux_15_OUT<27>)
+     FDCE:D                    0.074          outputSerialiser/number_2
+    ----------------------------------------
+    Total                     84.144ns (19.901ns logic, 64.243ns route)
+                                       (23.7% logic, 76.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_pin'
+  Total number of paths / destination ports: 728 / 703
+-------------------------------------------------------------------------
+Offset:              6.478ns (Levels of Logic = 3)
+  Source:            reset_pin (PAD)
+  Destination:       make_StateMachine/op_2 (FF)
+  Destination Clock: clock_pin rising
+
+  Data Path: reset_pin to make_StateMachine/op_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           567   1.328   2.703  reset_pin_IBUF (reset_pin_IBUF)
+     LUT3:I0->O            1   0.235   0.910  make_StateMachine/_n0673_inv_SW0 (N10)
+     LUT6:I3->O            3   0.235   0.765  make_StateMachine/_n0673_inv (make_StateMachine/_n0673_inv)
+     FDE:CE                    0.302          make_StateMachine/op_0
+    ----------------------------------------
+    Total                      6.478ns (2.100ns logic, 4.378ns route)
+                                       (32.4% logic, 67.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_pin'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.118ns (Levels of Logic = 1)
+  Source:            make_UART/xmit/serialDataOut (FF)
+  Destination:       serialDataOut_pin (PAD)
+  Source Clock:      clock_pin rising
+
+  Data Path: make_UART/xmit/serialDataOut to serialDataOut_pin
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDSE:C->Q             1   0.525   0.681  make_UART/xmit/serialDataOut (make_UART/xmit/serialDataOut)
+     OBUF:I->O                 2.912          serialDataOut_pin_OBUF (serialDataOut_pin)
+    ----------------------------------------
+    Total                      4.118ns (3.437ns logic, 0.681ns route)
+                                       (83.5% logic, 16.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clock_pin
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clock_pin      |   84.144|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 37.00 secs
+Total CPU time to Xst completion: 36.48 secs
+ 
+--> 
+
+Total memory usage is 390872 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  114 (   0 filtered)
+Number of infos    :   17 (   0 filtered)
+

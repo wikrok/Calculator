@@ -22,7 +22,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -31,53 +31,48 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity UART_tx_buffer is
 	port(input : in STD_LOGIC_VECTOR (7 downto 0);
-		  output : out STD_LOGIC_VECTOR (7 downto 0); -- This and uartTxRequest and uartTxReady should go to a uart trasnmitter instantiated here.
+		  output : out STD_LOGIC_VECTOR (7 downto 0);
 		  reset : in STD_LOGIC;
 		  uartTxRequest : out STD_LOGIC;
-		  writeClk : in STD_LOGIC;
-		  uartTxReady : in STD_LOGIC
+		  write : in STD_LOGIC;
+		  uartTxReady : in STD_LOGIC;
+		  clock : in STD_LOGIC
 		  );
 end UART_tx_buffer;
 
 architecture Behavioral of UART_tx_buffer is
 	type bufferType is array (0 to 63) of STD_LOGIC_VECTOR (7 downto 0);
 	signal buff : bufferType := (others => (others => '0'));
-
 	signal inputIndex : integer := 0;
 	signal outputIndex : integer := 0;
-	signal txReady : STD_LOGIC := '1';
-
-
 begin
 
-my_process :	process (writeClk, reset) begin
+my_process :	process (clock, write, reset) begin
 	if (reset = '1') then
 		buff <= (others => (others => '0'));
 		inputIndex <= 0;
-	elsif rising_edge(writeClk) then
-		buff(inputIndex) <= input;
-
-		if inputIndex = 63 then
-			inputIndex <= 0;
-		else
-			inputIndex <=  inputIndex + 1;
+	elsif rising_edge(clock) then
+		if write = '1' then
+			buff(inputIndex) <= input;
+			inputIndex <= (inputIndex+1) mod 64;
 		end if;
 	end if;
 end process;
 
-my_process2 : 	process (reset, uartTxReady, inputIndex) begin
+
+my_process2 : 	process (reset, uartTxReady, inputIndex, outputIndex, clock) begin
     if (reset = '1') then
     	outputIndex <= 0;
-    	output <= X"00";
-    elsif ((uartTxReady = '1') and (inputIndex /= outputIndex)) then
-    	output <= buff(outputIndex);
-    	uartTxRequest <= '1', '0' after 20 ns;
-    	if outputIndex = 63 then
-    		outputIndex <= 0;
-    	else
-    		outputIndex <= outputIndex + 1;
-    	end if;
-    end if;
+		uartTxRequest <= '0';
+	 elsif rising_edge(clock) then
+		 if ((uartTxReady = '1') and (inputIndex /= outputIndex)) then
+			uartTxRequest <= '1';
+			output <= buff(outputIndex);
+			outputIndex <= (outputIndex+1) mod 64;
+		 else
+			uartTxRequest <= '0';
+		end if;
+	end if;
 end process;
 
 end Behavioral;

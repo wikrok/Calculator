@@ -1,0 +1,32 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu May 04 16:14:10 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "serialDataIn_pin" LOCATE = SITE "R7" LEVEL 1;
+COMP "reset_pin" LOCATE = SITE "V4" LEVEL 1;
+COMP "clock_pin" LOCATE = SITE "V10" LEVEL 1;
+COMP "serialDataOut_pin" LOCATE = SITE "T7" LEVEL 1;
+TIMEGRP clock_pin = BEL "make_UART/xmit/tx_sm.bitToSend_2" BEL
+        "make_UART/xmit/tx_sm.bitToSend_1" BEL
+        "make_UART/xmit/tx_sm.bitToSend_0" BEL
+        "make_UART/xmit/txState_FSM_FFd1" BEL
+        "make_UART/xmit/txState_FSM_FFd2" BEL
+        "make_UART/rateGen/baudRateEnable" BEL "make_UART/xmit/serialDataOut"
+        BEL "make_UART/rateGen/make_baudEn.clockCount_10" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_9" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_8" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_7" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_6" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_5" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_4" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_3" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_2" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_1" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_0" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_11" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_12" BEL
+        "clock_pin_BUFGP/BUFG";
+TS_clock_pin = PERIOD TIMEGRP "clock_pin" 40 MHz HIGH 50%;
+SCHEMATIC END;
+

@@ -1,35 +1,18 @@
-<<<<<<< HEAD
-Running: E:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TestDesignTop_isim_beh.exe -prj C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TestDesignTop_beh.prj work.TestDesignTop 
-ISim P.20131013 (signature 0x8ef4fb42)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
-Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/Stack.vhd" into library work
-Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/UART-tx-buffer.vhd" into library work
-Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/StateMachine.vhd" into library work
-Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/Serialiser.vhd" into library work
-Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/BuffWriteOr.vhd" into library work
-Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/BufferMultiplexer.vhd" into library work
-Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TopLevel.vhd" into library work
-Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TestDesignTop.vhd" into library work
-=======
-Running: D:\SSD\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/seb/Documents/GitHub/Calculator/testbench_isim_beh.exe -prj C:/Users/seb/Documents/GitHub/Calculator/testbench_beh.prj testbench 
+Running: D:\SSD\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop_isim_beh.exe -prj C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop_beh.prj work.TestDesignTop 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/seb/Documents/GitHub/Calculator/Stack.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Documents/GitHub/Calculator/UART-tx-buffer.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Documents/GitHub/Calculator/Serialiser.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Documents/GitHub/Calculator/BuffWriteOr.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Documents/GitHub/Calculator/BufferMultiplexer.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Documents/GitHub/Calculator/StateMachine.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Documents/GitHub/Calculator/TestStateMachine.vhd" into library work
->>>>>>> origin/Not-Integers
+Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/Stack.vhd" into library work
+Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/UART-tx-buffer.vhd" into library work
+Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/StateMachine.vhd" into library work
+Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/Serialiser.vhd" into library work
+Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/BuffWriteOr.vhd" into library work
+Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/BufferMultiplexer.vhd" into library work
+Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/TopLevel.vhd" into library work
+Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 105004 KB
-Fuse CPU Usage: 264 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
@@ -38,22 +21,12 @@ Compiling architecture behavioral of entity charStack [charstack_default]
 Compiling architecture behavioral of entity Serialiser [serialiser_default]
 Compiling architecture behavioral of entity BufferMultiplexer [buffermultiplexer_default]
 Compiling architecture behavioral of entity BuffWriteOr [buffwriteor_default]
-<<<<<<< HEAD
 Compiling architecture behavioral of entity UART_tx_buffer [uart_tx_buffer_default]
 Compiling architecture structural of entity lab2_design_top [lab2_design_top_default]
 Compiling architecture behavior of entity testdesigntop
 Time Resolution for simulation is 1ps.
-Waiting for 3 sub-compilation(s) to finish...
+Waiting for 1 sub-compilation(s) to finish...
 Compiled 18 VHDL Units
-Built simulation executable C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TestDesignTop_isim_beh.exe
-Fuse Memory Usage: 120540 KB
-Fuse CPU Usage: 404 ms
-=======
-Compiling architecture behavioral of entity StateMachine [\StateMachine(1000)\]
-Compiling architecture behavior of entity testbench
-Time Resolution for simulation is 1ps.
-Compiled 16 VHDL Units
-Built simulation executable C:/Users/seb/Documents/GitHub/Calculator/testbench_isim_beh.exe
+Built simulation executable C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop_isim_beh.exe
 Fuse Memory Usage: 35940 KB
-Fuse CPU Usage: 468 ms
->>>>>>> origin/Not-Integers
+Fuse CPU Usage: 499 ms

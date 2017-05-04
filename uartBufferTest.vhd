@@ -46,8 +46,9 @@ ARCHITECTURE behavior OF uartBufferTest IS
          output : OUT  std_logic_vector(7 downto 0);
          reset : IN  std_logic;
          uartTxRequest : OUT  std_logic;
-         writeClk : IN  std_logic;
-         uartTxReady : IN  std_logic
+         write : IN  std_logic;
+         uartTxReady : IN  std_logic;
+			clock : IN  std_logic
         );
     END COMPONENT;
     
@@ -62,11 +63,13 @@ ARCHITECTURE behavior OF uartBufferTest IS
    signal output : std_logic_vector(7 downto 0);
    signal uartTxRequest : std_logic;
 	
-	signal strError : string (1 to 12);
+	signal strError : string (1 to 11);
 	signal strResult : string (1 to 4);
 
    -- Clock period definitions
-   constant writeClk_period : time := 10 ns;
+   constant clk_period : time := 20 ns;
+	signal clk : std_logic;
+
  
 BEGIN
  
@@ -76,11 +79,20 @@ BEGIN
           output => output,
           reset => reset,
           uartTxRequest => uartTxRequest,
-          writeClk => writeClk,
-          uartTxReady => uartTxReady
+          write => writeClk,
+          uartTxReady => uartTxReady,
+			 clock => clk
         );
-
+		  
    -- Clock process definitions
+   clk_process :process
+   begin
+		clk <= '0';
+		wait for clk_period/2;
+		clk <= '1';
+		wait for clk_period/2;
+   end process;
+	
 my_process : process is
 procedure stringToBuff(str : string) is
 	begin
@@ -105,7 +117,7 @@ end procedure;
 		
 		wait for 40 ns;
 		
-		strError <= "Error: NaN/N";
+		strError <= "Error: NaN/";
 		wait for 40 ns;
 		stringToBuff(strError);
 		

@@ -1,0 +1,87 @@
+
+****** PlanAhead v14.7
+  **** Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -490 day(s)
+INFO: [Device 21-36] Loading parts and site information from E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source {C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/pa.fromHdl.tcl}
+# create_project -name Calculator -dir "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/planAhead_run_1" -part xc6slx9csg324-2
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "lab2_design_top.ucf" [current_fileset -constrset]
+Adding file 'C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/lab2_design_top.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {UART_transmitter.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {UART_receiver.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {UART_baudRateGenerator.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {Stack.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {uart.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {UART-tx-buffer.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {StateMachine.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {Serialiser.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {BuffWriteOr.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {BufferMultiplexer.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {TopLevel.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set_property top lab2_design_top $srcset
+# add_files [list {lab2_design_top.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc6slx9csg324-2
+Using Verific elaboration
+Parsing VHDL file "E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/UART_transmitter.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/UART_receiver.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/UART_baudRateGenerator.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/Stack.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/uart.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/UART-tx-buffer.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/StateMachine.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/Serialiser.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/BuffWriteOr.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/BufferMultiplexer.vhd" into library work
+Parsing VHDL file "C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/TopLevel.vhd" into library work
+Loading clock regions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/csg324/Package.xml
+Loading io standards from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/lab2_design_top.ucf]
+Finished Parsing UCF File [C:/Users/PC157/Desktop/Phil Seb VHDL/Calculator-Not-Integers/lab2_design_top.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 62f5f883
+open_rtl_design: Time (s): elapsed = 00:00:08 . Memory (MB): peak = 487.715 ; gain = 101.715
+update_compile_order -fileset sim_1
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Thu May 04 15:29:12 2017...
+INFO: [Common 17-83] Releasing license: PlanAhead

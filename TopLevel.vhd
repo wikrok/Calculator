@@ -7,49 +7,37 @@ entity lab2_design_top is
 	Port (reset_pin : in STD_LOGIC;
 			clock_pin : in STD_LOGIC;
 			serialDataIn_pin : in STD_LOGIC;
-			serialDataOut_pin : out STD_LOGIC;
-			LED_hi_pin : out STD_LOGIC;
-			LED_lo_pin : out STD_LOGIC;
-<<<<<<< HEAD
-			DIP_pins : in STD_LOGIC_VECTOR (3 downto 0);
+			serialDataOut_pin : out STD_LOGIC
+--			LED_hi_pin : out STD_LOGIC;
+--			LED_lo_pin : out STD_LOGIC;
+--			DIP_pins : in STD_LOGIC_VECTOR (3 downto 0)
 			--For test bench, please delete
-			parallelDataOut: in STD_LOGIC_VECTOR (7 downto 0);
-			dataValid: in STD_LOGIC;
-			tx_ready: in STD_LOGIC
-=======
-			DIP_pins : in STD_LOGIC_VECTOR (3 downto 0)
->>>>>>> origin/Not-Integers
+--			parallelDataOut: in STD_LOGIC_VECTOR (7 downto 0);
+--			dataValid: in STD_LOGIC;
+--			tx_ready: in STD_LOGIC
 	);
 end lab2_design_top;
 
 
 architecture structural of lab2_design_top is
 -- Internal signals.
-<<<<<<< HEAD
---	signal parallelDataOut : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
---	signal dataValid : STD_LOGIC := 'U';
-	signal parallelDataIn : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
-	signal transmitRequest : STD_LOGIC := 'U';
---	signal tx_ready : STD_LOGIC := 'U';
-=======
 	signal parallelDataOut : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
 	signal dataValid : STD_LOGIC := 'U';
 	signal parallelDataIn : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
 	signal transmitRequest : STD_LOGIC := 'U';
 	signal tx_ready : STD_LOGIC := 'U';
->>>>>>> origin/Not-Integers
 	signal send_character : STD_LOGIC := 'U';
 	signal character_to_send : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
 	signal DIP_debounced : STD_LOGIC_VECTOR(3 downto 0) := (others=>'0');
 	signal gnd : STD_LOGIC := '0';
-	signal reset_calc : STD_LOGIC := 'U';
+	signal reset_calc : STD_LOGIC;
 
 -- Buffer
 
 	signal stateMachineTxRequest : STD_LOGIC := 'U';
 	signal serialiserTxRequest : STD_LOGIC := 'U';
 	signal errorTxRequest : STD_LOGIC := 'U';
-	signal writeClk : STD_LOGIC := 'U';
+	signal write : STD_LOGIC := 'U';
 
 	signal echo : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U');
 	signal serialiserOutput : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U');
@@ -64,27 +52,6 @@ architecture structural of lab2_design_top is
 	signal serialiserDone : STD_LOGIC := 'U';
 	
 begin
-<<<<<<< HEAD
-	--make_UART: entity work.UART
-	--	generic map (BAUD_RATE => 9600,
-	--					 CLOCK_RATE => 40000000)
---		port map(
---		   reset => reset_pin,
---			clock => clock_pin,
---			-- State Machine
---			parallelDataOut => parallelDataOut,
---			dataValid => dataValid,
---			-- Buffer
---			parallelDataIn => parallelDataIn,
---			transmitRequest => transmitRequest,
---			txIsReady => tx_ready,
---			--External
---			serialDataIn => serialDataIn_pin,
---			serialDataOut => serialDataOut_pin
---		);
-		
-		
-=======
 	make_UART: entity work.UART
 		generic map (BAUD_RATE => 9600,
 						 CLOCK_RATE => 40000000)
@@ -102,7 +69,8 @@ begin
 			serialDataIn => serialDataIn_pin,
 			serialDataOut => serialDataOut_pin
 		);
->>>>>>> origin/Not-Integers
+		
+		
 		
 	make_StateMachine: entity work.StateMachine
 		port map (
@@ -148,12 +116,8 @@ begin
 		port map (
 			a => stateMachineTxRequest,
 			b => serialiserTxRequest,
-<<<<<<< HEAD
 			c => gnd,
-=======
-			c => errorTxRequest,
->>>>>>> origin/Not-Integers
-			q => writeClk
+			q => write
 		);
 		
 	uartBuff: entity work.UART_tx_buffer 
@@ -161,14 +125,11 @@ begin
 			reset => reset_pin,
 			-- Input
 			input => buffInput,
-			writeClk => writeClk,
-<<<<<<< HEAD
-			-- UART -- TODO UNCOMMENT ME
-=======
+			write => write,
 			-- UART
->>>>>>> origin/Not-Integers
 			output => parallelDataIn,
 			uartTxRequest => transmitRequest,
-			uartTxReady => tx_ready
+			uartTxReady => tx_ready,
+			clock => clock_pin
 		);		
 end structural;

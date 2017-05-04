@@ -24,8 +24,7 @@ begin
 	rateGen: entity work.UART_baudRateGenerator
 		generic map (BAUD_RATE => BAUD_RATE,
 						CLOCK_RATE => CLOCK_RATE)
-		port map(reset => reset,
-					clock => clock,
+		port map(clock => clock,
 					baudRateEnable => baudRateEnable,
 					baudRateEnable_x16 => baudRateEnable_x16
 		);

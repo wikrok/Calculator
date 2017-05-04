@@ -3,25 +3,25 @@
 
 NET "serialDataOut_pin" LOC = T7;
 NET "serialDataIn_pin" LOC = R7;
-NET "DIP_pins[3]" LOC = A4;
-NET "DIP_pins[2]" LOC = B4;
-NET "DIP_pins[1]" LOC = A3;
-NET "DIP_pins[0]" LOC = B3;
-NET "LED_hi_pin" LOC = C2;
-NET "LED_lo_pin" LOC = P4;
+#NET "DIP_pins[3]" LOC = A4;
+#NET "DIP_pins[2]" LOC = B4;
+#NET "DIP_pins[1]" LOC = A3;
+#NET "DIP_pins[0]" LOC = B3;
+#NET "LED_hi_pin" LOC = C2;
+#NET "LED_lo_pin" LOC = P4;
 NET "reset_pin" LOC = V4;
 
 # PlanAhead Generated IO constraints 
 
-NET "LED_hi_pin" IOSTANDARD = LVCMOS33;
-NET "LED_lo_pin" IOSTANDARD = LVCMOS33;
+#NET "LED_hi_pin" IOSTANDARD = LVCMOS33;
+#NET "LED_lo_pin" IOSTANDARD = LVCMOS33;
 NET "reset_pin" IOSTANDARD = LVCMOS33;
 NET "serialDataIn_pin" IOSTANDARD = LVCMOS33;
 NET "serialDataOut_pin" IOSTANDARD = LVCMOS33;
-NET "DIP_pins[0]" IOSTANDARD = LVCMOS33;
-NET "DIP_pins[2]" IOSTANDARD = LVCMOS33;
-NET "DIP_pins[1]" IOSTANDARD = LVCMOS33;
-NET "DIP_pins[3]" IOSTANDARD = LVCMOS33;
+#NET "DIP_pins[0]" IOSTANDARD = LVCMOS33;
+#NET "DIP_pins[2]" IOSTANDARD = LVCMOS33;
+#NET "DIP_pins[1]" IOSTANDARD = LVCMOS33;
+#NET "DIP_pins[3]" IOSTANDARD = LVCMOS33;
 
 
 NET "clock_pin"      LOC = V10 | IOSTANDARD = LVCMOS33;

@@ -47,7 +47,7 @@ entity StateMachine is
 end StateMachine;
 
 architecture Behavioral of StateMachine is
-	type STATETYPE is (Rst, SendNL, Idle, NegDigA, DigA, DigOp, NegDigB, DigB, DigEq, Negate, CalcResult, SendResult, WaitResult, WaitError);
+	type STATETYPE is (Rst, SendNL, NegDigA, DigA, DigOp, NegDigB, DigB, DigEq, Negate, CalcResult, SendResult, WaitResult, WaitError);
 	type OPERATOR is (Plus, Minus, Divide, Multiply, Modulus);
 	signal State: STATETYPE := Rst;
 	signal NegA : STD_LOGIC := '0';
@@ -319,10 +319,7 @@ begin
 				startSerialiser <= '0';
 				muxSel <= b"01";
 				if serialiserDone = '1' then
-<<<<<<< HEAD
 					muxSel <= b"00";
-=======
->>>>>>> origin/Not-Integers
 					State <= Rst;
 				else
 					State <= WaitResult;
