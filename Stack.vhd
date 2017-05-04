@@ -57,7 +57,7 @@ process (clk, reset, push, pop) begin
 		stack <= (others => (others => '0'));
 		full <= '0';
 	elsif rising_edge(clk) then
-		if (push = '1' and pop = '0' and stackIndex < 4) then
+		if (push = '1' and pop = '0' and stackIndex < 8) then
 			stack(stackIndex) <= input;
 			
 			if stackIndex + 1 = 8 then

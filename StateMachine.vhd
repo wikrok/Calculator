@@ -86,10 +86,18 @@ architecture Behavioral of StateMachine is
 			sel : IN STD_LOGIC_VECTOR (1 downto 0)
 			);
 	 END COMPONENT;
+	 
+	 COMPONENT buffWriteOr
+	 	PORT (
+			a : IN STD_LOGIC;
+			b : IN STD_LOGIC;
+			c : IN STD_LOGIC;
+			q : OUT STD_LOGIC
+				);
+	END COMPONENT;
 	
 	    --Inputs
 	signal buffInput : std_logic_vector (7 downto 0); -- := (others => (others => '0'));
-	signal buffWrite : std_logic := '0';
 	signal buffUartTxReady : std_logic := '0';
 	signal reset : std_logic := '0';
 	
@@ -112,6 +120,10 @@ architecture Behavioral of StateMachine is
 	signal serialiserOutput : STD_LOGIC_VECTOR(7 downto 0);
 	signal temp : STD_LOGIC_VECTOR(7 downto 0);
 	signal muxSel : STD_LOGIC_VECTOR(1 downto 0);
+	signal bufferTxRequest : STD_LOGIC := '0';
+	signal serialiserTxRequest : STD_LOGIC;
+	signal errorTxRequest : STD_LOGIC := '0';
+	signal writeClk : STD_LOGIC;
 	
 
 begin
@@ -122,7 +134,7 @@ begin
 			output => buffOutput,
 			reset => reset,
 			uartTxRequest => buffTxRequest,
-			writeClk => buffWrite,
+			writeClk => writeClk,
 			uartTxReady => buffUartTxReady
 			);
 			
@@ -133,7 +145,7 @@ begin
           enable => enable,
           done => done,
           parallelDataOut => serialiserOutput,
-          transmitRequest => buffWrite
+          transmitRequest => serialiserTxRequest
         );
 			
 		buffMultiplexer: BufferMultiplexer PORT MAP (
@@ -143,6 +155,13 @@ begin
 				output => buffInput,
 				sel => muxSel
 			);	
+			
+		buffWriteOrGate: buffWriteOr PORT MAP (
+				a => bufferTxRequest,
+				b => serialiserTxRequest,
+				c => errorTxRequest,
+				q => writeClk
+				);
 
 
 process (CLK, Reset)
@@ -173,7 +192,7 @@ buffUartTxReady <= '1';
 					-- Echoes back the UART input.
 					muxSel <= b"00";
 					echo <= inputChar;
-					buffWrite <= '1';
+					bufferTxRequest <= '1';
 					
 					if inputChar = X"2D" then -- Negative sign
 						--Set neg flag and move to DigA
@@ -192,7 +211,7 @@ buffUartTxReady <= '1';
 					end if;
 				else
 					State <= NegDigA;
-					buffWrite <= '0';
+					bufferTxRequest <= '0';
 				end if;
 			
 			when DigA =>
@@ -200,7 +219,7 @@ buffUartTxReady <= '1';
 					-- Echoes back the UART input.
 					muxSel <= b"00";
 					echo <= inputChar;
-					buffWrite <= '1';
+					bufferTxRequest <= '1';
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
@@ -215,7 +234,7 @@ buffUartTxReady <= '1';
 					end if;
 				else
 					State <= DigA;
-					buffWrite <= '0';				
+					bufferTxRequest <= '0';				
 				end if;
 				
 			when DigOp =>
@@ -223,7 +242,7 @@ buffUartTxReady <= '1';
 					-- Echoes back the UART input.
 					muxSel <= b"00";
 					echo <= inputChar;
-					buffWrite <= '1';
+					bufferTxRequest <= '1';
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
@@ -266,7 +285,7 @@ buffUartTxReady <= '1';
 					end if;
 				else 
 					State <= DigOp;
-					buffWrite <= '0';
+					bufferTxRequest <= '0';
 				end if;
 				
 			when NegDigB =>
@@ -274,7 +293,7 @@ buffUartTxReady <= '1';
 					-- Echoes back the UART input.
 					muxSel <= b"00";
 					echo <= inputChar;
-					buffWrite <= '1';
+					bufferTxRequest <= '1';
 					
 					if inputChar = X"2D" then -- Negative sign
 						--Set neg flag and move to DigB
@@ -291,7 +310,7 @@ buffUartTxReady <= '1';
 					end if;
 				else
 					State <= NegDigB;
-					buffWrite <= '0';
+					bufferTxRequest <= '0';
 				end if;
 					
 			when DigB =>
@@ -299,7 +318,7 @@ buffUartTxReady <= '1';
 					-- Echoes back the UART input.
 					muxSel <= b"00";
 					echo <= inputChar;
-					buffWrite <= '1';
+					bufferTxRequest <= '1';
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigEq
@@ -312,7 +331,7 @@ buffUartTxReady <= '1';
 					end if;
 				else
 					State <= DigB;
-					buffWrite <= '0';
+					bufferTxRequest <= '0';
 				end if;
 				
 			when DigEq =>
@@ -320,7 +339,7 @@ buffUartTxReady <= '1';
 					-- Echoes back the UART input.
 					muxSel <= b"00";
 					echo <= inputChar;
-					buffWrite <= '1';
+					bufferTxRequest <= '1';
 					
 					if inputChar = X"3D" then	--It's an equals sign
 						State <= Negate;
@@ -331,20 +350,20 @@ buffUartTxReady <= '1';
 						else 
 							unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
-							State <= DigOp;
+							State <= DigEq;
 						end if;						
-						State <= DigEq;
 					else
 						--Generic error and reset.
 						State <= WaitError;
 					end if;
 				else
 					State <= DigEq;
-					buffWrite <= '0';
+					bufferTxRequest <= '0';
 				end if;
 				
 			when Negate =>
 				-- Negativates the integers.
+				bufferTxRequest <= '0';
 				if negA = '1' then
 					unsA <= resize((unsA * (-1)), 15);
 				end if;

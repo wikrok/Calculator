@@ -58,7 +58,7 @@ architecture Behavioral of Serialiser is
 		  );
     END COMPONENT;
 
-	type STATETYPE is (Idle, CheckNeg, Negate, ASCII, StoreDigit, RetrieveDigit, TxDigit);
+	type STATETYPE is (Idle, CheckNeg, Negate, ASCII, StoreDigit, RetrieveDigit, WaitRetrieve, TxDigit);
 	signal State: STATETYPE;
 	signal number : SIGNED (1 to 29);
 	signal digit : STD_LOGIC_VECTOR (7 downto 0);
@@ -93,10 +93,12 @@ process (clk, reset, enable) is begin
 		push <= '0';
 		pop <= '0';
 		stackInput <= X"00";
+		transmitRequest <= '0';
 		
 	elsif rising_edge(clk) then
 		case State is
 			when Idle =>
+				transmitRequest <= '0';
 				if enable = '1' then
 					number <= signedInput;
 					State <= CheckNeg;
@@ -136,19 +138,26 @@ process (clk, reset, enable) is begin
 				push <= '1';
 				pop <= '0';
 				State <= ASCII;
+			
+
 				
 			when RetrieveDigit =>
-				transmitRequest <= '0';
+				transmitRequest <= '1';
+				
 				push <= '0';
 				pop <= '1'; 
+				State <= WaitRetrieve;
+
+			
+			when WaitRetrieve =>
+				pop <= '0';
+				transmitRequest <= '0';
+
 				State <= TxDigit;
 			
-			when TxDigit =>
-				pop <= '0';
-				digit <= StackOutput;
-
+			when TxDigit =>		
+			digit <= StackOutput;
 				parallelDataOut <= digit;
-				transmitRequest <= '1';
 				if stackDepth = 0 then
 					State <= Idle;
 					done <= '1';
