@@ -1,22 +1,24 @@
-Running: D:\SSD\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop_isim_beh.exe -prj C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop_beh.prj work.TestDesignTop 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_isim_beh.exe -prj C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_beh.prj work.TestDesignTop 
 ISim P.20131013 (signature 0x7708f090)
-Number of CPUs detected in this system: 8
-Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/Stack.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/UART-tx-buffer.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/StateMachine.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/Serialiser.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/BuffWriteOr.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/BufferMultiplexer.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/TopLevel.vhd" into library work
-Parsing VHDL file "C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/UART-tx-buffer.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/stringSerialiser.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/StateMachine.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/Serialiser.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/BuffWriteOr.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/BufferMultiplexer.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/TopLevel.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
 Compiling architecture behavioral of entity StateMachine [statemachine_default]
+Compiling architecture behavioral of entity stringSerialiser [stringserialiser_default]
 Compiling architecture behavioral of entity charStack [charstack_default]
 Compiling architecture behavioral of entity Serialiser [serialiser_default]
 Compiling architecture behavioral of entity BufferMultiplexer [buffermultiplexer_default]
@@ -25,8 +27,8 @@ Compiling architecture behavioral of entity UART_tx_buffer [uart_tx_buffer_defau
 Compiling architecture structural of entity lab2_design_top [lab2_design_top_default]
 Compiling architecture behavior of entity testdesigntop
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 18 VHDL Units
-Built simulation executable C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop_isim_beh.exe
-Fuse Memory Usage: 35940 KB
-Fuse CPU Usage: 499 ms
+Waiting for 4 sub-compilation(s) to finish...
+Compiled 20 VHDL Units
+Built simulation executable C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_isim_beh.exe
+Fuse Memory Usage: 35812 KB
+Fuse CPU Usage: 671 ms

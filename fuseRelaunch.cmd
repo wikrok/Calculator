@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop_isim_beh.exe" -prj "C:/Users/seb/Desktop/Calculator-Not-Integers/TestDesignTop_beh.prj" "work.TestDesignTop" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_isim_beh.exe" -prj "C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_beh.prj" "work.TestDesignTop" 

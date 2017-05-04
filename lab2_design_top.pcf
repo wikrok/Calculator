@@ -1,19 +1,50 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu May 04 16:14:10 2017
+// Written by: Map P.20131013 on Thu May 04 21:29:13 2017
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "serialDataIn_pin" LOCATE = SITE "R7" LEVEL 1;
-COMP "reset_pin" LOCATE = SITE "V4" LEVEL 1;
 COMP "clock_pin" LOCATE = SITE "V10" LEVEL 1;
+COMP "reset_pin" LOCATE = SITE "V4" LEVEL 1;
 COMP "serialDataOut_pin" LOCATE = SITE "T7" LEVEL 1;
+COMP "serialDataIn_pin" LOCATE = SITE "R7" LEVEL 1;
+PIN make_StateMachine/Mmult_n0196_pins<92> = BEL
+        "make_StateMachine/Mmult_n0196" PINNAME CLK;
 TIMEGRP clock_pin = BEL "make_UART/xmit/tx_sm.bitToSend_2" BEL
         "make_UART/xmit/tx_sm.bitToSend_1" BEL
         "make_UART/xmit/tx_sm.bitToSend_0" BEL
         "make_UART/xmit/txState_FSM_FFd1" BEL
-        "make_UART/xmit/txState_FSM_FFd2" BEL
-        "make_UART/rateGen/baudRateEnable" BEL "make_UART/xmit/serialDataOut"
-        BEL "make_UART/rateGen/make_baudEn.clockCount_10" BEL
+        "make_UART/xmit/txState_FSM_FFd2" BEL "make_UART/xmit/tx_sm.go" BEL
+        "make_UART/xmit/ready" BEL "make_UART/xmit/tx_sm.dataToTX_7" BEL
+        "make_UART/xmit/tx_sm.dataToTX_6" BEL
+        "make_UART/xmit/tx_sm.dataToTX_5" BEL
+        "make_UART/xmit/tx_sm.dataToTX_4" BEL
+        "make_UART/xmit/tx_sm.dataToTX_3" BEL
+        "make_UART/xmit/tx_sm.dataToTX_2" BEL
+        "make_UART/xmit/tx_sm.dataToTX_1" BEL
+        "make_UART/xmit/tx_sm.dataToTX_0" BEL "make_UART/xmit/serialDataOut"
+        BEL "make_UART/rcvr/rx_sm.bitsReceived_2" BEL
+        "make_UART/rcvr/rx_sm.bitsReceived_1" BEL
+        "make_UART/rcvr/rx_sm.bitsReceived_0" BEL
+        "make_UART/rcvr/counter.internalCountValue_4" BEL
+        "make_UART/rcvr/counter.internalCountValue_3" BEL
+        "make_UART/rcvr/counter.internalCountValue_2" BEL
+        "make_UART/rcvr/counter.internalCountValue_1" BEL
+        "make_UART/rcvr/counter.internalCountValue_0" BEL
+        "make_UART/rcvr/rxState_FSM_FFd2" BEL
+        "make_UART/rcvr/rxState_FSM_FFd1" BEL "make_UART/rcvr/dataValid" BEL
+        "make_UART/rcvr/countDone" BEL "make_UART/rcvr/countLoad" BEL
+        "make_UART/rcvr/countEnable" BEL "make_UART/rcvr/countValue_3" BEL
+        "make_UART/rcvr/countValue_0" BEL "make_UART/rcvr/parallelDataOut_7"
+        BEL "make_UART/rcvr/parallelDataOut_6" BEL
+        "make_UART/rcvr/parallelDataOut_5" BEL
+        "make_UART/rcvr/parallelDataOut_4" BEL
+        "make_UART/rcvr/parallelDataOut_3" BEL
+        "make_UART/rcvr/parallelDataOut_2" BEL
+        "make_UART/rcvr/parallelDataOut_1" BEL
+        "make_UART/rcvr/parallelDataOut_0" BEL "make_UART/rcvr/lineDown" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_12" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_11" BEL
+        "make_UART/rateGen/make_baudEn.clockCount_10" BEL
         "make_UART/rateGen/make_baudEn.clockCount_9" BEL
         "make_UART/rateGen/make_baudEn.clockCount_8" BEL
         "make_UART/rateGen/make_baudEn.clockCount_7" BEL
@@ -24,9 +55,401 @@ TIMEGRP clock_pin = BEL "make_UART/xmit/tx_sm.bitToSend_2" BEL
         "make_UART/rateGen/make_baudEn.clockCount_2" BEL
         "make_UART/rateGen/make_baudEn.clockCount_1" BEL
         "make_UART/rateGen/make_baudEn.clockCount_0" BEL
-        "make_UART/rateGen/make_baudEn.clockCount_11" BEL
-        "make_UART/rateGen/make_baudEn.clockCount_12" BEL
-        "clock_pin_BUFGP/BUFG";
+        "make_UART/rateGen/make_x16en.clockCount_8" BEL
+        "make_UART/rateGen/make_x16en.clockCount_7" BEL
+        "make_UART/rateGen/make_x16en.clockCount_6" BEL
+        "make_UART/rateGen/make_x16en.clockCount_5" BEL
+        "make_UART/rateGen/make_x16en.clockCount_4" BEL
+        "make_UART/rateGen/make_x16en.clockCount_3" BEL
+        "make_UART/rateGen/make_x16en.clockCount_2" BEL
+        "make_UART/rateGen/make_x16en.clockCount_1" BEL
+        "make_UART/rateGen/baudRateEnable_x16" BEL
+        "make_UART/rateGen/baudRateEnable" BEL
+        "make_StateMachine/State_FSM_FFd1" BEL
+        "make_StateMachine/State_FSM_FFd2" BEL
+        "make_StateMachine/State_FSM_FFd3" BEL
+        "make_StateMachine/State_FSM_FFd4" PIN
+        "make_StateMachine/Mmult_n0196_pins<92>" BEL
+        "make_StateMachine/signedOutput_1" BEL
+        "make_StateMachine/signedOutput_2" BEL
+        "make_StateMachine/signedOutput_3" BEL
+        "make_StateMachine/signedOutput_4" BEL
+        "make_StateMachine/signedOutput_5" BEL
+        "make_StateMachine/signedOutput_6" BEL
+        "make_StateMachine/signedOutput_7" BEL
+        "make_StateMachine/signedOutput_8" BEL
+        "make_StateMachine/signedOutput_9" BEL
+        "make_StateMachine/signedOutput_10" BEL
+        "make_StateMachine/signedOutput_11" BEL
+        "make_StateMachine/signedOutput_12" BEL
+        "make_StateMachine/signedOutput_13" BEL
+        "make_StateMachine/signedOutput_14" BEL
+        "make_StateMachine/signedOutput_15" BEL
+        "make_StateMachine/signedOutput_16" BEL
+        "make_StateMachine/signedOutput_17" BEL
+        "make_StateMachine/signedOutput_18" BEL
+        "make_StateMachine/signedOutput_19" BEL
+        "make_StateMachine/signedOutput_20" BEL
+        "make_StateMachine/signedOutput_21" BEL
+        "make_StateMachine/signedOutput_22" BEL
+        "make_StateMachine/signedOutput_23" BEL
+        "make_StateMachine/signedOutput_24" BEL
+        "make_StateMachine/signedOutput_25" BEL
+        "make_StateMachine/signedOutput_26" BEL
+        "make_StateMachine/signedOutput_27" BEL
+        "make_StateMachine/signedOutput_28" BEL
+        "make_StateMachine/signedOutput_29" BEL
+        "make_StateMachine/unsResult_1" BEL "make_StateMachine/unsResult_2"
+        BEL "make_StateMachine/unsResult_3" BEL
+        "make_StateMachine/unsResult_4" BEL "make_StateMachine/unsResult_5"
+        BEL "make_StateMachine/unsResult_6" BEL
+        "make_StateMachine/unsResult_7" BEL "make_StateMachine/unsResult_8"
+        BEL "make_StateMachine/unsResult_9" BEL
+        "make_StateMachine/unsResult_10" BEL "make_StateMachine/unsResult_11"
+        BEL "make_StateMachine/unsResult_12" BEL
+        "make_StateMachine/unsResult_13" BEL "make_StateMachine/unsResult_14"
+        BEL "make_StateMachine/unsResult_15" BEL
+        "make_StateMachine/unsResult_16" BEL "make_StateMachine/unsResult_17"
+        BEL "make_StateMachine/unsResult_18" BEL
+        "make_StateMachine/unsResult_19" BEL "make_StateMachine/unsResult_20"
+        BEL "make_StateMachine/unsResult_21" BEL
+        "make_StateMachine/unsResult_22" BEL "make_StateMachine/unsResult_23"
+        BEL "make_StateMachine/unsResult_24" BEL
+        "make_StateMachine/unsResult_25" BEL "make_StateMachine/unsResult_26"
+        BEL "make_StateMachine/unsResult_27" BEL
+        "make_StateMachine/unsResult_28" BEL "make_StateMachine/unsResult_29"
+        BEL "make_StateMachine/bufferTxRequest" BEL
+        "make_StateMachine/inputCount_1" BEL "make_StateMachine/inputCount_2"
+        BEL "make_StateMachine/inputCount_3" BEL "make_StateMachine/unsA_1"
+        BEL "make_StateMachine/unsA_2" BEL "make_StateMachine/unsA_3" BEL
+        "make_StateMachine/unsA_4" BEL "make_StateMachine/unsA_5" BEL
+        "make_StateMachine/unsA_6" BEL "make_StateMachine/unsA_7" BEL
+        "make_StateMachine/unsA_8" BEL "make_StateMachine/unsA_9" BEL
+        "make_StateMachine/unsA_10" BEL "make_StateMachine/unsA_11" BEL
+        "make_StateMachine/unsA_12" BEL "make_StateMachine/unsA_13" BEL
+        "make_StateMachine/unsA_14" BEL "make_StateMachine/unsA_15" BEL
+        "make_StateMachine/outputChar_7" BEL "make_StateMachine/outputChar_6"
+        BEL "make_StateMachine/outputChar_5" BEL
+        "make_StateMachine/outputChar_4" BEL "make_StateMachine/outputChar_3"
+        BEL "make_StateMachine/outputChar_2" BEL
+        "make_StateMachine/outputChar_1" BEL "make_StateMachine/outputChar_0"
+        BEL "make_StateMachine/unsB_1" BEL "make_StateMachine/unsB_2" BEL
+        "make_StateMachine/unsB_3" BEL "make_StateMachine/unsB_4" BEL
+        "make_StateMachine/unsB_5" BEL "make_StateMachine/unsB_6" BEL
+        "make_StateMachine/unsB_7" BEL "make_StateMachine/unsB_8" BEL
+        "make_StateMachine/unsB_9" BEL "make_StateMachine/unsB_10" BEL
+        "make_StateMachine/unsB_11" BEL "make_StateMachine/unsB_12" BEL
+        "make_StateMachine/unsB_13" BEL "make_StateMachine/unsB_14" BEL
+        "make_StateMachine/unsB_15" BEL "make_StateMachine/muxSel_0" BEL
+        "make_StateMachine/startSerialiser" BEL "make_StateMachine/op_2" BEL
+        "make_StateMachine/op_1" BEL "make_StateMachine/op_0" BEL
+        "make_StateMachine/NegA" BEL "make_StateMachine/reset" BEL
+        "uartBuff/output_7" BEL "uartBuff/output_6" BEL "uartBuff/output_5"
+        BEL "uartBuff/output_4" BEL "uartBuff/output_3" BEL
+        "uartBuff/output_2" BEL "uartBuff/output_1" BEL "uartBuff/output_0"
+        BEL "uartBuff/outputIndex_5" BEL "uartBuff/outputIndex_4" BEL
+        "uartBuff/outputIndex_3" BEL "uartBuff/outputIndex_2" BEL
+        "uartBuff/outputIndex_1" BEL "uartBuff/outputIndex_0" BEL
+        "uartBuff/inputIndex_5" BEL "uartBuff/inputIndex_4" BEL
+        "uartBuff/inputIndex_3" BEL "uartBuff/inputIndex_2" BEL
+        "uartBuff/inputIndex_1" BEL "uartBuff/inputIndex_0" BEL
+        "uartBuff/uartTxRequest" BEL "uartBuff/buff_0_7" BEL
+        "uartBuff/buff_0_6" BEL "uartBuff/buff_0_5" BEL "uartBuff/buff_0_4"
+        BEL "uartBuff/buff_0_3" BEL "uartBuff/buff_0_2" BEL
+        "uartBuff/buff_0_1" BEL "uartBuff/buff_0_0" BEL "uartBuff/buff_63_7"
+        BEL "uartBuff/buff_63_6" BEL "uartBuff/buff_63_5" BEL
+        "uartBuff/buff_63_4" BEL "uartBuff/buff_63_3" BEL "uartBuff/buff_63_2"
+        BEL "uartBuff/buff_63_1" BEL "uartBuff/buff_63_0" BEL
+        "uartBuff/buff_62_7" BEL "uartBuff/buff_62_6" BEL "uartBuff/buff_62_5"
+        BEL "uartBuff/buff_62_4" BEL "uartBuff/buff_62_3" BEL
+        "uartBuff/buff_62_2" BEL "uartBuff/buff_62_1" BEL "uartBuff/buff_62_0"
+        BEL "uartBuff/buff_61_7" BEL "uartBuff/buff_61_6" BEL
+        "uartBuff/buff_61_5" BEL "uartBuff/buff_61_4" BEL "uartBuff/buff_61_3"
+        BEL "uartBuff/buff_61_2" BEL "uartBuff/buff_61_1" BEL
+        "uartBuff/buff_61_0" BEL "uartBuff/buff_60_7" BEL "uartBuff/buff_60_6"
+        BEL "uartBuff/buff_60_5" BEL "uartBuff/buff_60_4" BEL
+        "uartBuff/buff_60_3" BEL "uartBuff/buff_60_2" BEL "uartBuff/buff_60_1"
+        BEL "uartBuff/buff_60_0" BEL "uartBuff/buff_59_7" BEL
+        "uartBuff/buff_59_6" BEL "uartBuff/buff_59_5" BEL "uartBuff/buff_59_4"
+        BEL "uartBuff/buff_59_3" BEL "uartBuff/buff_59_2" BEL
+        "uartBuff/buff_59_1" BEL "uartBuff/buff_59_0" BEL "uartBuff/buff_58_7"
+        BEL "uartBuff/buff_58_6" BEL "uartBuff/buff_58_5" BEL
+        "uartBuff/buff_58_4" BEL "uartBuff/buff_58_3" BEL "uartBuff/buff_58_2"
+        BEL "uartBuff/buff_58_1" BEL "uartBuff/buff_58_0" BEL
+        "uartBuff/buff_56_7" BEL "uartBuff/buff_56_6" BEL "uartBuff/buff_56_5"
+        BEL "uartBuff/buff_56_4" BEL "uartBuff/buff_56_3" BEL
+        "uartBuff/buff_56_2" BEL "uartBuff/buff_56_1" BEL "uartBuff/buff_56_0"
+        BEL "uartBuff/buff_55_7" BEL "uartBuff/buff_55_6" BEL
+        "uartBuff/buff_55_5" BEL "uartBuff/buff_55_4" BEL "uartBuff/buff_55_3"
+        BEL "uartBuff/buff_55_2" BEL "uartBuff/buff_55_1" BEL
+        "uartBuff/buff_55_0" BEL "uartBuff/buff_57_7" BEL "uartBuff/buff_57_6"
+        BEL "uartBuff/buff_57_5" BEL "uartBuff/buff_57_4" BEL
+        "uartBuff/buff_57_3" BEL "uartBuff/buff_57_2" BEL "uartBuff/buff_57_1"
+        BEL "uartBuff/buff_57_0" BEL "uartBuff/buff_54_7" BEL
+        "uartBuff/buff_54_6" BEL "uartBuff/buff_54_5" BEL "uartBuff/buff_54_4"
+        BEL "uartBuff/buff_54_3" BEL "uartBuff/buff_54_2" BEL
+        "uartBuff/buff_54_1" BEL "uartBuff/buff_54_0" BEL "uartBuff/buff_53_7"
+        BEL "uartBuff/buff_53_6" BEL "uartBuff/buff_53_5" BEL
+        "uartBuff/buff_53_4" BEL "uartBuff/buff_53_3" BEL "uartBuff/buff_53_2"
+        BEL "uartBuff/buff_53_1" BEL "uartBuff/buff_53_0" BEL
+        "uartBuff/buff_52_7" BEL "uartBuff/buff_52_6" BEL "uartBuff/buff_52_5"
+        BEL "uartBuff/buff_52_4" BEL "uartBuff/buff_52_3" BEL
+        "uartBuff/buff_52_2" BEL "uartBuff/buff_52_1" BEL "uartBuff/buff_52_0"
+        BEL "uartBuff/buff_51_7" BEL "uartBuff/buff_51_6" BEL
+        "uartBuff/buff_51_5" BEL "uartBuff/buff_51_4" BEL "uartBuff/buff_51_3"
+        BEL "uartBuff/buff_51_2" BEL "uartBuff/buff_51_1" BEL
+        "uartBuff/buff_51_0" BEL "uartBuff/buff_50_7" BEL "uartBuff/buff_50_6"
+        BEL "uartBuff/buff_50_5" BEL "uartBuff/buff_50_4" BEL
+        "uartBuff/buff_50_3" BEL "uartBuff/buff_50_2" BEL "uartBuff/buff_50_1"
+        BEL "uartBuff/buff_50_0" BEL "uartBuff/buff_49_7" BEL
+        "uartBuff/buff_49_6" BEL "uartBuff/buff_49_5" BEL "uartBuff/buff_49_4"
+        BEL "uartBuff/buff_49_3" BEL "uartBuff/buff_49_2" BEL
+        "uartBuff/buff_49_1" BEL "uartBuff/buff_49_0" BEL "uartBuff/buff_47_7"
+        BEL "uartBuff/buff_47_6" BEL "uartBuff/buff_47_5" BEL
+        "uartBuff/buff_47_4" BEL "uartBuff/buff_47_3" BEL "uartBuff/buff_47_2"
+        BEL "uartBuff/buff_47_1" BEL "uartBuff/buff_47_0" BEL
+        "uartBuff/buff_46_7" BEL "uartBuff/buff_46_6" BEL "uartBuff/buff_46_5"
+        BEL "uartBuff/buff_46_4" BEL "uartBuff/buff_46_3" BEL
+        "uartBuff/buff_46_2" BEL "uartBuff/buff_46_1" BEL "uartBuff/buff_46_0"
+        BEL "uartBuff/buff_48_7" BEL "uartBuff/buff_48_6" BEL
+        "uartBuff/buff_48_5" BEL "uartBuff/buff_48_4" BEL "uartBuff/buff_48_3"
+        BEL "uartBuff/buff_48_2" BEL "uartBuff/buff_48_1" BEL
+        "uartBuff/buff_48_0" BEL "uartBuff/buff_45_7" BEL "uartBuff/buff_45_6"
+        BEL "uartBuff/buff_45_5" BEL "uartBuff/buff_45_4" BEL
+        "uartBuff/buff_45_3" BEL "uartBuff/buff_45_2" BEL "uartBuff/buff_45_1"
+        BEL "uartBuff/buff_45_0" BEL "uartBuff/buff_44_7" BEL
+        "uartBuff/buff_44_6" BEL "uartBuff/buff_44_5" BEL "uartBuff/buff_44_4"
+        BEL "uartBuff/buff_44_3" BEL "uartBuff/buff_44_2" BEL
+        "uartBuff/buff_44_1" BEL "uartBuff/buff_44_0" BEL "uartBuff/buff_43_7"
+        BEL "uartBuff/buff_43_6" BEL "uartBuff/buff_43_5" BEL
+        "uartBuff/buff_43_4" BEL "uartBuff/buff_43_3" BEL "uartBuff/buff_43_2"
+        BEL "uartBuff/buff_43_1" BEL "uartBuff/buff_43_0" BEL
+        "uartBuff/buff_42_7" BEL "uartBuff/buff_42_6" BEL "uartBuff/buff_42_5"
+        BEL "uartBuff/buff_42_4" BEL "uartBuff/buff_42_3" BEL
+        "uartBuff/buff_42_2" BEL "uartBuff/buff_42_1" BEL "uartBuff/buff_42_0"
+        BEL "uartBuff/buff_41_7" BEL "uartBuff/buff_41_6" BEL
+        "uartBuff/buff_41_5" BEL "uartBuff/buff_41_4" BEL "uartBuff/buff_41_3"
+        BEL "uartBuff/buff_41_2" BEL "uartBuff/buff_41_1" BEL
+        "uartBuff/buff_41_0" BEL "uartBuff/buff_40_7" BEL "uartBuff/buff_40_6"
+        BEL "uartBuff/buff_40_5" BEL "uartBuff/buff_40_4" BEL
+        "uartBuff/buff_40_3" BEL "uartBuff/buff_40_2" BEL "uartBuff/buff_40_1"
+        BEL "uartBuff/buff_40_0" BEL "uartBuff/buff_38_7" BEL
+        "uartBuff/buff_38_6" BEL "uartBuff/buff_38_5" BEL "uartBuff/buff_38_4"
+        BEL "uartBuff/buff_38_3" BEL "uartBuff/buff_38_2" BEL
+        "uartBuff/buff_38_1" BEL "uartBuff/buff_38_0" BEL "uartBuff/buff_37_7"
+        BEL "uartBuff/buff_37_6" BEL "uartBuff/buff_37_5" BEL
+        "uartBuff/buff_37_4" BEL "uartBuff/buff_37_3" BEL "uartBuff/buff_37_2"
+        BEL "uartBuff/buff_37_1" BEL "uartBuff/buff_37_0" BEL
+        "uartBuff/buff_39_7" BEL "uartBuff/buff_39_6" BEL "uartBuff/buff_39_5"
+        BEL "uartBuff/buff_39_4" BEL "uartBuff/buff_39_3" BEL
+        "uartBuff/buff_39_2" BEL "uartBuff/buff_39_1" BEL "uartBuff/buff_39_0"
+        BEL "uartBuff/buff_36_7" BEL "uartBuff/buff_36_6" BEL
+        "uartBuff/buff_36_5" BEL "uartBuff/buff_36_4" BEL "uartBuff/buff_36_3"
+        BEL "uartBuff/buff_36_2" BEL "uartBuff/buff_36_1" BEL
+        "uartBuff/buff_36_0" BEL "uartBuff/buff_35_7" BEL "uartBuff/buff_35_6"
+        BEL "uartBuff/buff_35_5" BEL "uartBuff/buff_35_4" BEL
+        "uartBuff/buff_35_3" BEL "uartBuff/buff_35_2" BEL "uartBuff/buff_35_1"
+        BEL "uartBuff/buff_35_0" BEL "uartBuff/buff_34_7" BEL
+        "uartBuff/buff_34_6" BEL "uartBuff/buff_34_5" BEL "uartBuff/buff_34_4"
+        BEL "uartBuff/buff_34_3" BEL "uartBuff/buff_34_2" BEL
+        "uartBuff/buff_34_1" BEL "uartBuff/buff_34_0" BEL "uartBuff/buff_33_7"
+        BEL "uartBuff/buff_33_6" BEL "uartBuff/buff_33_5" BEL
+        "uartBuff/buff_33_4" BEL "uartBuff/buff_33_3" BEL "uartBuff/buff_33_2"
+        BEL "uartBuff/buff_33_1" BEL "uartBuff/buff_33_0" BEL
+        "uartBuff/buff_32_7" BEL "uartBuff/buff_32_6" BEL "uartBuff/buff_32_5"
+        BEL "uartBuff/buff_32_4" BEL "uartBuff/buff_32_3" BEL
+        "uartBuff/buff_32_2" BEL "uartBuff/buff_32_1" BEL "uartBuff/buff_32_0"
+        BEL "uartBuff/buff_31_7" BEL "uartBuff/buff_31_6" BEL
+        "uartBuff/buff_31_5" BEL "uartBuff/buff_31_4" BEL "uartBuff/buff_31_3"
+        BEL "uartBuff/buff_31_2" BEL "uartBuff/buff_31_1" BEL
+        "uartBuff/buff_31_0" BEL "uartBuff/buff_29_7" BEL "uartBuff/buff_29_6"
+        BEL "uartBuff/buff_29_5" BEL "uartBuff/buff_29_4" BEL
+        "uartBuff/buff_29_3" BEL "uartBuff/buff_29_2" BEL "uartBuff/buff_29_1"
+        BEL "uartBuff/buff_29_0" BEL "uartBuff/buff_28_7" BEL
+        "uartBuff/buff_28_6" BEL "uartBuff/buff_28_5" BEL "uartBuff/buff_28_4"
+        BEL "uartBuff/buff_28_3" BEL "uartBuff/buff_28_2" BEL
+        "uartBuff/buff_28_1" BEL "uartBuff/buff_28_0" BEL "uartBuff/buff_30_7"
+        BEL "uartBuff/buff_30_6" BEL "uartBuff/buff_30_5" BEL
+        "uartBuff/buff_30_4" BEL "uartBuff/buff_30_3" BEL "uartBuff/buff_30_2"
+        BEL "uartBuff/buff_30_1" BEL "uartBuff/buff_30_0" BEL
+        "uartBuff/buff_27_7" BEL "uartBuff/buff_27_6" BEL "uartBuff/buff_27_5"
+        BEL "uartBuff/buff_27_4" BEL "uartBuff/buff_27_3" BEL
+        "uartBuff/buff_27_2" BEL "uartBuff/buff_27_1" BEL "uartBuff/buff_27_0"
+        BEL "uartBuff/buff_26_7" BEL "uartBuff/buff_26_6" BEL
+        "uartBuff/buff_26_5" BEL "uartBuff/buff_26_4" BEL "uartBuff/buff_26_3"
+        BEL "uartBuff/buff_26_2" BEL "uartBuff/buff_26_1" BEL
+        "uartBuff/buff_26_0" BEL "uartBuff/buff_25_7" BEL "uartBuff/buff_25_6"
+        BEL "uartBuff/buff_25_5" BEL "uartBuff/buff_25_4" BEL
+        "uartBuff/buff_25_3" BEL "uartBuff/buff_25_2" BEL "uartBuff/buff_25_1"
+        BEL "uartBuff/buff_25_0" BEL "uartBuff/buff_24_7" BEL
+        "uartBuff/buff_24_6" BEL "uartBuff/buff_24_5" BEL "uartBuff/buff_24_4"
+        BEL "uartBuff/buff_24_3" BEL "uartBuff/buff_24_2" BEL
+        "uartBuff/buff_24_1" BEL "uartBuff/buff_24_0" BEL "uartBuff/buff_23_7"
+        BEL "uartBuff/buff_23_6" BEL "uartBuff/buff_23_5" BEL
+        "uartBuff/buff_23_4" BEL "uartBuff/buff_23_3" BEL "uartBuff/buff_23_2"
+        BEL "uartBuff/buff_23_1" BEL "uartBuff/buff_23_0" BEL
+        "uartBuff/buff_22_7" BEL "uartBuff/buff_22_6" BEL "uartBuff/buff_22_5"
+        BEL "uartBuff/buff_22_4" BEL "uartBuff/buff_22_3" BEL
+        "uartBuff/buff_22_2" BEL "uartBuff/buff_22_1" BEL "uartBuff/buff_22_0"
+        BEL "uartBuff/buff_20_7" BEL "uartBuff/buff_20_6" BEL
+        "uartBuff/buff_20_5" BEL "uartBuff/buff_20_4" BEL "uartBuff/buff_20_3"
+        BEL "uartBuff/buff_20_2" BEL "uartBuff/buff_20_1" BEL
+        "uartBuff/buff_20_0" BEL "uartBuff/buff_19_7" BEL "uartBuff/buff_19_6"
+        BEL "uartBuff/buff_19_5" BEL "uartBuff/buff_19_4" BEL
+        "uartBuff/buff_19_3" BEL "uartBuff/buff_19_2" BEL "uartBuff/buff_19_1"
+        BEL "uartBuff/buff_19_0" BEL "uartBuff/buff_21_7" BEL
+        "uartBuff/buff_21_6" BEL "uartBuff/buff_21_5" BEL "uartBuff/buff_21_4"
+        BEL "uartBuff/buff_21_3" BEL "uartBuff/buff_21_2" BEL
+        "uartBuff/buff_21_1" BEL "uartBuff/buff_21_0" BEL "uartBuff/buff_18_7"
+        BEL "uartBuff/buff_18_6" BEL "uartBuff/buff_18_5" BEL
+        "uartBuff/buff_18_4" BEL "uartBuff/buff_18_3" BEL "uartBuff/buff_18_2"
+        BEL "uartBuff/buff_18_1" BEL "uartBuff/buff_18_0" BEL
+        "uartBuff/buff_17_7" BEL "uartBuff/buff_17_6" BEL "uartBuff/buff_17_5"
+        BEL "uartBuff/buff_17_4" BEL "uartBuff/buff_17_3" BEL
+        "uartBuff/buff_17_2" BEL "uartBuff/buff_17_1" BEL "uartBuff/buff_17_0"
+        BEL "uartBuff/buff_16_7" BEL "uartBuff/buff_16_6" BEL
+        "uartBuff/buff_16_5" BEL "uartBuff/buff_16_4" BEL "uartBuff/buff_16_3"
+        BEL "uartBuff/buff_16_2" BEL "uartBuff/buff_16_1" BEL
+        "uartBuff/buff_16_0" BEL "uartBuff/buff_15_7" BEL "uartBuff/buff_15_6"
+        BEL "uartBuff/buff_15_5" BEL "uartBuff/buff_15_4" BEL
+        "uartBuff/buff_15_3" BEL "uartBuff/buff_15_2" BEL "uartBuff/buff_15_1"
+        BEL "uartBuff/buff_15_0" BEL "uartBuff/buff_14_7" BEL
+        "uartBuff/buff_14_6" BEL "uartBuff/buff_14_5" BEL "uartBuff/buff_14_4"
+        BEL "uartBuff/buff_14_3" BEL "uartBuff/buff_14_2" BEL
+        "uartBuff/buff_14_1" BEL "uartBuff/buff_14_0" BEL "uartBuff/buff_13_7"
+        BEL "uartBuff/buff_13_6" BEL "uartBuff/buff_13_5" BEL
+        "uartBuff/buff_13_4" BEL "uartBuff/buff_13_3" BEL "uartBuff/buff_13_2"
+        BEL "uartBuff/buff_13_1" BEL "uartBuff/buff_13_0" BEL
+        "uartBuff/buff_11_7" BEL "uartBuff/buff_11_6" BEL "uartBuff/buff_11_5"
+        BEL "uartBuff/buff_11_4" BEL "uartBuff/buff_11_3" BEL
+        "uartBuff/buff_11_2" BEL "uartBuff/buff_11_1" BEL "uartBuff/buff_11_0"
+        BEL "uartBuff/buff_10_7" BEL "uartBuff/buff_10_6" BEL
+        "uartBuff/buff_10_5" BEL "uartBuff/buff_10_4" BEL "uartBuff/buff_10_3"
+        BEL "uartBuff/buff_10_2" BEL "uartBuff/buff_10_1" BEL
+        "uartBuff/buff_10_0" BEL "uartBuff/buff_12_7" BEL "uartBuff/buff_12_6"
+        BEL "uartBuff/buff_12_5" BEL "uartBuff/buff_12_4" BEL
+        "uartBuff/buff_12_3" BEL "uartBuff/buff_12_2" BEL "uartBuff/buff_12_1"
+        BEL "uartBuff/buff_12_0" BEL "uartBuff/buff_9_7" BEL
+        "uartBuff/buff_9_6" BEL "uartBuff/buff_9_5" BEL "uartBuff/buff_9_4"
+        BEL "uartBuff/buff_9_3" BEL "uartBuff/buff_9_2" BEL
+        "uartBuff/buff_9_1" BEL "uartBuff/buff_9_0" BEL "uartBuff/buff_8_7"
+        BEL "uartBuff/buff_8_6" BEL "uartBuff/buff_8_5" BEL
+        "uartBuff/buff_8_4" BEL "uartBuff/buff_8_3" BEL "uartBuff/buff_8_2"
+        BEL "uartBuff/buff_8_1" BEL "uartBuff/buff_8_0" BEL
+        "uartBuff/buff_7_7" BEL "uartBuff/buff_7_6" BEL "uartBuff/buff_7_5"
+        BEL "uartBuff/buff_7_4" BEL "uartBuff/buff_7_3" BEL
+        "uartBuff/buff_7_2" BEL "uartBuff/buff_7_1" BEL "uartBuff/buff_7_0"
+        BEL "uartBuff/buff_6_7" BEL "uartBuff/buff_6_6" BEL
+        "uartBuff/buff_6_5" BEL "uartBuff/buff_6_4" BEL "uartBuff/buff_6_3"
+        BEL "uartBuff/buff_6_2" BEL "uartBuff/buff_6_1" BEL
+        "uartBuff/buff_6_0" BEL "uartBuff/buff_5_7" BEL "uartBuff/buff_5_6"
+        BEL "uartBuff/buff_5_5" BEL "uartBuff/buff_5_4" BEL
+        "uartBuff/buff_5_3" BEL "uartBuff/buff_5_2" BEL "uartBuff/buff_5_1"
+        BEL "uartBuff/buff_5_0" BEL "uartBuff/buff_4_7" BEL
+        "uartBuff/buff_4_6" BEL "uartBuff/buff_4_5" BEL "uartBuff/buff_4_4"
+        BEL "uartBuff/buff_4_3" BEL "uartBuff/buff_4_2" BEL
+        "uartBuff/buff_4_1" BEL "uartBuff/buff_4_0" BEL "uartBuff/buff_2_7"
+        BEL "uartBuff/buff_2_6" BEL "uartBuff/buff_2_5" BEL
+        "uartBuff/buff_2_4" BEL "uartBuff/buff_2_3" BEL "uartBuff/buff_2_2"
+        BEL "uartBuff/buff_2_1" BEL "uartBuff/buff_2_0" BEL
+        "uartBuff/buff_1_7" BEL "uartBuff/buff_1_6" BEL "uartBuff/buff_1_5"
+        BEL "uartBuff/buff_1_4" BEL "uartBuff/buff_1_3" BEL
+        "uartBuff/buff_1_2" BEL "uartBuff/buff_1_1" BEL "uartBuff/buff_1_0"
+        BEL "uartBuff/buff_3_7" BEL "uartBuff/buff_3_6" BEL
+        "uartBuff/buff_3_5" BEL "uartBuff/buff_3_4" BEL "uartBuff/buff_3_3"
+        BEL "uartBuff/buff_3_2" BEL "uartBuff/buff_3_1" BEL
+        "uartBuff/buff_3_0" BEL "outputSerialiser/State_FSM_FFd2" BEL
+        "outputSerialiser/State_FSM_FFd3" BEL
+        "outputSerialiser/State_FSM_FFd1" BEL
+        "outputSerialiser/parallelDataOut_6" BEL
+        "outputSerialiser/parallelDataOut_5" BEL
+        "outputSerialiser/parallelDataOut_4" BEL
+        "outputSerialiser/parallelDataOut_3" BEL
+        "outputSerialiser/parallelDataOut_2" BEL
+        "outputSerialiser/parallelDataOut_1" BEL
+        "outputSerialiser/parallelDataOut_0" BEL
+        "outputSerialiser/stackInput_6" BEL "outputSerialiser/stackInput_4"
+        BEL "outputSerialiser/stackInput_3" BEL
+        "outputSerialiser/stackInput_2" BEL "outputSerialiser/stackInput_1"
+        BEL "outputSerialiser/stackInput_0" BEL "outputSerialiser/digit_6" BEL
+        "outputSerialiser/digit_4" BEL "outputSerialiser/digit_3" BEL
+        "outputSerialiser/digit_2" BEL "outputSerialiser/digit_1" BEL
+        "outputSerialiser/digit_0" BEL "outputSerialiser/number_1" BEL
+        "outputSerialiser/number_2" BEL "outputSerialiser/number_3" BEL
+        "outputSerialiser/number_4" BEL "outputSerialiser/number_5" BEL
+        "outputSerialiser/number_6" BEL "outputSerialiser/number_7" BEL
+        "outputSerialiser/number_8" BEL "outputSerialiser/number_9" BEL
+        "outputSerialiser/number_10" BEL "outputSerialiser/number_11" BEL
+        "outputSerialiser/number_12" BEL "outputSerialiser/number_13" BEL
+        "outputSerialiser/number_14" BEL "outputSerialiser/number_15" BEL
+        "outputSerialiser/number_16" BEL "outputSerialiser/number_17" BEL
+        "outputSerialiser/number_18" BEL "outputSerialiser/number_19" BEL
+        "outputSerialiser/number_20" BEL "outputSerialiser/number_21" BEL
+        "outputSerialiser/number_22" BEL "outputSerialiser/number_23" BEL
+        "outputSerialiser/number_24" BEL "outputSerialiser/number_25" BEL
+        "outputSerialiser/number_26" BEL "outputSerialiser/number_27" BEL
+        "outputSerialiser/number_28" BEL "outputSerialiser/number_29" BEL
+        "outputSerialiser/transmitRequest" BEL "outputSerialiser/pop" BEL
+        "outputSerialiser/push" BEL "outputSerialiser/done" BEL
+        "outputSerialiser/stack/output_6" BEL
+        "outputSerialiser/stack/output_5" BEL
+        "outputSerialiser/stack/output_3" BEL
+        "outputSerialiser/stack/output_2" BEL
+        "outputSerialiser/stack/output_1" BEL
+        "outputSerialiser/stack/output_0" BEL
+        "outputSerialiser/stack/stackIndex_3" BEL
+        "outputSerialiser/stack/stackIndex_2" BEL
+        "outputSerialiser/stack/stackIndex_1" BEL
+        "outputSerialiser/stack/stackIndex_0" BEL
+        "outputSerialiser/stack/stack_7_6" BEL
+        "outputSerialiser/stack/stack_7_5" BEL
+        "outputSerialiser/stack/stack_7_3" BEL
+        "outputSerialiser/stack/stack_7_2" BEL
+        "outputSerialiser/stack/stack_7_1" BEL
+        "outputSerialiser/stack/stack_7_0" BEL
+        "outputSerialiser/stack/stack_6_6" BEL
+        "outputSerialiser/stack/stack_6_5" BEL
+        "outputSerialiser/stack/stack_6_3" BEL
+        "outputSerialiser/stack/stack_6_2" BEL
+        "outputSerialiser/stack/stack_6_1" BEL
+        "outputSerialiser/stack/stack_6_0" BEL
+        "outputSerialiser/stack/stack_5_6" BEL
+        "outputSerialiser/stack/stack_5_5" BEL
+        "outputSerialiser/stack/stack_5_3" BEL
+        "outputSerialiser/stack/stack_5_2" BEL
+        "outputSerialiser/stack/stack_5_1" BEL
+        "outputSerialiser/stack/stack_5_0" BEL
+        "outputSerialiser/stack/stack_4_6" BEL
+        "outputSerialiser/stack/stack_4_5" BEL
+        "outputSerialiser/stack/stack_4_3" BEL
+        "outputSerialiser/stack/stack_4_2" BEL
+        "outputSerialiser/stack/stack_4_1" BEL
+        "outputSerialiser/stack/stack_4_0" BEL
+        "outputSerialiser/stack/stack_3_6" BEL
+        "outputSerialiser/stack/stack_3_5" BEL
+        "outputSerialiser/stack/stack_3_3" BEL
+        "outputSerialiser/stack/stack_3_2" BEL
+        "outputSerialiser/stack/stack_3_1" BEL
+        "outputSerialiser/stack/stack_3_0" BEL
+        "outputSerialiser/stack/stack_1_6" BEL
+        "outputSerialiser/stack/stack_1_5" BEL
+        "outputSerialiser/stack/stack_1_3" BEL
+        "outputSerialiser/stack/stack_1_2" BEL
+        "outputSerialiser/stack/stack_1_1" BEL
+        "outputSerialiser/stack/stack_1_0" BEL
+        "outputSerialiser/stack/stack_0_6" BEL
+        "outputSerialiser/stack/stack_0_5" BEL
+        "outputSerialiser/stack/stack_0_3" BEL
+        "outputSerialiser/stack/stack_0_2" BEL
+        "outputSerialiser/stack/stack_0_1" BEL
+        "outputSerialiser/stack/stack_0_0" BEL
+        "outputSerialiser/stack/stack_2_6" BEL
+        "outputSerialiser/stack/stack_2_5" BEL
+        "outputSerialiser/stack/stack_2_3" BEL
+        "outputSerialiser/stack/stack_2_2" BEL
+        "outputSerialiser/stack/stack_2_1" BEL
+        "outputSerialiser/stack/stack_2_0" BEL "make_StateMachine/NegB" BEL
+        "outputSerialiser/number_1_1" BEL "clock_pin_BUFGP/BUFG";
 TS_clock_pin = PERIOD TIMEGRP "clock_pin" 40 MHz HIGH 50%;
 SCHEMATIC END;
 

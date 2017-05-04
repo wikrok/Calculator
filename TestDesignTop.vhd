@@ -118,6 +118,11 @@ BEGIN
 	wait for 10 ns;
 	txIsReady <= '1', '0' after 10 ns;
 	wait for 20 ns;	
+
+	parallelDataIn <= X"32";
+	wait for 10 ns;
+	txIsReady <= '1', '0' after 10 ns;
+	wait for 20 ns;	
 	
 	parallelDataIn <= X"33";
 	wait for 10 ns;

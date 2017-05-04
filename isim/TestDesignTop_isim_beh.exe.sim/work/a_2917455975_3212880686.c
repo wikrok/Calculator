@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/seb/Desktop/Calculator-Not-Integers/Stack.vhd";
+static const char *ng0 = "C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd";
 extern char *IEEE_P_2592010699;
 
 unsigned char ieee_p_2592010699_sub_1744673427_503743352(char *, char *, unsigned int , unsigned int );

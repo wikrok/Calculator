@@ -1,2 +1,0 @@
-vhdl work "UART-tx-buffer.vhd"
-vhdl work "uartBufferTest.vhd"

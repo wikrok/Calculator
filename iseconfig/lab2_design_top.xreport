@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-05-04T21:15:24</DateModified>
+  <DateModified>2017-05-04T21:30:37</DateModified>
   <ModuleName>lab2_design_top</ModuleName>
-  <SummaryTimeStamp>2017-05-04T19:50:57</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/seb/Desktop/Calculator-Not-Integers/iseconfig/lab2_design_top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/seb/Desktop/Calculator-Not-Integers\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2017-05-04T21:30:20</SummaryTimeStamp>
+  <SavedFilePath>C:/Users/phil/Documents/GitHub/Calculator/iseconfig/lab2_design_top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/phil/Documents/GitHub/Calculator\</ImplementationReportsDirectory>
   <DateInitialized>2017-05-04T16:35:00</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

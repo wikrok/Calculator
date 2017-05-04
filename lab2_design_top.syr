@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: lab2_design_top.prj
 
@@ -105,37 +105,37 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_transmitter.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd" into library work
 Parsing entity <UART_transmitter>.
 Parsing architecture <Behavioral> of entity <uart_transmitter>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_receiver.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\UART_receiver.vhd" into library work
 Parsing entity <UART_receiver>.
 Parsing architecture <Behavioral> of entity <uart_receiver>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_baudRateGenerator.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\UART_baudRateGenerator.vhd" into library work
 Parsing entity <UART_baudRateGenerator>.
 Parsing architecture <BEHAVIORAL> of entity <uart_baudrategenerator>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\Stack.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\Stack.vhd" into library work
 Parsing entity <charStack>.
 Parsing architecture <Behavioral> of entity <charstack>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\uart.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\uart.vhd" into library work
 Parsing entity <UART>.
 Parsing architecture <Behavioral> of entity <uart>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\UART-tx-buffer.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\UART-tx-buffer.vhd" into library work
 Parsing entity <UART_tx_buffer>.
 Parsing architecture <Behavioral> of entity <uart_tx_buffer>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\StateMachine.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\StateMachine.vhd" into library work
 Parsing entity <StateMachine>.
 Parsing architecture <Behavioral> of entity <statemachine>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\Serialiser.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\Serialiser.vhd" into library work
 Parsing entity <Serialiser>.
 Parsing architecture <Behavioral> of entity <serialiser>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\BuffWriteOr.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\BuffWriteOr.vhd" into library work
 Parsing entity <BuffWriteOr>.
 Parsing architecture <Behavioral> of entity <buffwriteor>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\BufferMultiplexer.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\BufferMultiplexer.vhd" into library work
 Parsing entity <BufferMultiplexer>.
 Parsing architecture <Behavioral> of entity <buffermultiplexer>.
-Parsing VHDL file "C:\Users\seb\Desktop\Calculator-Not-Integers\TopLevel.vhd" into library work
+Parsing VHDL file "C:\Users\phil\Documents\GitHub\Calculator\TopLevel.vhd" into library work
 Parsing entity <lab2_design_top>.
 Parsing architecture <structural> of entity <lab2_design_top>.
 
@@ -144,8 +144,8 @@ Parsing architecture <structural> of entity <lab2_design_top>.
 =========================================================================
 
 Elaborating entity <lab2_design_top> (architecture <structural>) from library <work>.
-WARNING:HDLCompiler:871 - "C:\Users\seb\Desktop\Calculator-Not-Integers\TopLevel.vhd" Line 32: Using initial value '0' for gnd since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Users\seb\Desktop\Calculator-Not-Integers\TopLevel.vhd" Line 44: Using initial value "UUUUUUUU" for temp since it is never assigned
+WARNING:HDLCompiler:871 - "C:\Users\phil\Documents\GitHub\Calculator\TopLevel.vhd" Line 32: Using initial value '0' for gnd since it is never assigned
+WARNING:HDLCompiler:871 - "C:\Users\phil\Documents\GitHub\Calculator\TopLevel.vhd" Line 44: Using initial value "UUUUUUUU" for temp since it is never assigned
 
 Elaborating entity <UART> (architecture <Behavioral>) with generics from library <work>.
 
@@ -156,8 +156,8 @@ Elaborating entity <UART_transmitter> (architecture <Behavioral>) from library <
 Elaborating entity <UART_receiver> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <StateMachine> (architecture <Behavioral>) with generics from library <work>.
-INFO:HDLCompiler:679 - "C:\Users\seb\Desktop\Calculator-Not-Integers\StateMachine.vhd" Line 333. Case statement is complete. others clause is never selected
-WARNING:HDLCompiler:1127 - "C:\Users\seb\Desktop\Calculator-Not-Integers\StateMachine.vhd" Line 63: Assignment to strerror ignored, since the identifier is never used
+INFO:HDLCompiler:679 - "C:\Users\phil\Documents\GitHub\Calculator\StateMachine.vhd" Line 333. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:1127 - "C:\Users\phil\Documents\GitHub\Calculator\StateMachine.vhd" Line 63: Assignment to strerror ignored, since the identifier is never used
 
 Elaborating entity <Serialiser> (architecture <Behavioral>) from library <work>.
 
@@ -174,13 +174,13 @@ Elaborating entity <UART_tx_buffer> (architecture <Behavioral>) from library <wo
 =========================================================================
 
 Synthesizing Unit <lab2_design_top>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\TopLevel.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\TopLevel.vhd".
     Summary:
 	no macro.
 Unit <lab2_design_top> synthesized.
 
 Synthesizing Unit <UART>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\uart.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\uart.vhd".
         BAUD_RATE = 9600
         CLOCK_RATE = 40000000
     Summary:
@@ -188,7 +188,7 @@ Synthesizing Unit <UART>.
 Unit <UART> synthesized.
 
 Synthesizing Unit <UART_baudRateGenerator>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_baudRateGenerator.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\UART_baudRateGenerator.vhd".
         BAUD_RATE = 9600
         CLOCK_RATE = 40000000
     Found 9-bit register for signal <make_x16en.clockCount>.
@@ -203,7 +203,7 @@ Synthesizing Unit <UART_baudRateGenerator>.
 Unit <UART_baudRateGenerator> synthesized.
 
 Synthesizing Unit <UART_transmitter>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_transmitter.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\UART_transmitter.vhd".
     Found 1-bit register for signal <ready>.
     Found 1-bit register for signal <tx_sm.go>.
     Found 1-bit register for signal <serialDataOut>.
@@ -234,7 +234,7 @@ Synthesizing Unit <UART_transmitter>.
 Unit <UART_transmitter> synthesized.
 
 Synthesizing Unit <UART_receiver>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\UART_receiver.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\UART_receiver.vhd".
     Found 1-bit register for signal <dataValid>.
     Found 1-bit register for signal <countLoad>.
     Found 1-bit register for signal <countEnable>.
@@ -270,7 +270,7 @@ Synthesizing Unit <UART_receiver>.
 Unit <UART_receiver> synthesized.
 
 Synthesizing Unit <StateMachine>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\StateMachine.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\StateMachine.vhd".
     Found 1-bit register for signal <reset>.
     Found 4-bit register for signal <State>.
     Found 2-bit register for signal <muxSel>.
@@ -441,8 +441,8 @@ Synthesizing Unit <mod_15s_15s>.
 Unit <mod_15s_15s> synthesized.
 
 Synthesizing Unit <Serialiser>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\Serialiser.vhd".
-INFO:Xst:3210 - "C:\Users\seb\Desktop\Calculator-Not-Integers\Serialiser.vhd" line 75: Output port <full> of the instance <stack> is unconnected or connected to loadless signal.
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\Serialiser.vhd".
+INFO:Xst:3210 - "C:\Users\phil\Documents\GitHub\Calculator\Serialiser.vhd" line 75: Output port <full> of the instance <stack> is unconnected or connected to loadless signal.
     Found 29-bit register for signal <number>.
     Found 8-bit register for signal <digit>.
     Found 8-bit register for signal <stackInput>.
@@ -478,7 +478,7 @@ INFO:Xst:3210 - "C:\Users\seb\Desktop\Calculator-Not-Integers\Serialiser.vhd" li
 Unit <Serialiser> synthesized.
 
 Synthesizing Unit <charStack>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\Stack.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\Stack.vhd".
     Found 8-bit register for signal <stack<0>>.
     Found 8-bit register for signal <stack<1>>.
     Found 8-bit register for signal <stack<2>>.
@@ -643,19 +643,19 @@ Synthesizing Unit <div_29s_5s>.
 Unit <div_29s_5s> synthesized.
 
 Synthesizing Unit <BufferMultiplexer>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\BufferMultiplexer.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\BufferMultiplexer.vhd".
     Summary:
 	inferred   1 Multiplexer(s).
 Unit <BufferMultiplexer> synthesized.
 
 Synthesizing Unit <BuffWriteOr>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\BuffWriteOr.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\BuffWriteOr.vhd".
     Summary:
 	no macro.
 Unit <BuffWriteOr> synthesized.
 
 Synthesizing Unit <UART_tx_buffer>.
-    Related source file is "C:\Users\seb\Desktop\Calculator-Not-Integers\UART-tx-buffer.vhd".
+    Related source file is "C:\Users\phil\Documents\GitHub\Calculator\UART-tx-buffer.vhd".
     Found 8-bit register for signal <buff<1>>.
     Found 8-bit register for signal <buff<2>>.
     Found 8-bit register for signal <buff<3>>.
@@ -1526,12 +1526,12 @@ clock_pin      |   84.144|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 37.00 secs
-Total CPU time to Xst completion: 36.48 secs
+Total REAL time to Xst completion: 57.00 secs
+Total CPU time to Xst completion: 56.59 secs
  
 --> 
 
-Total memory usage is 390872 kilobytes
+Total memory usage is 385432 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  114 (   0 filtered)
