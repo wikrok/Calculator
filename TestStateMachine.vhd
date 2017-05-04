@@ -88,7 +88,7 @@ my_process : process is
 	wait for 20 ns;
 
 	
-	inputChar <= X"2D";
+	inputChar <= X"2A";
 	wait for 10 ns;
 	uartTxReady <= '1', '0' after 10 ns;
 	wait for 20 ns;

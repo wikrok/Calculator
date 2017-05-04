@@ -11,7 +11,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="19" />
    <wvobject fp_name="/testbench/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -76,5 +76,24 @@
    <wvobject fp_name="/testbench/uut/negb" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">negb</obj_property>
       <obj_property name="ObjectShortName">negb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/buffMultiplexer/ina" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ina[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ina[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/buffMultiplexer/inb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">inb[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/buffMultiplexer/output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">output[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/uartBuff/buff" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buff[0:63]</obj_property>
+      <obj_property name="ObjectShortName">buff[0:63]</obj_property>
    </wvobject>
 </wave_config>

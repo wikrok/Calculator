@@ -37,8 +37,7 @@ entity Serialiser is
 					enable : IN STD_LOGIC;
 					done : OUT STD_LOGIC;
 					parallelDataOut : OUT STD_LOGIC_VECTOR (7 downto 0); -- This and below go to UART object.
-					transmitRequest : OUT STD_LOGIC;
-					txIsReady : IN STD_LOGIC
+					transmitRequest : OUT STD_LOGIC
 				);
 					
 					
@@ -84,7 +83,7 @@ begin
 			 stackDepth => stackDepth
         );
 
-process (clk, reset, txIsReady, enable) is begin
+process (clk, reset, enable) is begin
 	
 	if reset = '1' then
 		State <= Idle;
@@ -109,14 +108,9 @@ process (clk, reset, txIsReady, enable) is begin
 			when CheckNeg =>
 				if number < 0 then
 					-- It's negative, send to UART.
-					if txIsReady = '1' then
-						-- Then we can transmit a minus sign.
-						parallelDataOut <= X"2D";
-						transmitRequest <= '1';
-						State <= Negate;
-					else
-						State <= CheckNeg;
-					end if;
+					parallelDataOut <= X"2D";
+					transmitRequest <= '1';
+					State <= Negate;
 				else
 					State <= ASCII;
 				end if;
@@ -153,21 +147,15 @@ process (clk, reset, txIsReady, enable) is begin
 				pop <= '0';
 				digit <= StackOutput;
 
-				if txIsReady = '1' then
-					parallelDataOut <= digit;
-					transmitRequest <= '1';
-					if stackDepth = 0 then
-						State <= Idle;
-						done <= '1';
-					else
-						State <= RetrieveDigit;
-					end if;
+				parallelDataOut <= digit;
+				transmitRequest <= '1';
+				if stackDepth = 0 then
+					State <= Idle;
+					done <= '1';
 				else
-					State <= TxDigit;
+					State <= RetrieveDigit;
 				end if;
-				
-				
-				
+							
 			end case;
 	end if;	
 	

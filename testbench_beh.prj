@@ -1,0 +1,6 @@
+vhdl work "Stack.vhd"
+vhdl work "UART-tx-buffer.vhd"
+vhdl work "Serialiser.vhd"
+vhdl work "BufferMultiplexer.vhd"
+vhdl work "StateMachine.vhd"
+vhdl work "TestStateMachine.vhd"
