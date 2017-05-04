@@ -34,17 +34,22 @@ entity StateMachine is
 	generic (TPD : TIME := 1 ns);
 	port(clk : in STD_LOGIC;
 		  extReset : in STD_LOGIC;
+		  reset : out STD_LOGIC;
 		  inputChar : in STD_LOGIC_VECTOR (7 downto 0);
-		  uartTxReady : in STD_LOGIC;
+		  uartValid : in STD_LOGIC;
 		  outputChar : out STD_LOGIC_VECTOR (7 downto 0);
-		  outputReady : out STD_LOGIC
+		  bufferTxRequest : out STD_LOGIC;
+		  signedOutput : out SIGNED (1 to 29);
+		  startSerialiser: out STD_LOGIC;
+		  serialiserDone: in STD_LOGIC;
+		  muxSel: out STD_LOGIC_VECTOR(1 downto 0)
 		  );
 end StateMachine;
 
 architecture Behavioral of StateMachine is
 	type STATETYPE is (Rst, Idle, NegDigA, DigA, DigOp, NegDigB, DigB, DigEq, Negate, CalcResult, SendResult, WaitResult, WaitError);
 	type OPERATOR is (Plus, Minus, Divide, Multiply, Modulus);
-	signal State: STATETYPE;
+	signal State: STATETYPE := Rst;
 	signal NegA : STD_LOGIC := '0';
 	signal NegB : STD_LOGIC := '0';
 	signal op : OPERATOR;
@@ -53,125 +58,11 @@ architecture Behavioral of StateMachine is
 	signal unsB : SIGNED (1 to 15);
 	signal unsResult : SIGNED (1 to 29);
 	signal inputCount	: UNSIGNED (1 to 3);
-	
-	
-	 COMPONENT UART_tx_buffer
-	 PORT (
-			input : in STD_LOGIC_VECTOR (7 downto 0);
-			output : out STD_LOGIC_VECTOR (7 downto 0);
-			reset : in STD_LOGIC;
-			uartTxRequest : out STD_LOGIC;
-			writeClk : in STD_LOGIC;
-			uartTxReady : in STD_LOGIC
-			);
-	END COMPONENT;	
-	
-	COMPONENT Serialiser
-    PORT(
-         clk : IN  std_logic;
-         reset : IN  std_logic;
-         signedInput : IN  SIGNED (1 to 29);
-         enable : IN  std_logic;
-         done : OUT  std_logic;
-         parallelDataOut : OUT  std_logic_vector(7 downto 0);
-         transmitRequest : OUT  std_logic
-        );
-    END COMPONENT;
-	 COMPONENT BufferMultiplexer
-	 	port (
-			inA : IN STD_LOGIC_VECTOR (7 downto 0);
-			inB : IN STD_LOGIC_VECTOR (7 downto 0);
-			inC : IN STD_LOGIC_VECTOR (7 downto 0);
-			output : OUT STD_LOGIC_VECTOR (7 downto 0);
-			sel : IN STD_LOGIC_VECTOR (1 downto 0)
-			);
-	 END COMPONENT;
-	 
-	 COMPONENT buffWriteOr
-	 	PORT (
-			a : IN STD_LOGIC;
-			b : IN STD_LOGIC;
-			c : IN STD_LOGIC;
-			q : OUT STD_LOGIC
-				);
-	END COMPONENT;
-	
-	    --Inputs
-	signal buffInput : std_logic_vector (7 downto 0); -- := (others => (others => '0'));
-	signal buffUartTxReady : std_logic := '0';
-	signal reset : std_logic := '0';
-	
- 	--Outputs
-	signal buffOutput : std_logic_vector (7 downto 0);
-	signal buffTxRequest : std_logic;
-	
-	
-	
-	
-	   --Inputs
-   signal signedInput : SIGNED (1 to 29);
-   signal enable : std_logic := '0';
-	signal echo : STD_LOGIC_VECTOR(7 downto 0);
-
- 	--Outputs
-   signal done : std_logic;
-   signal parallelDataOut : std_logic_vector(7 downto 0);
-   signal transmitRequest : std_logic;
-	signal serialiserOutput : STD_LOGIC_VECTOR(7 downto 0);
-	signal temp : STD_LOGIC_VECTOR(7 downto 0);
-	signal muxSel : STD_LOGIC_VECTOR(1 downto 0);
-	signal bufferTxRequest : STD_LOGIC := '0';
-	signal serialiserTxRequest : STD_LOGIC;
-	signal errorTxRequest : STD_LOGIC := '0';
-	signal writeClk : STD_LOGIC;
-	
-
-begin
- 
- --TODO - move me up a level.
-		uartBuff: UART_tx_buffer PORT MAP (
-			input => buffInput,
-			output => buffOutput,
-			reset => reset,
-			uartTxRequest => buffTxRequest,
-			writeClk => writeClk,
-			uartTxReady => buffUartTxReady
-			);
-			
-		outputSerialiser: Serialiser PORT MAP (
-          clk => clk,
-          reset => reset,
-          signedInput => signedInput,
-          enable => enable,
-          done => done,
-          parallelDataOut => serialiserOutput,
-          transmitRequest => serialiserTxRequest
-        );
-			
-		buffMultiplexer: BufferMultiplexer PORT MAP (
-				inA => echo,
-				inB => serialiserOutput,
-				inC => temp, -- TODO use me for error strings.
-				output => buffInput,
-				sel => muxSel
-			);	
-			
-		buffWriteOrGate: buffWriteOr PORT MAP (
-				a => bufferTxRequest,
-				b => serialiserTxRequest,
-				c => errorTxRequest,
-				q => writeClk
-				);
-
-
-process (CLK, Reset)
-
 begin
 
--- THIS JUST TRIGGERS THE UART.
--- TODO REMOVE ME.
-buffUartTxReady <= '1';
+process (CLK, extReset)
 
+begin
 
 	if extReset = '1' then 
 		State <= Rst;
@@ -188,10 +79,10 @@ buffUartTxReady <= '1';
 				inputCount <= b"000";
 		
 			when NegDigA =>
-				if uartTxReady = '1' then 
+				if uartValid = '1' then 
 					-- Echoes back the UART input.
 					muxSel <= b"00";
-					echo <= inputChar;
+					outputChar<= inputChar;
 					bufferTxRequest <= '1';
 					
 					if inputChar = X"2D" then -- Negative sign
@@ -215,10 +106,10 @@ buffUartTxReady <= '1';
 				end if;
 			
 			when DigA =>
-				if uartTxReady = '1' then
+				if uartValid = '1' then
 					-- Echoes back the UART input.
 					muxSel <= b"00";
-					echo <= inputChar;
+					outputChar<= inputChar;
 					bufferTxRequest <= '1';
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
@@ -238,10 +129,10 @@ buffUartTxReady <= '1';
 				end if;
 				
 			when DigOp =>
-				if uartTxReady = '1' then
+				if uartValid = '1' then
 					-- Echoes back the UART input.
 					muxSel <= b"00";
-					echo <= inputChar;
+					outputChar<= inputChar;
 					bufferTxRequest <= '1';
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
@@ -289,10 +180,10 @@ buffUartTxReady <= '1';
 				end if;
 				
 			when NegDigB =>
-				if uartTxReady = '1' then
+				if uartValid = '1' then
 					-- Echoes back the UART input.
 					muxSel <= b"00";
-					echo <= inputChar;
+					outputChar<= inputChar;
 					bufferTxRequest <= '1';
 					
 					if inputChar = X"2D" then -- Negative sign
@@ -314,10 +205,10 @@ buffUartTxReady <= '1';
 				end if;
 					
 			when DigB =>
-				if uartTxReady = '1' then
+				if uartValid = '1' then
 					-- Echoes back the UART input.
 					muxSel <= b"00";
-					echo <= inputChar;
+					outputChar<= inputChar;
 					bufferTxRequest <= '1';
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
@@ -335,10 +226,10 @@ buffUartTxReady <= '1';
 				end if;
 				
 			when DigEq =>
-				if uartTxReady = '1' then
+				if uartValid = '1' then
 					-- Echoes back the UART input.
 					muxSel <= b"00";
-					echo <= inputChar;
+					outputChar<= inputChar;
 					bufferTxRequest <= '1';
 					
 					if inputChar = X"3D" then	--It's an equals sign
@@ -401,8 +292,8 @@ buffUartTxReady <= '1';
 							-- GENERAL TODO
 							-- DONE 1. Tidy up code.
 							-- DONE 2. Write output code.
-							-- TODO : ERROR IN SERIALISER OUTPUT. transmitRequest doesn't seem to be happening at the right time. 
-							-- 2b. Add Serialiser to state machine code.
+							-- DONE ERROR IN SERIALISER OUTPUT. transmitRequest doesn't seem to be happening at the right time. 
+							-- DONE 2b. Add Serialiser to state machine code.
 							-- 3. Error handling and outputting.
 							-- 4. Possible refactoring depenidng how suicidal we're feeling.
 							-- 4b. Remove referneces to "unsidnged" in variable names.
@@ -412,15 +303,15 @@ buffUartTxReady <= '1';
 							-- 8. Write things about it.
 							
 			when SendResult =>
-				signedInput <= unsResult;
+				signedOutput <= unsResult;
 				muxSel <= b"01";
-				enable <= '1';
+				startSerialiser <= '1';
 				State <= WaitResult;
 				
 			when WaitResult =>
-				enable <= '0';
+				startSerialiser <= '0';
 				muxSel <= b"01";
-				if done = '1' then
+				if serialiserDone = '1' then
 					State <= Rst;
 				else
 					State <= WaitResult;
