@@ -401,6 +401,7 @@ buffUartTxReady <= '1';
 							-- GENERAL TODO
 							-- DONE 1. Tidy up code.
 							-- DONE 2. Write output code.
+							-- TODO : ERROR IN SERIALISER OUTPUT. transmitRequest doesn't seem to be happening at the right time. 
 							-- 2b. Add Serialiser to state machine code.
 							-- 3. Error handling and outputting.
 							-- 4. Possible refactoring depenidng how suicidal we're feeling.
