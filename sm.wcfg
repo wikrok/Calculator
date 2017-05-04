@@ -11,7 +11,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="17" />
    <wvobject fp_name="/testbench/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -19,6 +19,10 @@
    <wvobject fp_name="/testbench/extreset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">extreset</obj_property>
       <obj_property name="ObjectShortName">extreset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/buffoutput" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buffoutput[7:0]</obj_property>
+      <obj_property name="ObjectShortName">buffoutput[7:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/inputchar" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">inputchar[7:0]</obj_property>
@@ -33,67 +37,53 @@
       <obj_property name="ElementShortName">outputchar[7:0]</obj_property>
       <obj_property name="ObjectShortName">outputchar[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/outputready" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">outputready</obj_property>
-      <obj_property name="ObjectShortName">outputready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/clk_period" type="other" db_ref_id="1">
-      <obj_property name="ElementShortName">clk_period</obj_property>
-      <obj_property name="ObjectShortName">clk_period</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/uut/unsa" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">unsa[1:15]</obj_property>
-      <obj_property name="ObjectShortName">unsa[1:15]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/uut/op" type="other" db_ref_id="1">
-      <obj_property name="ElementShortName">op</obj_property>
-      <obj_property name="ObjectShortName">op</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/uut/unsb" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">unsb[1:15]</obj_property>
-      <obj_property name="ObjectShortName">unsb[1:15]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/uut/state" type="other" db_ref_id="1">
-      <obj_property name="ElementShortName">state</obj_property>
-      <obj_property name="ObjectShortName">state</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/uut/inputcount" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">inputcount[1:3]</obj_property>
-      <obj_property name="ObjectShortName">inputcount[1:3]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/uut/unsresult" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">unsresult[1:29]</obj_property>
       <obj_property name="ObjectShortName">unsresult[1:29]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/uut/nega" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">nega</obj_property>
-      <obj_property name="ObjectShortName">nega</obj_property>
+   <wvobject fp_name="/testbench/uut/buffoutput" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buffoutput[7:0]</obj_property>
+      <obj_property name="ObjectShortName">buffoutput[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/uut/negb" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">negb</obj_property>
-      <obj_property name="ObjectShortName">negb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/uut/buffMultiplexer/ina" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ina[7:0]</obj_property>
-      <obj_property name="ObjectShortName">ina[7:0]</obj_property>
+   <wvobject fp_name="/testbench/uut/buffinput" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buffinput[7:0]</obj_property>
+      <obj_property name="ObjectShortName">buffinput[7:0]</obj_property>
       <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/uut/buffMultiplexer/inb" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">inb[7:0]</obj_property>
-      <obj_property name="ObjectShortName">inb[7:0]</obj_property>
+   <wvobject fp_name="/testbench/uut/outputSerialiser/state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/outputSerialiser/push" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">push</obj_property>
+      <obj_property name="ObjectShortName">push</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/outputSerialiser/pop" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pop</obj_property>
+      <obj_property name="ObjectShortName">pop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/outputSerialiser/stackoutput" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">stackoutput[7:0]</obj_property>
+      <obj_property name="ObjectShortName">stackoutput[7:0]</obj_property>
       <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/uut/buffMultiplexer/output" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">output[7:0]</obj_property>
+   <wvobject fp_name="/testbench/uut/outputSerialiser/paralleldataout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">paralleldataout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">paralleldataout[7:0]</obj_property>
       <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/uut/uartBuff/buff" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">buff[0:63]</obj_property>
-      <obj_property name="ObjectShortName">buff[0:63]</obj_property>
+   <wvobject fp_name="/testbench/uut/outputSerialiser/digit" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">digit[7:0]</obj_property>
+      <obj_property name="ObjectShortName">digit[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/outputSerialiser/transmitrequest" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">transmitrequest</obj_property>
+      <obj_property name="ObjectShortName">transmitrequest</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/outputSerialiser/stackdepth" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">stackdepth</obj_property>
+      <obj_property name="ObjectShortName">stackdepth</obj_property>
    </wvobject>
 </wave_config>

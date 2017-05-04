@@ -228,7 +228,7 @@ LAB19:    xsi_set_current_line(67, ng0);
 LAB12:    t2 = (t0 + 2472U);
     t7 = *((char **)t2);
     t18 = *((int *)t7);
-    t19 = (t18 < 4);
+    t19 = (t18 < 8);
     t4 = t19;
     goto LAB14;
 

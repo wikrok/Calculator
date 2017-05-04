@@ -47,8 +47,7 @@ ARCHITECTURE behavior OF TestSerialiser IS
          enable : IN  std_logic;
          done : OUT  std_logic;
          parallelDataOut : OUT  std_logic_vector(7 downto 0);
-         transmitRequest : OUT  std_logic;
-         txIsReady : IN  std_logic
+         transmitRequest : OUT  std_logic
         );
     END COMPONENT;
     
@@ -58,7 +57,6 @@ ARCHITECTURE behavior OF TestSerialiser IS
    signal reset : std_logic := '0';
    signal signedInput : SIGNED (1 to 29);
    signal enable : std_logic := '0';
-   signal txIsReady : std_logic := '0';
 
  	--Outputs
    signal done : std_logic;
@@ -78,8 +76,7 @@ BEGIN
           enable => enable,
           done => done,
           parallelDataOut => parallelDataOut,
-          transmitRequest => transmitRequest,
-          txIsReady => txIsReady
+          transmitRequest => transmitRequest
         );
 
    -- Clock process definitions
@@ -91,20 +88,7 @@ BEGIN
 		wait for clk_period/2;
    end process;
  
- uart_process : process
- begin 
-	txIsReady <= '1';
-
---	if rising_edge(transmitRequest) then
-	wait until transmitRequest = '1';
-		txIsReady <= '0';
-		wait for 60 ns;
---	end if;
-	
-end process;
-		
-
-   -- Stimulus process
+ -- Stimulus process
    stim_proc: process
    begin	
       -- hold reset state for 100 ns.
@@ -113,7 +97,7 @@ end process;
 
       wait for clk_period*10;
 		
-		signedInput <= b"0" & x"00001A4";
+		signedInput <= b"0" & X"0515C92";
 		enable <= '1', '0' after 10 ns;
 		
 
