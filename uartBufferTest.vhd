@@ -109,10 +109,19 @@ end procedure;
 		wait for 40 ns;
 		stringToBuff(strError);
 		
-		wait for 400 ns;
+		wait for 100 ns;
 		
 		uartTxReady <= '1', '0' after 20 ns;
-		
+		wait for 40 ns;
+		uartTxReady <= '1', '0' after 20 ns;
+		wait for 40 ns;
+		uartTxReady <= '1', '0' after 20 ns;
+		wait for 40 ns;
+		uartTxReady <= '1', '0' after 20 ns;
+		wait for 40 ns;
+		uartTxReady <= '1', '0' after 20 ns;
+		wait for 40 ns;
+
 		wait for 200 ns;
 		
 		
