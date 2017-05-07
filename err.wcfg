@@ -11,7 +11,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="25" />
+   <WVObjectSize size="26" />
    <wvobject fp_name="/testdesigntop/reset_pin" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset_pin</obj_property>
       <obj_property name="ObjectShortName">reset_pin</obj_property>
@@ -45,6 +45,10 @@
    <wvobject fp_name="/testdesigntop/datavalid" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">datavalid</obj_property>
       <obj_property name="ObjectShortName">datavalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/reset_calc" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_calc</obj_property>
+      <obj_property name="ObjectShortName">reset_calc</obj_property>
    </wvobject>
    <wvobject fp_name="/testdesigntop/tx_ready" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">tx_ready</obj_property>

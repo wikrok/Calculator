@@ -58,7 +58,13 @@ process (clk, reset, enable) is begin
 			when TxWait =>
 				-- Checks to see if it's the end of the string.
 				transmitRequest <= '0';
-				if str(count + 1) = '$' or count = 19 then -- Then the stop character ($) or the end of the 20 characters has been reached.
+				
+				if count = 20 then -- Then the stop character ($) or the end of the 20 characters has been reached.
+					-- StringSerialiser is done!
+					done <= '1';
+					State <= Idle;
+					count <= 1;
+				elsif str(count + 1) = '$' then
 					-- StringSerialiser is done!
 					done <= '1';
 					State <= Idle;

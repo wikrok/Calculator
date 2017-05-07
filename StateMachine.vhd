@@ -340,6 +340,7 @@ begin
 				startStringSerialiser <= '0';
 				if stringSerialiserDone = '1' then
 					muxSel <= b"00";
+					reset <= '1';
 					State <= Rst;
 				else
 					State <= WaitError;
