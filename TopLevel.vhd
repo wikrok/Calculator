@@ -38,9 +38,7 @@ architecture structural of lab2_design_top is
 	signal buffInput : std_logic_vector (7 downto 0) := (others => 'U');
 
 	signal muxSel : STD_LOGIC_VECTOR(1 downto 0) := b"00";
-	
-	signal go: STD_LOGIC;
-	
+		
 -- State Machine
 	signal signedResult : SIGNED (1 to 29) := X"0000000" & b"0";
 	signal startSerialiser : STD_LOGIC := 'U';
@@ -72,7 +70,6 @@ begin
 			parallelDataIn => parallelDataIn,
 			transmitRequest => transmitRequest,
 			txIsReady => tx_ready,
-			go => go,
 			--External
 			serialDataIn => serialDataIn_pin,
 			serialDataOut => serialDataOut_pin
@@ -138,7 +135,6 @@ begin
 			output => parallelDataIn,
 			uartTxRequest => transmitRequest,
 			uartTxReady => tx_ready,
-			clock => clk,
-			go => go
+			clock => clk
 		);		
 end structural;

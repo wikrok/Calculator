@@ -12,8 +12,7 @@ entity UART_tx_buffer is
 		  uartTxRequest : out STD_LOGIC;
 		  write : in STD_LOGIC;
 		  uartTxReady : in STD_LOGIC;
-		  clock : in STD_LOGIC;
-		  go : in STD_LOGIC
+		  clock : in STD_LOGIC
 		  );
 end UART_tx_buffer;
 
@@ -23,7 +22,7 @@ architecture Behavioral of UART_tx_buffer is
 	signal inputIndex : integer := 0;
 	signal outputIndex : integer := 0;
 	
-	type STATETYPE is (Idle, WaitGo, WaitNotUartTxReady);
+	type STATETYPE is (Idle, WaitUartTxRequest, WaitNotUartTxReady);
 	signal State: STATETYPE;
 	
 begin
@@ -60,22 +59,16 @@ my_process2 : 	process (reset, uartTxReady, inputIndex, outputIndex, clock) begi
 					uartTxRequest <= '1';
 					output <= buff(outputIndex);
 					outputIndex <= (outputIndex+1) mod 64;
-					State <= WaitGo;
+					State <= WaitUartTxRequest;
 				else
 					-- Loop back around until there is both data in the buffer and the UART TX is ready.
 					State <= Idle;
 				end if;
 			
-			when WaitGo =>
-				-- Waits for the correct baud timing to be present in the UART TX.
-				if go = '1' then
-					-- The UART TX timing is right.
-					uartTxRequest <= '0';
-					State <= WaitNotUartTxReady;
-				else
-					-- Loop back around until the appropriate timing is met.
-					State <= WaitGo;
-				end if;
+			when WaitUartTxRequest =>
+				-- Create a uartTxRequest pulse of one clock
+				uartTxRequest <= '0';
+				State <= WaitNotUartTxReady;
 				
 			when WaitNotUartTxReady =>
 				-- Waits for uartTxReady to go low to avoid sending the UART TX multiple characters per uartTxReady pulse.

@@ -12,8 +12,7 @@ entity UART is
 			parallelDataIn : in STD_LOGIC_VECTOR (7 downto 0);
 			transmitRequest : in STD_LOGIC;
 			txIsReady : out STD_LOGIC;
-			serialDataOut : out STD_LOGIC;
-			go: out STD_LOGIC
+			serialDataOut : out STD_LOGIC
 	);
 end entity UART;
 
@@ -37,8 +36,7 @@ begin
 					parallelDataIn => parallelDataIn,
 					transmitRequest => transmitRequest,
 					ready => txIsReady,
-					serialDataOut => serialDataOut,
-					go => go
+					serialDataOut => serialDataOut
 		);
 	
 	rcvr: entity work.UART_receiver 
