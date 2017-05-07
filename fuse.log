@@ -3,11 +3,15 @@ ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/UART_transmitter.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/UART_receiver.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/UART_baudRateGenerator.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/uart.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/UART-tx-buffer.vhd" into library work
-Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/stringSerialiser.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/StateMachine.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/Serialiser.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/ClockDivider.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/BuffWriteOr.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/BufferMultiplexer.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/TopLevel.vhd" into library work
@@ -17,8 +21,12 @@ Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
+Compiling architecture behavioral of entity ClockDivider [clockdivider_default]
+Compiling architecture behavioral of entity UART_baudRateGenerator [\UART_baudRateGenerator(312500,1...]
+Compiling architecture behavioral of entity UART_transmitter [uart_transmitter_default]
+Compiling architecture behavioral of entity UART_receiver [uart_receiver_default]
+Compiling architecture behavioral of entity UART [\UART(312500,10000000)\]
 Compiling architecture behavioral of entity StateMachine [statemachine_default]
-Compiling architecture behavioral of entity stringSerialiser [stringserialiser_default]
 Compiling architecture behavioral of entity charStack [charstack_default]
 Compiling architecture behavioral of entity Serialiser [serialiser_default]
 Compiling architecture behavioral of entity BufferMultiplexer [buffermultiplexer_default]
@@ -27,8 +35,8 @@ Compiling architecture behavioral of entity UART_tx_buffer [uart_tx_buffer_defau
 Compiling architecture structural of entity lab2_design_top [lab2_design_top_default]
 Compiling architecture behavior of entity testdesigntop
 Time Resolution for simulation is 1ps.
-Waiting for 4 sub-compilation(s) to finish...
-Compiled 20 VHDL Units
+Waiting for 8 sub-compilation(s) to finish...
+Compiled 28 VHDL Units
 Built simulation executable C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_isim_beh.exe
-Fuse Memory Usage: 35812 KB
-Fuse CPU Usage: 671 ms
+Fuse Memory Usage: 35336 KB
+Fuse CPU Usage: 843 ms

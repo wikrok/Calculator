@@ -64,7 +64,6 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="lab2_design_top.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="lab2_design_top.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="lab2_design_top.bld"/>
@@ -136,15 +135,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1493935030" xil_pn:in_ck="-3660761007262877042" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1493935030">
+    <transform xil_pn:end_ts="1494171765" xil_pn:in_ck="6679632341478631537" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1494171765">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="BuffWriteOr.vhd"/>
       <outfile xil_pn:name="BufferMultiplexer.vhd"/>
+      <outfile xil_pn:name="ClockDivider.vhd"/>
       <outfile xil_pn:name="Serialiser.vhd"/>
       <outfile xil_pn:name="Stack.vhd"/>
       <outfile xil_pn:name="StackTest.vhd"/>
@@ -174,16 +170,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1493935030" xil_pn:in_ck="-3660761007262877042" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1493935030">
+    <transform xil_pn:end_ts="1494171765" xil_pn:in_ck="6679632341478631537" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1494171765">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="BuffWriteOr.vhd"/>
       <outfile xil_pn:name="BufferMultiplexer.vhd"/>
+      <outfile xil_pn:name="ClockDivider.vhd"/>
       <outfile xil_pn:name="Serialiser.vhd"/>
       <outfile xil_pn:name="Stack.vhd"/>
       <outfile xil_pn:name="StackTest.vhd"/>
@@ -201,30 +193,20 @@
       <outfile xil_pn:name="uart.vhd"/>
       <outfile xil_pn:name="uartBufferTest.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1493935035" xil_pn:in_ck="-3660761007262877042" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-9072784670338542650" xil_pn:start_ts="1493935030">
+    <transform xil_pn:end_ts="1494171770" xil_pn:in_ck="6679632341478631537" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-9072784670338542650" xil_pn:start_ts="1494171765">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="TestDesignTop_beh.prj"/>
       <outfile xil_pn:name="TestDesignTop_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1493935036" xil_pn:in_ck="-3120161571525807252" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="229235965305561235" xil_pn:start_ts="1493935035">
+    <transform xil_pn:end_ts="1494171771" xil_pn:in_ck="-3120161571525807252" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="229235965305561235" xil_pn:start_ts="1494171770">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="TestDesignTop_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1493929584" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1493929584">
       <status xil_pn:value="SuccessfullyRun"/>

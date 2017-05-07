@@ -87,7 +87,7 @@ my_process2 : 	process (reset, uartTxReady, inputIndex, outputIndex, clock) begi
 			when WaitGo =>
 				if go = '1' then
 					uartTxRequest <= '0';
-					State <= WaitNotGo;
+					State <= WaitNotUartTxReady;
 				else
 					State <= WaitGo;
 				end if;
