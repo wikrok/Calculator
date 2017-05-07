@@ -51,6 +51,7 @@ architecture structural of lab2_design_top is
 	
 begin
 
+-- Slows down the clock so the synthesized version meets timing constraints.
 	make_ClockDivider: entity work.ClockDivider
 		port map (
 			clkIn => clock_pin,

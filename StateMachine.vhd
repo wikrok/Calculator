@@ -1,34 +1,8 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    12:19:12 04/07/2017 
--- Design Name: 
--- Module Name:    StateMachine - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- Implements the main state machine controlling the operation of the calculator.
 
 entity StateMachine is
 	generic (TPD : TIME := 1 ns);
@@ -69,12 +43,14 @@ process (CLK, extReset)
 begin
 
 	if extReset = '1' then 
+	-- Triggers a system-wide reset if the reset button has been pressed.
 		State <= Rst;
 		reset <= '1';
 		
 	elsif rising_edge(clk) then
 		case State is
 			when Rst =>
+			-- Reset variables, send internal reset signal out to other components.
 				reset <= '0';
 				State <= SendNL;
 				muxSel <= b"00";
@@ -82,15 +58,19 @@ begin
 				unsB <= b"000000000000000";
 				unsResult <= X"0000000" & b"0";
 				inputCount <= b"000";
+				
 				-- Write out a newline to the uart.
 				if otherRst = '1' then
+					-- Debug mode, sends '!' instead of newline.
 					outputChar <= X"21";
 					otherRst <= '0';
 				else
+					-- Send a newline.
 					outputChar <= X"0A";
 				end if;
 				
 			when SendNL =>
+				-- Triggers the sending of the newline.
 				bufferTxRequest <= '1';
 				State <= NegDigA;
 		
@@ -117,6 +97,7 @@ begin
 						strError <= "        Error: NaN/N";
 					end if;
 				else
+					-- Loop round until UART input.
 					State <= NegDigA;
 					bufferTxRequest <= '0';
 				end if;
@@ -132,14 +113,13 @@ begin
 						--Store digit and move to DigOp
 						unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
-
-						
 						State <= DigOp;
 					else 
 						--Error and reset.
 						State <= WaitError;
 					end if;
 				else
+					-- Loop round until UART input.
 					State <= DigA;
 					bufferTxRequest <= '0';				
 				end if;
@@ -153,16 +133,16 @@ begin
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						if inputCount = b"101" then
-							-- Error
+						if inputCount = b"101" then -- User has input too many digits (>4).
+							-- Error and reset.
 							State <= Rst;
-						else 
+						else -- Store digit and loop back around.
 							unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
 							State <= DigOp;
 						end if;
 
-					elsif ((inputChar = X"2B") OR (inputChar = X"2D") OR (inputChar = X"2A") OR (inputChar = X"2F") OR (inputChar = X"25")) then --It's a +-*/ operator!
+					elsif ((inputChar = X"2B") OR (inputChar = X"2D") OR (inputChar = X"2A") OR (inputChar = X"2F") OR (inputChar = X"25")) then --It's a +-*/% operator!
 						-- Store operator and move to NegDigB.
 						case (inputChar) is
 							when X"2B" =>
@@ -181,9 +161,10 @@ begin
 								op <= Modulus;
 								
 							when others =>
-								-- Error message goes here.
+								-- Error message goes here. Shouldn't ever be reached.
 								State <= WaitError;
 						end case;
+						-- Resets digit counter and moves to NegDigB.
 						inputCount <= b"000";
 						State <= NegDigB;
 					else
@@ -191,6 +172,7 @@ begin
 						State <= WaitError;
 					end if;
 				else 
+					-- Loop back around until UART input.
 					State <= DigOp;
 					bufferTxRequest <= '0';
 				end if;
@@ -216,6 +198,7 @@ begin
 						State <= Rst;
 					end if;
 				else
+					-- Loop back around until UART input.
 					State <= NegDigB;
 					bufferTxRequest <= '0';
 				end if;
@@ -237,6 +220,7 @@ begin
 						State <= Rst;
 					end if;
 				else
+					-- Loop back around until UART input.
 					State <= DigB;
 					bufferTxRequest <= '0';
 				end if;
@@ -251,10 +235,10 @@ begin
 					if inputChar = X"3D" then	--It's an equals sign
 						State <= Negate;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then -- it's a number
-						if inputCount = b"101" then
+						if inputCount = b"101" then -- User has input too many digits (>4)
 							-- Error
 							State <= Rst;
-						else 
+						else --Store the digit.
 							unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
 							State <= DigEq;
@@ -264,12 +248,13 @@ begin
 						State <= Rst;
 					end if;
 				else
+					-- Loop back around until UART input.
 					State <= DigEq;
 					bufferTxRequest <= '0';
 				end if;
 				
 			when Negate =>
-				-- Negativates the integers.
+				-- Negates the integers if required..
 				bufferTxRequest <= '0';
 				if negA = '1' then
 					unsA <= resize((unsA * (-1)), 15);
@@ -311,28 +296,32 @@ begin
 							-- DONE ERROR IN SERIALISER OUTPUT. transmitRequest doesn't seem to be happening at the right time. 
 							-- DONE 2b. Add Serialiser to state machine code.
 							-- 3. Error handling and outputting.
-							-- 4. Possible refactoring depenidng how suicidal we're feeling.
+							-- NOPE 4. Possible refactoring depenidng how suicidal we're feeling.
 							-- 4b. Remove referneces to "unsidnged" in variable names.
-							-- 5. Print newline/cr on reset.
-							-- 6. Shove on the metal. 
-							-- 7. TEST!
-							-- 8. Write things about it.
+							-- DONE 5. Print newline/cr on reset.
+							-- DONe 6. Shove on the metal. 
+							-- DONE 7. TEST!
+							-- DONE 8. Write things about it.
 							-- NOTE: Funky reset loop if SendResult's next state is set to WaitError
 							-- On the board state machine works all the way through to WaitResult and then to Reset. Output stops at the equals sign .
 							
 			when SendResult =>
+				-- Sends the calculation result to the Serialiser.
 				signedOutput <= unsResult;
 				muxSel <= b"01";
 				startSerialiser <= '1';
 				State <= WaitResult;
 				
 			when WaitResult =>
+				-- Waits for the serialiser to complete before resetting the system ready for MORE MATHS!
 				startSerialiser <= '0';
 				muxSel <= b"01";
 				if serialiserDone = '1' then
+					-- Serialiser is done, more maths plz.
 					muxSel <= b"00";
 					State <= Rst;
 				else
+					-- Loop back until the Serialiser is finished.
 					State <= WaitResult;
 				end if;
 				
@@ -342,6 +331,7 @@ begin
 				State <= Rst;
 				
 			when Others =>
+				-- Shouldn't ever get here, but just in case reset everything. 
 				State <= Rst; 
 				
 		end case;

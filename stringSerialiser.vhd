@@ -1,33 +1,8 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    21:39:03 05/04/2017 
--- Design Name: 
--- Module Name:    stringSerialiser - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- Takes a 20-character string as input. Splits string up into a series of individual characters and passes them to the UART TX buffer.
 
 entity stringSerialiser is
 	PORT (
@@ -42,16 +17,11 @@ entity stringSerialiser is
 end stringSerialiser;
 
 architecture Behavioral of stringSerialiser is
-
-
-
 	type STATETYPE is (Idle, TxChar, TxWait);
 	signal State: STATETYPE;
 	signal str : string (1 to 20);
 	signal count : integer;
 	
-
-
 begin
 
 process (clk, reset, enable) is begin
@@ -66,32 +36,38 @@ process (clk, reset, enable) is begin
 		
 		case State is
 			when Idle =>
+				-- Waits for an enable signal.
 				if enable = '1' then
+					-- Then the input data is valid and needs to be serialised!
 					State <= TxChar;
 					str <= inputString;
 					transmitRequest <= '0';
 					done <= '0';
 					count <= 1;
 				else
+					-- Loop back around until an enable signal is recieved.
 					State <= Idle;
 				end if;
 				
 			when TxChar =>
+				-- Takes the character at the 'count' position in the string and sends it to the UART TX buffer.
 				parallelDataOut <= std_logic_vector(to_unsigned(character'pos(str(count)), 8));
 				transmitRequest <= '1';
 				State <= TxWait;
 			
 			when TxWait =>
+				-- Checks to see if it's the end of the string.
 				transmitRequest <= '0';
-				if str(count + 1) = '$' or count = 19 then
+				if str(count + 1) = '$' or count = 19 then -- Then the stop character ($) or the end of the 20 characters has been reached.
+					-- StringSerialiser is done!
 					done <= '1';
 					State <= Idle;
 					count <= 1;
-				else
+				else -- We still have characters to serialise!
+					-- Increment the position in the string, do it all over again.
 					count <= count + 1;
 					State <= TxChar;
-				end if;
-				
+				end if;			
 		end case;
 	end if;
 end process;

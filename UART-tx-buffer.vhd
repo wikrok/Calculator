@@ -1,33 +1,9 @@
-----------------------------------------------------------------------------------
--- Company:
--- Engineer:
---
--- Create Date:    18:01:46 05/01/2017
--- Design Name:
--- Module Name:    UART-tx-buffer - Behavioral
--- Project Name:
--- Target Devices:
--- Tool versions:
--- Description:
---
--- Dependencies:
---
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- Takes a byte as input and places it in 64-bit circular buffer. Sends any bytes in the buffer to the UART transmitter, whilst complying with
+-- the UART transmitter's timing requirements.
 
 entity UART_tx_buffer is
 	port(input : in STD_LOGIC_VECTOR (7 downto 0);
@@ -53,11 +29,14 @@ architecture Behavioral of UART_tx_buffer is
 begin
 
 my_process :	process (clock, write, reset) begin
+-- Waits for a write signal, then puts the input data into the end of the buffer.
 	if (reset = '1') then
+		-- Empty the buffer!
 		buff <= (others => (others => '0'));
 		inputIndex <= 0;
 	elsif rising_edge(clock) then
 		if write = '1' then
+			-- Write flag, data on input is valid. Store in current end of buffer.
 			buff(inputIndex) <= input;
 			inputIndex <= (inputIndex+1) mod 64;
 		end if;
@@ -69,30 +48,37 @@ my_process2 : 	process (reset, uartTxReady, inputIndex, outputIndex, clock) begi
     
 	 
 	 if (reset = '1') then
+		-- Reset the variables.
     	outputIndex <= 0;
 		uartTxRequest <= '0';
 		State <= Idle;
 	 elsif rising_edge(clock) then
 		 case State is
 			when Idle =>
-				if ((uartTxReady = '1') and (inputIndex /= outputIndex)) then
+				if ((uartTxReady = '1') and (inputIndex /= outputIndex)) then -- The UART TX is ready for input and there is data in the buffer.
+					-- Take the byte at the front of the buffer and send to the UART TX.
 					uartTxRequest <= '1';
 					output <= buff(outputIndex);
 					outputIndex <= (outputIndex+1) mod 64;
 					State <= WaitGo;
 				else
+					-- Loop back around until there is both data in the buffer and the UART TX is ready.
 					State <= Idle;
 				end if;
 			
 			when WaitGo =>
+				-- Waits for the correct baud timing to be present in the UART TX.
 				if go = '1' then
+					-- The UART TX timing is right.
 					uartTxRequest <= '0';
 					State <= WaitNotUartTxReady;
 				else
+					-- Loop back around until the appropriate timing is met.
 					State <= WaitGo;
 				end if;
 				
 			when WaitNotUartTxReady =>
+				-- Waits for uartTxReady to go low to avoid sending the UART TX multiple characters per uartTxReady pulse.
 				if uartTxReady = '0' then
 					State <= Idle;
 				else

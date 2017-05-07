@@ -1,33 +1,8 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    23:26:36 05/03/2017 
--- Design Name: 
--- Module Name:    Serialiser - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- Takes a signed integer as input, splits into single digits, converts to ASCII and sends out to the UART TX buffer.		
 
 entity Serialiser is
 	port (
@@ -86,6 +61,7 @@ begin
 process (clk, reset, enable) is begin
 	
 	if reset = '1' then
+		-- Reset the variables.
 		State <= Idle;
 		number <= X"0000000" & b"0";
 		digit <= X"00";
@@ -98,64 +74,82 @@ process (clk, reset, enable) is begin
 	elsif rising_edge(clk) then
 		case State is
 			when Idle =>
+				-- Wait for an Enable signal and then latch the input.
 				transmitRequest <= '0';
 				if enable = '1' then
+					-- Time to Serialise!
 					number <= signedInput;
 					State <= CheckNeg;
 					done <= '0';
 				else
+					-- Loop back around until we get an Enable signal.
 					State <= Idle;
 				end if;
 				
 			when CheckNeg =>
+				-- Check to see if the input is negative.
 				if number < 0 then
-					-- It's negative, send to UART.
+					-- It's negative, send a '-' to UART.
 					parallelDataOut <= X"2D";
 					transmitRequest <= '1';
 					State <= Negate;
 				else
+					-- Input is positive, go straight to the ASCII state.
 					State <= ASCII;
 				end if;
 			
 			when Negate =>
+				-- We have a negative number and need to make it positive beforeit's given to the ASCII state.
 				transmitRequest <= '0';
 				number <= -number;
 				State <= ASCII;
 				
 			when ASCII =>
+				-- Splits the least significant digit off the input, converts to ASCII.
 				push <= '0';
-				if number /= X"0000000" & b"0" then
+				if number /= X"0000000" & b"0" then -- There are still digits left to split.
+					-- Splits digit and converts to ASCII.
 					digit <= std_logic_vector(resize(((number mod 10) + X"30"), 8));
 					State <= StoreDigit;
 				else
+					-- We've split off all the digits.
 					State <= RetrieveDigit;
 				end if;
 				
 			when StoreDigit =>
+				-- Takes an ASCII digit and stores on a stack.
+				
+				-- Removes the least significant digit from the remaining input number.
 				number <= resize((number / 10), 29);
 				
+				--Stores on the stack and loops back to ASCII.
 				stackInput <= digit;
 				push <= '1';
 				pop <= '0';
 				State <= ASCII;
 
 			when RetrieveDigit =>
+				-- Retrieves a digit from the top of the stack.
 				transmitRequest <= '0';			
 				push <= '0';
 				pop <= '1'; 
 				State <= WaitRetrieve;
 
 			when WaitRetrieve =>
+				-- Stops the stack from reading more than one number at a time.
 				pop <= '0';
 				State <= TxDigit;
 			
 			when TxDigit =>		
+				-- Transmits the digit retrieved from the stack to the UART tx buffer.
 				transmitRequest <= '1';
 				parallelDataOut <= StackOutput;
-				if stackDepth = 0 then
+				if stackDepth = 0 then 
+					-- We've emptied the stack and the job is done.
 					State <= Idle;
 					done <= '1';
-				else
+				else 
+					-- There are still digits left so loop back to RetrieveDigit.
 					State <= RetrieveDigit;
 				end if;
 							

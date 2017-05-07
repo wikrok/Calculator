@@ -1,33 +1,8 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    13:01:09 04/07/2017 
--- Design Name: 
--- Module Name:    Stack - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- Implements a basic 8-element stack for 8-bit (ASCII character) data. 
 
 entity charStack is
 	port(input : in STD_LOGIC_VECTOR (7 downto 0);
@@ -53,23 +28,26 @@ stackDepth <= stackIndex;
 
 process (clk, reset, push, pop) begin
 	if reset = '1' then
+		-- Reset variables, empty the stack.
 		stackIndex <= 0;		
 		stack <= (others => (others => '0'));
 		full <= '0';
 	elsif rising_edge(clk) then
-		if (push = '1' and pop = '0' and stackIndex < 8) then
+		if (push = '1' and pop = '0' and stackIndex < 8) then -- We hvae a write signal and the stack is not full.
+			-- Stores the input at the top of the stack.
 			stack(stackIndex) <= input;
 			
-			if stackIndex + 1 = 8 then
+			if stackIndex + 1 = 8 then -- The stack is now full!
 				full <= '1';
 			end if;
 			
 			stackIndex <= stackIndex + 1;
  
-		elsif (pop = '1' and push = '0' and stackIndex > 0) then
+		elsif (pop = '1' and push = '0' and stackIndex > 0) then -- We have a read signal and the stack is not empty.
+			-- Outputs the item at the top of the stack.
 			output <= stack(stackIndex - 1);
 			stackIndex <= stackIndex - 1;
-			if stackIndex < 8 then
+			if stackIndex < 8 then -- The stack is not full any more!
 				full <= '0';
 			end if;
 		end if;
