@@ -43,7 +43,7 @@ architecture structural of lab2_design_top is
 	signal signedResult : SIGNED (1 to 29) := X"0000000" & b"0";
 	signal startSerialiser : STD_LOGIC := 'U';
 	signal serialiserDone : STD_LOGIC := 'U';
-	signal errorString : STRING (1 to 20);
+	signal errorString : STRING (1 to 22);
 	signal startStringSerialiser : STD_LOGIC := 'U';
 	signal stringSerialiserDone : STD_LOGIC := 'U';
 	

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="testdesigntop" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/testdesigntop/reset_pin" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_pin</obj_property>
+      <obj_property name="ObjectShortName">reset_pin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/clock_pin" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock_pin</obj_property>
+      <obj_property name="ObjectShortName">clock_pin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/serialdatain_pin" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">serialdatain_pin</obj_property>
+      <obj_property name="ObjectShortName">serialdatain_pin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/serialdataout_pin" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">serialdataout_pin</obj_property>
+      <obj_property name="ObjectShortName">serialdataout_pin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/testdatain" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">testdatain[7:0]</obj_property>
+      <obj_property name="ObjectShortName">testdatain[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/testdataout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">testdataout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">testdataout[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/datavalid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">datavalid</obj_property>
+      <obj_property name="ObjectShortName">datavalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/tx_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_ready</obj_property>
+      <obj_property name="ObjectShortName">tx_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/transmitrequest" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">transmitrequest</obj_property>
+      <obj_property name="ObjectShortName">transmitrequest</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/clock_pin_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clock_pin_period</obj_property>
+      <obj_property name="ObjectShortName">clock_pin_period</obj_property>
+   </wvobject>
+</wave_config>

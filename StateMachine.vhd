@@ -16,7 +16,7 @@ entity StateMachine is
 		  signedOutput : out SIGNED (1 to 29);
 		  startSerialiser: out STD_LOGIC;
 		  serialiserDone: in STD_LOGIC;
-		  errorOutput : out STRING (1 to 20);
+		  errorOutput : out STRING (1 to 22);
 		  startStringSerialiser : out STD_LOGIC;
 		  stringSerialiserDone: in STD_LOGIC;
 		  muxSel: out STD_LOGIC_VECTOR(1 downto 0)
@@ -97,7 +97,7 @@ begin
 					else 
 						--Error and reset.
 						State <= Error;
-						errorOutput <= " Err: not a number/-";
+						errorOutput <= " Err: not a number/-$ ";
 					end if;
 				else
 					-- Loop round until UART input.
@@ -119,7 +119,8 @@ begin
 						State <= DigOp;
 					else 
 						--Error and reset.
-						State <= WaitError;
+						errorOutput <= " Err: not a number$   ";
+						State <= Error;
 					end if;
 				else
 					-- Loop round until UART input.
@@ -136,9 +137,10 @@ begin
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						if inputCount = b"101" then -- User has input too many digits (>4).
+						if inputCount = b"100" then -- User has input too many digits (>4).
 							-- Error and reset.
-							State <= Rst;
+							errorOutput <= " Err: too many digits ";
+							State <= Error;
 						else -- Store digit and loop back around.
 							unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
@@ -165,14 +167,16 @@ begin
 								
 							when others =>
 								-- Error message goes here. Shouldn't ever be reached.
-								State <= WaitError;
+								errorOutput <= " Err: not a number/op$";
+								State <= Error;
 						end case;
 						-- Resets digit counter and moves to NegDigB.
 						inputCount <= b"000";
 						State <= NegDigB;
 					else
 						--Error and reset.
-						State <= WaitError;
+						errorOutput <= " Err:not a number/op$ ";
+						State <= Error;
 					end if;
 				else 
 					-- Loop back around until UART input.
@@ -198,7 +202,8 @@ begin
 						State <= DigEq;
 					else 
 						--Error and reset.
-						State <= Rst;
+						errorOutput <= " Err: not a number/-$ ";
+						State <= Error;
 					end if;
 				else
 					-- Loop back around until UART input.
@@ -220,7 +225,8 @@ begin
 						State <= DigEq;
 					else 
 						--Error and reset.
-						State <= Rst;
+						errorOutput <= " Err: not a number$   ";
+						State <= Error;
 					end if;
 				else
 					-- Loop back around until UART input.
@@ -238,9 +244,10 @@ begin
 					if inputChar = X"3D" then	--It's an equals sign
 						State <= Negate;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then -- it's a number
-						if inputCount = b"101" then -- User has input too many digits (>4)
+						if inputCount = b"100" then -- User has input too many digits (>4)
 							-- Error
-							State <= Rst;
+							errorOutput <= " Err: too many digits$";
+							State <= Error;
 						else --Store the digit.
 							unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
@@ -248,7 +255,8 @@ begin
 						end if;						
 					else
 						--Generic error and reset.
-						State <= Rst;
+						errorOutput <= " Err: not a number/=$ ";
+						State <= Error;
 					end if;
 				else
 					-- Loop back around until UART input.
@@ -275,23 +283,36 @@ begin
 						case (op) is
 							when Plus =>
 								unsResult <= resize((unsA + unsB), 29);
-							 
+								State <= SendResult;
+								
 							when Minus =>
 								unsResult <= resize((unsA - unsB), 29);
+								State <= SendResult;
 							
 							when Multiply =>
 								unsResult <= resize((unsA * unsB), 29);
+								State <= SendResult;
 								
 							when Divide =>
-								unsResult <= resize((unsA / unsB), 29);
+								if unsB = 0 then
+									errorOutput <= " Err: div by 0$       ";
+									State <= Error;
+								else
+									unsResult <= resize((unsA / unsB), 29);
+									State <= SendResult;
+								end if;
 								
 							when Modulus =>
-								unsResult <= resize((unsA mod unsB), 29);
+								if unsB = 0 then
+									errorOutput <= " Err: mod by 0$       ";
+									State <= Error;
+								else
+									unsResult <= resize((unsA mod unsB), 29);
+									State <= SendResult;
+								end if;
 								
 						end case;
 						
-							State <= SendResult;
-
 						
 							-- GENERAL TODO
 							-- DONE 1. Tidy up code.

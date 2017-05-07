@@ -8,7 +8,7 @@ entity stringSerialiser is
 	PORT (
 			clk : IN STD_LOGIC;
 			reset : IN STD_LOGIC;
-			inputString : IN string (1 to 20);
+			inputString : IN string (1 to 22);
 			enable: IN STD_LOGIC;
 			done : OUT STD_LOGIC;
 			parallelDataOut : OUT STD_LOGIC_VECTOR (7 downto 0);
@@ -19,8 +19,8 @@ end stringSerialiser;
 architecture Behavioral of stringSerialiser is
 	type STATETYPE is (Idle, TxChar, TxWait);
 	signal State: STATETYPE;
-	signal str : string (1 to 20);
-	signal count : integer;
+	signal str : string (1 to 22);
+	signal count : integer range 0 to 23;
 	
 begin
 
@@ -29,7 +29,7 @@ process (clk, reset, enable) is begin
 	if reset = '1' then
 		-- Reset things
 		State <= Idle;
-		count <= 1;
+		count <= 0;
 		done <= '0';
 		transmitRequest <= '0';
 	elsif rising_edge(clk) then
@@ -59,16 +59,14 @@ process (clk, reset, enable) is begin
 				-- Checks to see if it's the end of the string.
 				transmitRequest <= '0';
 				
-				if count = 20 then -- Then the stop character ($) or the end of the 20 characters has been reached.
+				if count = 22 then -- Then the stop character ($) or the end of the 20 characters has been reached.
 					-- StringSerialiser is done!
 					done <= '1';
 					State <= Idle;
-					count <= 1;
 				elsif str(count + 1) = '$' then
 					-- StringSerialiser is done!
 					done <= '1';
 					State <= Idle;
-					count <= 1;
 				else -- We still have characters to serialise!
 					-- Increment the position in the string, do it all over again.
 					count <= count + 1;

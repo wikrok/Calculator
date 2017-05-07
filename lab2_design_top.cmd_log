@@ -74,3 +74,35 @@ map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -reg
 par -w -intstyle ise -ol high -mt off lab2_design_top_map.ncd lab2_design_top.ncd lab2_design_top.pcf 
 trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml lab2_design_top.twx lab2_design_top.ncd -o lab2_design_top.twr lab2_design_top.pcf -ucf lab2_design_top.ucf 
 bitgen -intstyle ise -f lab2_design_top.ut lab2_design_top.ncd 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc lab2_design_top.ucf -p xc6slx9-csg324-2 lab2_design_top.ngc lab2_design_top.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o lab2_design_top_map.ncd lab2_design_top.ngd lab2_design_top.pcf 
+par -w -intstyle ise -ol high -mt off lab2_design_top_map.ncd lab2_design_top.ncd lab2_design_top.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml lab2_design_top.twx lab2_design_top.ncd -o lab2_design_top.twr lab2_design_top.pcf -ucf lab2_design_top.ucf 
+bitgen -intstyle ise -f lab2_design_top.ut lab2_design_top.ncd 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc lab2_design_top.ucf -p xc6slx9-csg324-2 lab2_design_top.ngc lab2_design_top.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o lab2_design_top_map.ncd lab2_design_top.ngd lab2_design_top.pcf 
+par -w -intstyle ise -ol high -mt off lab2_design_top_map.ncd lab2_design_top.ncd lab2_design_top.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml lab2_design_top.twx lab2_design_top.ncd -o lab2_design_top.twr lab2_design_top.pcf -ucf lab2_design_top.ucf 
+bitgen -intstyle ise -f lab2_design_top.ut lab2_design_top.ncd 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc lab2_design_top.ucf -p xc6slx9-csg324-2 lab2_design_top.ngc lab2_design_top.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o lab2_design_top_map.ncd lab2_design_top.ngd lab2_design_top.pcf 
+par -w -intstyle ise -ol high -mt off lab2_design_top_map.ncd lab2_design_top.ncd lab2_design_top.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml lab2_design_top.twx lab2_design_top.ncd -o lab2_design_top.twr lab2_design_top.pcf -ucf lab2_design_top.ucf 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc lab2_design_top.ucf -p xc6slx9-csg324-2 lab2_design_top.ngc lab2_design_top.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o lab2_design_top_map.ncd lab2_design_top.ngd lab2_design_top.pcf 
+par -w -intstyle ise -ol high -mt off lab2_design_top_map.ncd lab2_design_top.ncd lab2_design_top.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml lab2_design_top.twx lab2_design_top.ncd -o lab2_design_top.twr lab2_design_top.pcf -ucf lab2_design_top.ucf 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc lab2_design_top.ucf -p xc6slx9-csg324-2 lab2_design_top.ngc lab2_design_top.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o lab2_design_top_map.ncd lab2_design_top.ngd lab2_design_top.pcf 
+par -w -intstyle ise -ol high -mt off lab2_design_top_map.ncd lab2_design_top.ncd lab2_design_top.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml lab2_design_top.twx lab2_design_top.ncd -o lab2_design_top.twr lab2_design_top.pcf -ucf lab2_design_top.ucf 
+xst -intstyle ise -ifn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.xst" -ofn "C:/Users/phil/Documents/GitHub/Calculator/lab2_design_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc lab2_design_top.ucf -p xc6slx9-csg324-2 lab2_design_top.ngc lab2_design_top.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -xe n -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr b -lc off -power off -o lab2_design_top_map.ncd lab2_design_top.ngd lab2_design_top.pcf 
+par -w -intstyle ise -ol high -xe n -mt off lab2_design_top_map.ncd lab2_design_top.ncd lab2_design_top.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml lab2_design_top.twx lab2_design_top.ncd -o lab2_design_top.twr lab2_design_top.pcf -ucf lab2_design_top.ucf 

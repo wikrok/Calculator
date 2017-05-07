@@ -17,7 +17,7 @@ entity UART_tx_buffer is
 end UART_tx_buffer;
 
 architecture Behavioral of UART_tx_buffer is
-	type bufferType is array (0 to 63) of STD_LOGIC_VECTOR (7 downto 0);
+	type bufferType is array (0 to 80) of STD_LOGIC_VECTOR (7 downto 0);
 	signal buff : bufferType := (others => (others => '0'));
 	signal inputIndex : integer := 0;
 	signal outputIndex : integer := 0;
@@ -37,7 +37,7 @@ my_process :	process (clock, write, reset) begin
 		if write = '1' then
 			-- Write flag, data on input is valid. Store in current end of buffer.
 			buff(inputIndex) <= input;
-			inputIndex <= (inputIndex+1) mod 64;
+			inputIndex <= (inputIndex+1) mod 80;
 		end if;
 	end if;
 end process;
@@ -58,7 +58,7 @@ my_process2 : 	process (reset, uartTxReady, inputIndex, outputIndex, clock) begi
 					-- Take the byte at the front of the buffer and send to the UART TX.
 					uartTxRequest <= '1';
 					output <= buff(outputIndex);
-					outputIndex <= (outputIndex+1) mod 64;
+					outputIndex <= (outputIndex+1) mod 80;
 					State <= WaitUartTxRequest;
 				else
 					-- Loop back around until there is both data in the buffer and the UART TX is ready.

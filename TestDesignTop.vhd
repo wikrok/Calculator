@@ -119,61 +119,54 @@ BEGIN
 		reset_pin <= '1', '0' after 40 ns;
       wait for clock_pin_period*10;
 		
-		testDataIn <= X"50";
+		testDataIn <= X"2D";
 		transmitRequest <= '1';
 		wait for 600 ns;
 		transmitRequest <= '0';
-		wait until tx_ready = '1';		
+		wait until tx_ready = '1';
 
-		testDataIn <= X"33";
+testDataIn <= X"33";
 		transmitRequest <= '1';
 		wait for 600 ns;
 		transmitRequest <= '0';
-		wait until tx_ready = '1';		
-		
+		wait until tx_ready = '1';	
+
 		testDataIn <= X"32";
-		transmitRequest <= '1';
-		wait for 600 ns;
-		transmitRequest <= '0';
-		wait until tx_ready = '1';		
-		
-		testDataIn <= X"31";
 		transmitRequest <= '1';
 		wait for 600 ns;
 		transmitRequest <= '0';
 		wait until tx_ready = '1';		
 	
+		testDataIn <= X"33";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';	
 
-		testDataIn <= X"25";
-		transmitRequest <= '1';
-		wait for 600 ns;
-		transmitRequest <= '0';
-		wait until tx_ready = '1';		
-		
-		
-		testDataIn <= X"31";
-		transmitRequest <= '1';
-		wait for 600 ns;
-		transmitRequest <= '0';
-		wait until tx_ready = '1';		
-		
 		testDataIn <= X"32";
 		transmitRequest <= '1';
 		wait for 600 ns;
 		transmitRequest <= '0';
-		wait until tx_ready = '1';		
+		wait until tx_ready = '1';	
 
 		testDataIn <= X"33";
 		transmitRequest <= '1';
 		wait for 600 ns;
 		transmitRequest <= '0';
-		wait until tx_ready = '1';		
+		wait until tx_ready = '1';			
 
-		testDataIn <= X"34";
+
+		testDataIn <= X"25";
 		transmitRequest <= '1';
 		wait for 600 ns;
 		transmitRequest <= '0';
 		wait until tx_ready = '1';	
+		
+						testDataIn <= X"30";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';
 		
 		
 		testDataIn <= X"3D";
