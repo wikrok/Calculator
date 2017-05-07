@@ -31,9 +31,9 @@ architecture Behavioral of StateMachine is
 	signal NegB : STD_LOGIC := '0';
 	signal op : OPERATOR;
 	signal strError : STRING (1 to 20);
-	signal unsA : SIGNED (1 to 15);
-	signal unsB : SIGNED (1 to 15);
-	signal unsResult : SIGNED (1 to 29);
+	signal numA : SIGNED (1 to 15);
+	signal numB : SIGNED (1 to 15);
+	signal result : SIGNED (1 to 29);
 	signal inputCount	: UNSIGNED (1 to 3);
 	
 	-- Debug
@@ -57,9 +57,9 @@ begin
 				reset <= '0';
 				State <= SendNL;
 				muxSel <= b"00";
-				unsA <= b"000000000000000";
-				unsB <= b"000000000000000";
-				unsResult <= X"0000000" & b"0";
+				numA <= b"000000000000000";
+				numB <= b"000000000000000";
+				result <= X"0000000" & b"0";
 				inputCount <= b"000";
 				
 				-- Write out a newline to the uart.
@@ -90,7 +90,7 @@ begin
 						State <= DigA;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						numA <= resize((numA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
 						
 						State <= DigOp;
@@ -114,7 +114,7 @@ begin
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						numA <= resize((numA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
 						State <= DigOp;
 					else 
@@ -142,7 +142,7 @@ begin
 							errorOutput <= " Err: too many digits ";
 							State <= Error;
 						else -- Store digit and loop back around.
-							unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+							numA <= resize((numA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
 							State <= DigOp;
 						end if;
@@ -197,7 +197,7 @@ begin
 						State <= DigB;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigEq
-						unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						numB <= resize((numB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
 						State <= DigEq;
 					else 
@@ -220,7 +220,7 @@ begin
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigEq
-						unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						numB <= resize((numB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
 						State <= DigEq;
 					else 
@@ -249,7 +249,7 @@ begin
 							errorOutput <= " Err: too many digits$";
 							State <= Error;
 						else --Store the digit.
-							unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+							numB <= resize((numB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
 							State <= DigEq;
 						end if;						
@@ -268,11 +268,11 @@ begin
 				-- Negates the integers if required..
 				bufferTxRequest <= '0';
 				if negA = '1' then
-					unsA <= resize((unsA * (-1)), 15);
+					numA <= resize((numA * (-1)), 15);
 				end if;
 				
 				if negB = '1' then
-					unsB <= resize((unsB * (-1)), 15);
+					numB <= resize((numB * (-1)), 15);
 				end if;
 
 				State <= CalcResult;
@@ -282,56 +282,40 @@ begin
 					-- Actually does the maths.
 						case (op) is
 							when Plus =>
-								unsResult <= resize((unsA + unsB), 29);
+								result <= resize((numA + numB), 29);
 								State <= SendResult;
 								
 							when Minus =>
-								unsResult <= resize((unsA - unsB), 29);
+								result <= resize((numA - numB), 29);
 								State <= SendResult;
 							
 							when Multiply =>
-								unsResult <= resize((unsA * unsB), 29);
+								result <= resize((numA * numB), 29);
 								State <= SendResult;
 								
 							when Divide =>
-								if unsB = 0 then
+								if numB = 0 then
 									errorOutput <= " Err: div by 0$       ";
 									State <= Error;
 								else
-									unsResult <= resize((unsA / unsB), 29);
+									result <= resize((numA / numB), 29);
 									State <= SendResult;
 								end if;
 								
 							when Modulus =>
-								if unsB = 0 then
+								if numB = 0 then
 									errorOutput <= " Err: mod by 0$       ";
 									State <= Error;
 								else
-									unsResult <= resize((unsA mod unsB), 29);
+									result <= resize((numA mod numB), 29);
 									State <= SendResult;
 								end if;
 								
 						end case;
-						
-						
-							-- GENERAL TODO
-							-- DONE 1. Tidy up code.
-							-- DONE 2. Write output code.
-							-- DONE ERROR IN SERIALISER OUTPUT. transmitRequest doesn't seem to be happening at the right time. 
-							-- DONE 2b. Add Serialiser to state machine code.
-							-- 3. Error handling and outputting.
-							-- NOPE 4. Possible refactoring depenidng how suicidal we're feeling.
-							-- 4b. Remove referneces to "unsidnged" in variable names.
-							-- DONE 5. Print newline/cr on reset.
-							-- DONe 6. Shove on the metal. 
-							-- DONE 7. TEST!
-							-- DONE 8. Write things about it.
-							-- NOTE: Funky reset loop if SendResult's next state is set to WaitError
-							-- On the board state machine works all the way through to WaitResult and then to Reset. Output stops at the equals sign .
 							
 			when SendResult =>
 				-- Sends the calculation result to the Serialiser.
-				signedOutput <= unsResult;
+				signedOutput <= result;
 				muxSel <= b"01";
 				startSerialiser <= '1';
 				State <= WaitResult;
