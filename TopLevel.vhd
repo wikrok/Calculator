@@ -7,25 +7,18 @@ entity lab2_design_top is
 	Port (reset_pin : in STD_LOGIC;
 			clock_pin : in STD_LOGIC;
 			serialDataIn_pin : in STD_LOGIC;
-			serialDataOut_pin : out STD_LOGIC;
---			LED_hi_pin : out STD_LOGIC;
---			LED_lo_pin : out STD_LOGIC;
---			DIP_pins : in STD_LOGIC_VECTOR (3 downto 0)
-			--For test bench, please delete
-			parallelDataOut: in STD_LOGIC_VECTOR (7 downto 0);
-			dataValid: in STD_LOGIC;
-			tx_ready: in STD_LOGIC
+			serialDataOut_pin : out STD_LOGIC
 	);
 end lab2_design_top;
 
 
 architecture structural of lab2_design_top is
 -- Internal signals.
---	signal parallelDataOut : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
---	signal dataValid : STD_LOGIC := 'U';
+	signal inputChar : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
+	signal dataValid : STD_LOGIC := 'U';
 	signal parallelDataIn : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
 	signal transmitRequest : STD_LOGIC := 'U';
---	signal tx_ready : STD_LOGIC := 'U';
+	signal tx_ready : STD_LOGIC := 'U';
 	signal send_character : STD_LOGIC := 'U';
 	signal character_to_send : STD_LOGIC_VECTOR(7 downto 0) := (others=>'U');
 	signal DIP_debounced : STD_LOGIC_VECTOR(3 downto 0) := (others=>'0');
@@ -41,48 +34,58 @@ architecture structural of lab2_design_top is
 
 	signal echo : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U');
 	signal serialiserOutput : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U');
-	signal error : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U'); 
+	signal temp : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U'); --TDO: Rename
 	signal buffInput : std_logic_vector (7 downto 0) := (others => 'U');
 
 	signal muxSel : STD_LOGIC_VECTOR(1 downto 0) := b"00";
 	
--- Serialiser
+	signal go: STD_LOGIC;
+	
+-- State Machine
 	signal signedResult : SIGNED (1 to 29) := X"0000000" & b"0";
 	signal startSerialiser : STD_LOGIC := 'U';
 	signal serialiserDone : STD_LOGIC := 'U';
 	
--- StringSerialiser
-	signal errorString : string (1 to 20);
-	signal startStringSerialiser : STD_LOGIC := 'U';
-	signal stringSerialiserDone : STD_LOGIC := 'U';
-
-		
+-- Clock Divider
+	signal clk : STD_LOGIC := 'U';
+	
 begin
---	make_UART: entity work.UART
---		generic map (BAUD_RATE => 9600,
---						 CLOCK_RATE => 40000000)
---		port map(
---		   reset => reset_pin,
---			clock => clock_pin,
---			-- State Machine
---			parallelDataOut => parallelDataOut,
---			dataValid => dataValid,
---			-- Buffer
---			parallelDataIn => parallelDataIn,
---			transmitRequest => transmitRequest,
---			txIsReady => tx_ready,
---			--External
---			serialDataIn => serialDataIn_pin,
---			serialDataOut => serialDataOut_pin
---		);
-			
+
+	make_ClockDivider: entity work.ClockDivider
+		port map (
+			clkIn => clock_pin,
+			clkOut => clk
+			);
+
+
+	make_UART: entity work.UART
+		generic map (BAUD_RATE => 312500,
+						 CLOCK_RATE => 10000000)
+		port map(
+		   reset => reset_pin,
+			clock => clk,
+			-- State Machine
+			parallelDataOut => inputChar,
+			dataValid => dataValid,
+			-- Buffer
+			parallelDataIn => parallelDataIn,
+			transmitRequest => transmitRequest,
+			txIsReady => tx_ready,
+			go => go,
+			--External
+			serialDataIn => serialDataIn_pin,
+			serialDataOut => serialDataOut_pin
+		);
+		
+		
+		
 	make_StateMachine: entity work.StateMachine
 		port map (
-			 clk => clock_pin,
+			 clk => clk,
  			 extReset => reset_pin,
 		    reset => reset_calc,
 			 -- UART
-			 inputChar => parallelDataOut,
+			 inputChar => inputChar,
 			 uartValid => dataValid,
 			 -- Buffer
 			 outputChar => echo,
@@ -91,27 +94,12 @@ begin
 			 -- Serialiser
 			 signedOutput => signedResult,
 			 startSerialiser => startSerialiser,
-			 serialiserDone => serialiserDone,
-			 --String Serialiser
-			 outputString => errorString,
-			 stringSerialiserEnable => startStringSerialiser,
-			 stringSerialiserDone => stringSerialiserDone
+			 serialiserDone => serialiserDone
 		  );
-		  
-	make_stringSerialiser: entity work.stringSerialiser 
-	PORT MAP (
-			clk => clock_pin,
-			reset => reset_calc,
-			inputString => errorString,
-			enable => startStringSerialiser,
-			done => stringSerialiserDone,
-			parallelDataOut => error,
-			transmitRequest => errorTxRequest
-			);
 		
 	outputSerialiser: entity work.Serialiser 
 		port map (
-			clk => clock_pin,
+			clk => clk,
 			reset => reset_calc,
 			-- State Machine
 			signedInput => signedResult,
@@ -126,7 +114,7 @@ begin
 		port map (
 			inA => echo,
 			inB => serialiserOutput,
-			inC => error,
+			inC => temp, -- TODO use me for error strings.
 			output => buffInput,
 			sel => muxSel
 		);	
@@ -149,6 +137,7 @@ begin
 			output => parallelDataIn,
 			uartTxRequest => transmitRequest,
 			uartTxReady => tx_ready,
-			clock => clock_pin
+			clock => clk,
+			go => go
 		);		
 end structural;

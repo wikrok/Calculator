@@ -42,10 +42,7 @@ entity StateMachine is
 		  signedOutput : out SIGNED (1 to 29);
 		  startSerialiser: out STD_LOGIC;
 		  serialiserDone: in STD_LOGIC;
-		  muxSel: out STD_LOGIC_VECTOR(1 downto 0);
-		  outputString : out string (1 to 20);
-		  stringSerialiserEnable : out STD_LOGIC;
-		  stringSerialiserDone : in STD_LOGIC
+		  muxSel: out STD_LOGIC_VECTOR(1 downto 0)
 		  );
 end StateMachine;
 
@@ -57,10 +54,14 @@ architecture Behavioral of StateMachine is
 	signal NegB : STD_LOGIC := '0';
 	signal op : OPERATOR;
 	signal strError : STRING (1 to 20);
-	signal numA : SIGNED (1 to 15);
-	signal numB : SIGNED (1 to 15);
-	signal numResult : SIGNED (1 to 29);
+	signal unsA : SIGNED (1 to 15);
+	signal unsB : SIGNED (1 to 15);
+	signal unsResult : SIGNED (1 to 29);
 	signal inputCount	: UNSIGNED (1 to 3);
+	
+	-- Debug
+	signal otherRst : STD_LOGIC := '0';
+
 begin
 
 process (CLK, extReset)
@@ -73,25 +74,21 @@ begin
 		
 	elsif rising_edge(clk) then
 		case State is
-			when WaitError =>
-				-- Do error handling.
-				stringSerialiserEnable <= '0';
-				if stringSerialiserDone = '1' then
-					State <= Rst;
-				else
-					State <= WaitError;
-				end if;
-				
 			when Rst =>
 				reset <= '0';
 				State <= SendNL;
 				muxSel <= b"00";
-				numA <= b"000000000000000";
-				numB <= b"000000000000000";
-				numResult <= X"0000000" & b"0";
+				unsA <= b"000000000000000";
+				unsB <= b"000000000000000";
+				unsResult <= X"0000000" & b"0";
 				inputCount <= b"000";
 				-- Write out a newline to the uart.
-				outputChar <= X"0A";
+				if otherRst = '1' then
+					outputChar <= X"21";
+					otherRst <= '0';
+				else
+					outputChar <= X"0A";
+				end if;
 				
 			when SendNL =>
 				bufferTxRequest <= '1';
@@ -110,16 +107,14 @@ begin
 						State <= DigA;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						numA <= resize((numA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
 						
 						State <= DigOp;
 					else 
 						--Error and reset.
 						State <= WaitError;
-						strError <= "Expect num/-$       ";
-						muxSel <= b"10";
-						stringSerialiserEnable <= '1';
+						strError <= "        Error: NaN/N";
 					end if;
 				else
 					State <= NegDigA;
@@ -135,15 +130,14 @@ begin
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						numA <= resize((numA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
+
+						
 						State <= DigOp;
 					else 
 						--Error and reset.
 						State <= WaitError;
-						strError <= "Expect num$         ";
-						muxSel <= b"10";
-						stringSerialiserEnable <= '1';
 					end if;
 				else
 					State <= DigA;
@@ -159,14 +153,11 @@ begin
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigOp
-						if inputCount = b"100" then
+						if inputCount = b"101" then
 							-- Error
-							State <= WaitError;
-							strError <= "Too many digits$    ";
-							muxSel <= b"10";
-							stringSerialiserEnable <= '1';
+							State <= Rst;
 						else 
-							numA <= resize((numA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+							unsA <= resize((unsA * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
 							State <= DigOp;
 						end if;
@@ -190,18 +181,14 @@ begin
 								op <= Modulus;
 								
 							when others =>
-								-- Shouldn't ever get here so reset.
-								State <= Rst;
-							
+								-- Error message goes here.
+								State <= WaitError;
 						end case;
 						inputCount <= b"000";
 						State <= NegDigB;
 					else
 						--Error and reset.
 						State <= WaitError;
-						strError <= "Expect num/operator$";
-						muxSel <= b"10";
-						stringSerialiserEnable <= '1';					
 					end if;
 				else 
 					State <= DigOp;
@@ -214,22 +201,19 @@ begin
 					muxSel <= b"00";
 					outputChar<= inputChar;
 					bufferTxRequest <= '1';
-					
+				
 					if inputChar = X"2D" then -- Negative sign
 						--Set neg flag and move to DigB
 						NegB <= '1';
 						State <= DigB;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigEq
-						numB <= resize((numB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
 						State <= DigEq;
 					else 
 						--Error and reset.
-						State <= WaitError;
-						strError <= "Expect num/-$       ";
-						muxSel <= b"10";
-						stringSerialiserEnable <= '1';
+						State <= Rst;
 					end if;
 				else
 					State <= NegDigB;
@@ -239,21 +223,18 @@ begin
 			when DigB =>
 				if uartValid = '1' then
 					-- Echoes back the UART input.
-					muxSel <= b"00";
+					muxSel <= b"10";
 					outputChar<= inputChar;
 					bufferTxRequest <= '1';
 					
 					if ((inputChar >= X"30") and (inputChar <= X"39")) then --Is a digit.
 						--Store digit and move to DigEq
-						numB <= resize((numB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+						unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 						inputCount <= inputCount + b"01";
 						State <= DigEq;
 					else 
 						--Error and reset.
-						State <= WaitError;
-						strError <= "Expect num$         ";
-						muxSel <= b"10";
-						stringSerialiserEnable <= '1';
+						State <= Rst;
 					end if;
 				else
 					State <= DigB;
@@ -270,22 +251,17 @@ begin
 					if inputChar = X"3D" then	--It's an equals sign
 						State <= Negate;
 					elsif ((inputChar >= X"30") and (inputChar <= X"39")) then -- it's a number
-						if inputCount = b"100" then
-							State <= WaitError;
-							strError <= "Too many digits$    ";
-							muxSel <= b"10";
-							stringSerialiserEnable <= '1';
+						if inputCount = b"101" then
+							-- Error
+							State <= Rst;
 						else 
-							numB <= resize((numB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
+							unsB <= resize((unsB * 10), 15) + resize((signed(inputChar) - X"30"), 15);
 							inputCount <= inputCount + b"01";
 							State <= DigEq;
 						end if;						
 					else
 						--Generic error and reset.
-						State <= WaitError;
-						strError <= "Expect num/=$       ";
-						muxSel <= b"10";
-						stringSerialiserEnable <= '1';
+						State <= Rst;
 					end if;
 				else
 					State <= DigEq;
@@ -296,11 +272,11 @@ begin
 				-- Negativates the integers.
 				bufferTxRequest <= '0';
 				if negA = '1' then
-					numA <= resize((numA * (-1)), 15);
+					unsA <= resize((unsA * (-1)), 15);
 				end if;
 				
 				if negB = '1' then
-					numB <= resize((numB * (-1)), 15);
+					unsB <= resize((unsB * (-1)), 15);
 				end if;
 
 				State <= CalcResult;
@@ -310,19 +286,19 @@ begin
 					-- Actually does the maths.
 						case (op) is
 							when Plus =>
-								numResult <= resize((numA + numB), 29);
+								unsResult <= resize((unsA + unsB), 29);
 							 
 							when Minus =>
-								numResult <= resize((numA - numB), 29);
+								unsResult <= resize((unsA - unsB), 29);
 							
 							when Multiply =>
-								numResult <= resize((numA * numB), 29);
+								unsResult <= resize((unsA * unsB), 29);
 								
 							when Divide =>
-								numResult <= resize((numA / numB), 29);
+								unsResult <= resize((unsA / unsB), 29);
 								
 							when Modulus =>
-								numResult <= resize((numA mod numB), 29);
+								unsResult <= resize((unsA mod unsB), 29);
 								
 						end case;
 						
@@ -335,15 +311,17 @@ begin
 							-- DONE ERROR IN SERIALISER OUTPUT. transmitRequest doesn't seem to be happening at the right time. 
 							-- DONE 2b. Add Serialiser to state machine code.
 							-- 3. Error handling and outputting.
-							-- 3b. On every error occurrence, set bufferTxRequest to 0.
-							-- DONE 4b. Remove referneces to "unsidnged" in variable names.
-							-- 5. Print newline/cr on reset - mostly done, check we have correct newline ascii.
+							-- 4. Possible refactoring depenidng how suicidal we're feeling.
+							-- 4b. Remove referneces to "unsidnged" in variable names.
+							-- 5. Print newline/cr on reset.
 							-- 6. Shove on the metal. 
 							-- 7. TEST!
 							-- 8. Write things about it.
+							-- NOTE: Funky reset loop if SendResult's next state is set to WaitError
+							-- On the board state machine works all the way through to WaitResult and then to Reset. Output stops at the equals sign .
 							
 			when SendResult =>
-				signedOutput <= numResult;
+				signedOutput <= unsResult;
 				muxSel <= b"01";
 				startSerialiser <= '1';
 				State <= WaitResult;
@@ -357,7 +335,12 @@ begin
 				else
 					State <= WaitResult;
 				end if;
-												
+				
+			when WaitError =>
+				-- Do error handling.
+				otherRst <= '1';
+				State <= Rst;
+				
 			when Others =>
 				State <= Rst; 
 				

@@ -44,32 +44,26 @@ ARCHITECTURE behavior OF TestDesignTop IS
          reset_pin : IN  std_logic;
          clock_pin : IN  std_logic;
          serialDataIn_pin : IN  std_logic;
-         serialDataOut_pin : OUT  std_logic;
---         LED_hi_pin : OUT  std_logic;
---         LED_lo_pin : OUT  std_logic;
---         DIP_pins : IN  std_logic_vector(3 downto 0);
-         parallelDataOut : IN  std_logic_vector(7 downto 0);
-         dataValid : IN  std_logic;
-			tx_ready : IN STD_LOGIC
-			
+         serialDataOut_pin : OUT  std_logic	
         );
     END COMPONENT;
     
-
    --Inputs
    signal reset_pin : std_logic := '0';
    signal clock_pin : std_logic := '0';
+	
    signal serialDataIn_pin : std_logic := '0';
-   signal DIP_pins : std_logic_vector(3 downto 0) := (others => '0');
-   signal parallelDataIn : std_logic_vector(7 downto 0) := (others => '0');
-   signal txIsReady : std_logic := '0';
-	signal tx_ready : std_logic := '1';
+   signal serialDataOut_pin : std_logic := '0';
 
+   signal testDataIn : std_logic_vector(7 downto 0) := (others => '0');
+	signal testDataOut : std_logic_vector(7 downto 0) := (others => '0');
+
+	signal dataValid: std_logic;
+	signal tx_ready : std_logic;
+	signal transmitRequest : std_logic;
+	
  	--Outputs
-   signal serialDataOut_pin : std_logic;
-   signal LED_hi_pin : std_logic;
-   signal LED_lo_pin : std_logic;
-
+   signal clk : STD_LOGIC;
    -- Clock period definitions
    constant clock_pin_period : time := 10 ns;
  
@@ -80,14 +74,33 @@ BEGIN
           reset_pin => reset_pin,
           clock_pin => clock_pin,
           serialDataIn_pin => serialDataIn_pin,
-          serialDataOut_pin => serialDataOut_pin,
---          LED_hi_pin => LED_hi_pin,
---          LED_lo_pin => LED_lo_pin,
---          DIP_pins => DIP_pins,
-          parallelDataOut => parallelDataIn,
-          dataValid => txIsReady,
-			 tx_ready => tx_ready
+          serialDataOut_pin => serialDataOut_pin
         );
+		  
+	test_ClockDivider: entity work.ClockDivider
+		port map (
+			clkIn => clock_pin,
+			clkOut => clk
+			);
+
+   testGenUart : entity work.UART
+		generic map (BAUD_RATE => 312500,
+						 CLOCK_RATE => 10000000)
+		port map(
+		   reset => reset_pin,
+			clock => clk,
+			
+			dataValid => dataValid,
+			txIsReady => tx_ready,
+			transmitRequest => transmitRequest,
+
+			parallelDataIn => testDataIn,
+			parallelDataOut => testDataOut,
+			
+			-- crossed inputs/outputs
+			serialDataIn => serialDataOut_pin,
+			serialDataOut => serialDataIn_pin
+		);
 
    -- Clock process definitions
    clock_pin_process :process
@@ -104,73 +117,73 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
 		reset_pin <= '1', '0' after 40 ns;
-      wait for 100 ns;	
-
       wait for clock_pin_period*10;
 		
+		testDataIn <= X"34";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
+
+		testDataIn <= X"33";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
 		
-	parallelDataIn <= X"31";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;
-	
-	parallelDataIn <= X"32";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;	
-
-	parallelDataIn <= X"32";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;	
-	
-	parallelDataIn <= X"33";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;
-	
-		parallelDataIn <= X"34";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;
-
-	
-	parallelDataIn <= X"2A";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;
+		testDataIn <= X"32";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
+		
+		testDataIn <= X"31";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
 	
 
-	
-			parallelDataIn <= X"34";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;
+		testDataIn <= X"25";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
+		
+		
+		testDataIn <= X"31";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
+		
+		testDataIn <= X"32";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
 
-		parallelDataIn <= X"33";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;	
-	
-		parallelDataIn <= X"32";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;
-	
-		parallelDataIn <= X"31";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;
-	
-			parallelDataIn <= X"3D";
-	wait for 10 ns;
-	txIsReady <= '1', '0' after 10 ns;
-	wait for 20 ns;
-        wait; -- will wait forever
+		testDataIn <= X"33";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
 
-      -- insert stimulus here 
+		testDataIn <= X"34";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';	
+		
+		
+		testDataIn <= X"3D";
+		transmitRequest <= '1';
+		wait for 600 ns;
+		transmitRequest <= '0';
+		wait until tx_ready = '1';		
+		
+		wait; -- will wait forever
 
-      wait;
    end process;
 
 END;

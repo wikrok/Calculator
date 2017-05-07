@@ -107,7 +107,6 @@ begin
 	counter: process (clock)
 		variable internalCountValue : integer range 0 to 31 := 0;
 	begin
-	-- Synchronous - changeme
 		syncEvents: if rising_edge(clock) then
 			resetRun: if (reset = '1') then
 				internalCountValue := 0;

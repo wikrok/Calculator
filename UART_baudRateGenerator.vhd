@@ -17,29 +17,29 @@ entity UART_baudRateGenerator is
 end entity UART_baudRateGenerator;
 
 architecture BEHAVIORAL of UART_baudRateGenerator is
+	signal clockCountx16 : integer range 0 to nCountsPerBaud_X16 := 0;
+	signal clockCount : integer range 0 to nCountsPerBaud := 0;
 begin 
 	make_x16en: process (clock)
-		variable clockCount : integer range 0 to nCountsPerBaud_X16 := 0;
 	begin
 		syncEvents: if rising_edge(clock) then
 			baudRateEnable_x16 <= '0';
-			clockCount := clockCount + 1;
-			isCountDone: if (clockCount = nCountsPerBaud_X16) then
+			clockCountx16 <= clockCountx16 + 1;
+			isCountDone: if (clockCountx16 = nCountsPerBaud_X16-1) then
 				baudRateEnable_x16 <= '1';
-				clockCount := 0;
+				clockCountx16 <= 0;
 			end if isCountDone;
 		end if syncEvents;
 	end process make_x16en;
 	
 	make_baudEn: process (clock)
-			variable clockCount : integer range 0 to nCountsPerBaud := 0;
 		begin
 			syncEvents: if rising_edge(clock) then
 				baudRateEnable <= '0';
-				clockCount := clockCount + 1;
+				clockCount <= clockCount + 1;
 				isCountDone: if (clockCount = nCountsPerBaud) then
 					baudRateEnable <= '1';
-					clockCount := 0;
+					clockCount <= 0;
 				end if isCountDone;
 			end if syncEvents;
 	end process make_baudEn;

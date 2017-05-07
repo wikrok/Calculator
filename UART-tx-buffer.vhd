@@ -36,7 +36,8 @@ entity UART_tx_buffer is
 		  uartTxRequest : out STD_LOGIC;
 		  write : in STD_LOGIC;
 		  uartTxReady : in STD_LOGIC;
-		  clock : in STD_LOGIC
+		  clock : in STD_LOGIC;
+		  go : in STD_LOGIC
 		  );
 end UART_tx_buffer;
 
@@ -45,6 +46,10 @@ architecture Behavioral of UART_tx_buffer is
 	signal buff : bufferType := (others => (others => '0'));
 	signal inputIndex : integer := 0;
 	signal outputIndex : integer := 0;
+	
+	type STATETYPE is (Idle, WaitGo, WaitNotUartTxReady);
+	signal State: STATETYPE;
+	
 begin
 
 my_process :	process (clock, write, reset) begin
@@ -61,17 +66,40 @@ end process;
 
 
 my_process2 : 	process (reset, uartTxReady, inputIndex, outputIndex, clock) begin
-    if (reset = '1') then
+    
+	 
+	 if (reset = '1') then
     	outputIndex <= 0;
 		uartTxRequest <= '0';
+		State <= Idle;
 	 elsif rising_edge(clock) then
-		 if ((uartTxReady = '1') and (inputIndex /= outputIndex)) then
-			uartTxRequest <= '1';
-			output <= buff(outputIndex);
-			outputIndex <= (outputIndex+1) mod 64;
-		 else
-			uartTxRequest <= '0';
-		end if;
+		 case State is
+			when Idle =>
+				if ((uartTxReady = '1') and (inputIndex /= outputIndex)) then
+					uartTxRequest <= '1';
+					output <= buff(outputIndex);
+					outputIndex <= (outputIndex+1) mod 64;
+					State <= WaitGo;
+				else
+					State <= Idle;
+				end if;
+			
+			when WaitGo =>
+				if go = '1' then
+					uartTxRequest <= '0';
+					State <= WaitNotGo;
+				else
+					State <= WaitGo;
+				end if;
+				
+			when WaitNotUartTxReady =>
+				if uartTxReady = '0' then
+					State <= Idle;
+				else
+					State <= WaitNotUartTxReady;
+				end if;
+
+		end case;
 	end if;
 end process;
 
