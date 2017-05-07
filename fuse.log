@@ -9,6 +9,7 @@ Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/UART_baudRateGenera
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/Stack.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/uart.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/UART-tx-buffer.vhd" into library work
+Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/stringSerialiser.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/StateMachine.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/Serialiser.vhd" into library work
 Parsing VHDL file "C:/Users/phil/Documents/GitHub/Calculator/ClockDivider.vhd" into library work
@@ -29,14 +30,15 @@ Compiling architecture behavioral of entity UART [\UART(312500,10000000)\]
 Compiling architecture behavioral of entity StateMachine [statemachine_default]
 Compiling architecture behavioral of entity charStack [charstack_default]
 Compiling architecture behavioral of entity Serialiser [serialiser_default]
+Compiling architecture behavioral of entity stringSerialiser [stringserialiser_default]
 Compiling architecture behavioral of entity BufferMultiplexer [buffermultiplexer_default]
 Compiling architecture behavioral of entity BuffWriteOr [buffwriteor_default]
 Compiling architecture behavioral of entity UART_tx_buffer [uart_tx_buffer_default]
 Compiling architecture structural of entity lab2_design_top [lab2_design_top_default]
 Compiling architecture behavior of entity testdesigntop
 Time Resolution for simulation is 1ps.
-Waiting for 8 sub-compilation(s) to finish...
-Compiled 28 VHDL Units
+Waiting for 9 sub-compilation(s) to finish...
+Compiled 30 VHDL Units
 Built simulation executable C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_isim_beh.exe
-Fuse Memory Usage: 35336 KB
-Fuse CPU Usage: 843 ms
+Fuse Memory Usage: 36132 KB
+Fuse CPU Usage: 656 ms

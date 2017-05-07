@@ -29,12 +29,12 @@ architecture structural of lab2_design_top is
 
 	signal stateMachineTxRequest : STD_LOGIC := 'U';
 	signal serialiserTxRequest : STD_LOGIC := 'U';
-	signal errorTxRequest : STD_LOGIC := 'U';
+	signal stringSerialiserTxRequest : STD_LOGIC := 'U';
 	signal write : STD_LOGIC := 'U';
 
 	signal echo : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U');
 	signal serialiserOutput : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U');
-	signal temp : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U'); --TDO: Rename
+	signal stringSerialiserOutput : STD_LOGIC_VECTOR(7 downto 0) := (others => 'U'); --TDO: Rename
 	signal buffInput : std_logic_vector (7 downto 0) := (others => 'U');
 
 	signal muxSel : STD_LOGIC_VECTOR(1 downto 0) := b"00";
@@ -43,6 +43,9 @@ architecture structural of lab2_design_top is
 	signal signedResult : SIGNED (1 to 29) := X"0000000" & b"0";
 	signal startSerialiser : STD_LOGIC := 'U';
 	signal serialiserDone : STD_LOGIC := 'U';
+	signal errorString : STRING (1 to 20);
+	signal startStringSerialiser : STD_LOGIC := 'U';
+	signal stringSerialiserDone : STD_LOGIC := 'U';
 	
 -- Clock Divider
 	signal clk : STD_LOGIC := 'U';
@@ -92,7 +95,11 @@ begin
 			 -- Serialiser
 			 signedOutput => signedResult,
 			 startSerialiser => startSerialiser,
-			 serialiserDone => serialiserDone
+			 serialiserDone => serialiserDone,
+			 -- String Serialiser
+			 errorOutput => errorString,
+			 startStringSerialiser => startStringSerialiser,
+			 stringSerialiserDone => stringSerialiserDone
 		  );
 		
 	outputSerialiser: entity work.Serialiser 
@@ -103,16 +110,29 @@ begin
 			signedInput => signedResult,
 			enable => startSerialiser,
 			done => serialiserDone,
-			-- BufferW
+			-- Buffer
 			parallelDataOut => serialiserOutput,
 			transmitRequest => serialiserTxRequest
        );
+		 
+	outputStringSerialiser: entity work.stringSerialiser
+		port map (
+			clk => clk,
+			reset => reset_calc,
+			-- State Machine
+			inputString => errorString,
+			enable => startStringSerialiser,
+			done => stringSerialiserDone,
+			-- Buffer
+			parallelDataOut => stringSerialiserOutput,
+			transmitRequest => stringSerialiserTxRequest
+		);
 			
 	buffMultiplexer: entity work.BufferMultiplexer 
 		port map (
 			inA => echo,
 			inB => serialiserOutput,
-			inC => temp, -- TODO use me for error strings.
+			inC => stringSerialiserOutput, -- TODO use me for error strings.
 			output => buffInput,
 			sel => muxSel
 		);	
@@ -121,7 +141,7 @@ begin
 		port map (
 			a => stateMachineTxRequest,
 			b => serialiserTxRequest,
-			c => gnd,
+			c => stringSerialiserTxRequest,
 			q => write
 		);
 		

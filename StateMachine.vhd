@@ -16,12 +16,15 @@ entity StateMachine is
 		  signedOutput : out SIGNED (1 to 29);
 		  startSerialiser: out STD_LOGIC;
 		  serialiserDone: in STD_LOGIC;
+		  errorOutput : out STRING (1 to 20);
+		  startStringSerialiser : out STD_LOGIC;
+		  stringSerialiserDone: in STD_LOGIC;
 		  muxSel: out STD_LOGIC_VECTOR(1 downto 0)
 		  );
 end StateMachine;
 
 architecture Behavioral of StateMachine is
-	type STATETYPE is (Rst, SendNL, NegDigA, DigA, DigOp, NegDigB, DigB, DigEq, Negate, CalcResult, SendResult, WaitResult, WaitError);
+	type STATETYPE is (Rst, SendNL, NegDigA, DigA, DigOp, NegDigB, DigB, DigEq, Negate, CalcResult, SendResult, WaitResult, Error, WaitError);
 	type OPERATOR is (Plus, Minus, Divide, Multiply, Modulus);
 	signal State: STATETYPE := Rst;
 	signal NegA : STD_LOGIC := '0';
@@ -93,8 +96,8 @@ begin
 						State <= DigOp;
 					else 
 						--Error and reset.
-						State <= WaitError;
-						strError <= "        Error: NaN/N";
+						State <= Error;
+						errorOutput <= " Err: not a number/-";
 					end if;
 				else
 					-- Loop round until UART input.
@@ -325,10 +328,23 @@ begin
 					State <= WaitResult;
 				end if;
 				
-			when WaitError =>
+			when Error =>
 				-- Do error handling.
-				otherRst <= '1';
-				State <= Rst;
+				bufferTxRequest <= '0';
+				bufferTxRequest <= '0';
+				muxSel <= b"10";
+				startStringSerialiser <= '1';
+				State <= WaitError;
+				
+			when WaitError =>
+				startStringSerialiser <= '0';
+				if stringSerialiserDone = '1' then
+					muxSel <= b"00";
+					State <= Rst;
+				else
+					State <= WaitError;
+				end if;
+					
 				
 			when Others =>
 				-- Shouldn't ever get here, but just in case reset everything. 

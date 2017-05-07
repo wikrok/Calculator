@@ -119,7 +119,7 @@ BEGIN
 		reset_pin <= '1', '0' after 40 ns;
       wait for clock_pin_period*10;
 		
-		testDataIn <= X"34";
+		testDataIn <= X"50";
 		transmitRequest <= '1';
 		wait for 600 ns;
 		transmitRequest <= '0';

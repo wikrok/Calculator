@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/phil/Documents/GitHub/Calculator/TestDesignTop_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="testdesigntop" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="25" />
+   <wvobject fp_name="/testdesigntop/reset_pin" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_pin</obj_property>
+      <obj_property name="ObjectShortName">reset_pin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/clock_pin" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock_pin</obj_property>
+      <obj_property name="ObjectShortName">clock_pin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/serialdatain_pin" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">serialdatain_pin</obj_property>
+      <obj_property name="ObjectShortName">serialdatain_pin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/serialdataout_pin" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">serialdataout_pin</obj_property>
+      <obj_property name="ObjectShortName">serialdataout_pin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/testdatain" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">testdatain[7:0]</obj_property>
+      <obj_property name="ObjectShortName">testdatain[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/testdataout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">testdataout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">testdataout[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/make_StateMachine/state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/datavalid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">datavalid</obj_property>
+      <obj_property name="ObjectShortName">datavalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/tx_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_ready</obj_property>
+      <obj_property name="ObjectShortName">tx_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/transmitrequest" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">transmitrequest</obj_property>
+      <obj_property name="ObjectShortName">transmitrequest</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/clock_pin_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clock_pin_period</obj_property>
+      <obj_property name="ObjectShortName">clock_pin_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffMultiplexer/ina" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ina[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ina[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffMultiplexer/inb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">inb[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffMultiplexer/inc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inc[7:0]</obj_property>
+      <obj_property name="ObjectShortName">inc[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffMultiplexer/output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">output[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffMultiplexer/sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffWriteOrGate/a" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">a</obj_property>
+      <obj_property name="ObjectShortName">a</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffWriteOrGate/b" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">b</obj_property>
+      <obj_property name="ObjectShortName">b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffWriteOrGate/c" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">c</obj_property>
+      <obj_property name="ObjectShortName">c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/buffWriteOrGate/q" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q</obj_property>
+      <obj_property name="ObjectShortName">q</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/outputStringSerialiser/inputstring" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inputstring[1:20]</obj_property>
+      <obj_property name="ObjectShortName">inputstring[1:20]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/outputStringSerialiser/enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/outputStringSerialiser/done" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testdesigntop/uut/outputStringSerialiser/paralleldataout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">paralleldataout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">paralleldataout[7:0]</obj_property>
+   </wvobject>
+</wave_config>
