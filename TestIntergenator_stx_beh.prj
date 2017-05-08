@@ -1,3 +1,0 @@
-vhdl isim_temp "Stack.vhd"
-vhdl isim_temp "Intergenator.vhd"
-vhdl isim_temp "TestIntergenator.vhd"
