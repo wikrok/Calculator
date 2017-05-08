@@ -37,7 +37,7 @@ begin
 			syncEvents: if rising_edge(clock) then
 				baudRateEnable <= '0';
 				clockCount <= clockCount + 1;
-				isCountDone: if (clockCount = nCountsPerBaud) then
+				isCountDone: if (clockCount = nCountsPerBaud-1) then
 					baudRateEnable <= '1';
 					clockCount <= 0;
 				end if isCountDone;
