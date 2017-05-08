@@ -27,7 +27,7 @@ extern char *IEEE_P_2592010699;
 unsigned char ieee_p_2592010699_sub_1744673427_503743352(char *, char *, unsigned int , unsigned int );
 
 
-static void work_a_3901407907_3212880686_p_0(char *t0)
+static void work_a_0318520343_3212880686_p_0(char *t0)
 {
     char *t1;
     unsigned char t2;
@@ -107,7 +107,7 @@ LAB5:    xsi_set_current_line(29, ng0);
 
 }
 
-static void work_a_3901407907_3212880686_p_1(char *t0)
+static void work_a_0318520343_3212880686_p_1(char *t0)
 {
     char *t1;
     unsigned char t2;
@@ -186,9 +186,9 @@ LAB5:    xsi_set_current_line(41, ng0);
 }
 
 
-extern void work_a_3901407907_3212880686_init()
+extern void work_a_0318520343_3212880686_init()
 {
-	static char *pe[] = {(void *)work_a_3901407907_3212880686_p_0,(void *)work_a_3901407907_3212880686_p_1};
-	xsi_register_didat("work_a_3901407907_3212880686", "isim/TestDesignTop_isim_beh.exe.sim/work/a_3901407907_3212880686.didat");
+	static char *pe[] = {(void *)work_a_0318520343_3212880686_p_0,(void *)work_a_0318520343_3212880686_p_1};
+	xsi_register_didat("work_a_0318520343_3212880686", "isim/TestDesignTop_isim_beh.exe.sim/work/a_0318520343_3212880686.didat");
 	xsi_register_executes(pe);
 }
