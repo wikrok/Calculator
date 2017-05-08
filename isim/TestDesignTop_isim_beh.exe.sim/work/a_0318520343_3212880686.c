@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/phil/Documents/GitHub/Calculator/UART_baudRateGenerator.vhd";
+static const char *ng0 = "C:/Users/seb/Documents/GitHub/Calculator/UART_baudRateGenerator.vhd";
 extern char *IEEE_P_2592010699;
 
 unsigned char ieee_p_2592010699_sub_1744673427_503743352(char *, char *, unsigned int , unsigned int );
@@ -118,7 +118,8 @@ static void work_a_0318520343_3212880686_p_1(char *t0)
     char *t7;
     int t8;
     int t9;
-    char *t10;
+    int t10;
+    char *t11;
 
 LAB0:    xsi_set_current_line(37, ng0);
     t1 = (t0 + 992U);
@@ -158,7 +159,8 @@ LAB2:    xsi_set_current_line(38, ng0);
     t1 = (t0 + 2208U);
     t4 = *((char **)t1);
     t9 = *((int *)t4);
-    t2 = (t8 == t9);
+    t10 = (t9 - 1);
+    t2 = (t8 == t10);
     if (t2 != 0)
         goto LAB5;
 
@@ -170,8 +172,8 @@ LAB5:    xsi_set_current_line(41, ng0);
     t5 = (t1 + 56U);
     t6 = *((char **)t5);
     t7 = (t6 + 56U);
-    t10 = *((char **)t7);
-    *((unsigned char *)t10) = (unsigned char)3;
+    t11 = *((char **)t7);
+    *((unsigned char *)t11) = (unsigned char)3;
     xsi_driver_first_trans_fast_port(t1);
     xsi_set_current_line(42, ng0);
     t1 = (t0 + 4168);

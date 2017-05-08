@@ -1,1 +1,5 @@
-work	"stringSerialiser.vhd"
+work	"TopLevelOriginal.vhd"
+work	"UART_baudRateGenerator.vhd"
+work	"UART_receiver.vhd"
+work	"UART_transmitter.vhd"
+work	"uart.vhd"

@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/seb/Documents/GitHub/Calculator/lab2_design_top_original.xst" -ofn "C:/Users/seb/Documents/GitHub/Calculator/lab2_design_top_original.syr" 
