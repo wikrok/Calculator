@@ -84,7 +84,7 @@ BEGIN
 			);
 
    testGenUart : entity work.UART
-		generic map (BAUD_RATE => 312500,
+		generic map (BAUD_RATE => 19200,
 						 CLOCK_RATE => 10000000)
 		port map(
 		   reset => reset_pin,
