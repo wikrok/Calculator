@@ -8,12 +8,6 @@
         <Attr Name="UsedInImplementation" Val="1"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lab2_design_top_original.ngc">
-      <FileInfo>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInImplementation" Val="1"/>
-      </FileInfo>
-    </File>
     <Config>
       <Option Name="DesignMode" Val="GateLvl"/>
       <Option Name="GateLvlMode" Val="EDIF"/>

@@ -8,7 +8,7 @@ entity Serialiser is
 	port (
 					clk : IN STD_LOGIC;
 					reset : IN STD_LOGIC;
-					signedInput : IN SIGNED (1 to 29);
+					signedInput : IN SIGNED (1 to 30);
 					enable : IN STD_LOGIC;
 					done : OUT STD_LOGIC;
 					parallelDataOut : OUT STD_LOGIC_VECTOR (7 downto 0); -- This and below go to UART object.
@@ -35,7 +35,7 @@ architecture Behavioral of Serialiser is
 
 	type STATETYPE is (Idle, CheckNeg, Negate, ASCII, StoreDigit, RetrieveDigit, WaitRetrieve, TxDigit);
 	signal State: STATETYPE;
-	signal number : SIGNED (1 to 29);
+	signal number : SIGNED (1 to 30);
 	signal digit : STD_LOGIC_VECTOR (7 downto 0);
 	
 	signal stackInput : STD_LOGIC_VECTOR (7 downto 0);
@@ -44,6 +44,7 @@ architecture Behavioral of Serialiser is
 	signal push : STD_LOGIC;
 	signal pop : STD_LOGIC;
 	signal full : STD_LOGIC;
+	signal nonZero : STD_LOGIC := '0';
 
 begin
 
@@ -63,12 +64,13 @@ process (clk, reset, enable) is begin
 	if reset = '1' then
 		-- Reset the variables.
 		State <= Idle;
-		number <= X"0000000" & b"0";
+		number <= X"0000000" & b"00";
 		digit <= X"00";
 		done <= '0';
 		push <= '0';
 		pop <= '0';
 		stackInput <= X"00";
+		nonZero <= '0';
 		transmitRequest <= '0';
 		
 	elsif rising_edge(clk) then
@@ -110,6 +112,12 @@ process (clk, reset, enable) is begin
 				if number /= X"0000000" & b"0" then -- There are still digits left to split.
 					-- Splits digit and converts to ASCII.
 					digit <= std_logic_vector(resize(((number mod 10) + X"30"), 8));
+					nonZero <= '1';
+					State <= StoreDigit;
+				elsif nonZero = '0' then
+					-- We've been given a zero and need to output it.
+					digit <= std_logic_vector(resize(((number mod 10) + X"30"), 8));
+					nonZero <= '1';
 					State <= StoreDigit;
 				else
 					-- We've split off all the digits.
@@ -120,7 +128,7 @@ process (clk, reset, enable) is begin
 				-- Takes an ASCII digit and stores on a stack.
 				
 				-- Removes the least significant digit from the remaining input number.
-				number <= resize((number / 10), 29);
+				number <= resize((number / 10), 30);
 				
 				--Stores on the stack and loops back to ASCII.
 				stackInput <= digit;

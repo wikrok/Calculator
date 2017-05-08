@@ -1,10 +1,10 @@
 #-----------------------------------------------------------
 # PlanAhead v14.7 (64-bit)
 # Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
-# Start of session at: Mon May 08 02:23:59 2017
-# Process ID: 13620
-# Log file: C:/Users/seb/Documents/GitHub/Calculator/planAhead_run_2/planAhead.log
-# Journal file: C:/Users/seb/Documents/GitHub/Calculator/planAhead_run_2/planAhead.jou
+# Start of session at: Mon May 08 12:28:12 2017
+# Process ID: 8484
+# Log file: C:/Users/seb/Desktop/Calculator-RFB/planAhead_run_2/planAhead.log
+# Journal file: C:/Users/seb/Desktop/Calculator-RFB/planAhead_run_2/planAhead.jou
 #-----------------------------------------------------------
 INFO: [Common 17-78] Attempting to get a license: PlanAhead
 INFO: [Common 17-290] Got license for PlanAhead
@@ -12,13 +12,14 @@ INFO: [Device 21-36] Loading parts and site information from D:/SSD/Xilinx/14.7/
 Parsing RTL primitives file [D:/SSD/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
 Finished parsing RTL primitives file [D:/SSD/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
 start_gui
-source C:/Users/seb/Documents/GitHub/Calculator/pa.fromNetlist.tcl
-# create_project -name Calculator -dir "C:/Users/seb/Documents/GitHub/Calculator/planAhead_run_2" -part xc6slx9csg324-2
+source C:/Users/seb/Desktop/Calculator-RFB/pa.fromNetlist.tcl
+# create_project -name Calculator -dir "C:/Users/seb/Desktop/Calculator-RFB/planAhead_run_2" -part xc6slx9csg324-2
 # set_property design_mode GateLvl [get_property srcset [current_run -impl]]
-# set_property edif_top_file "C:/Users/seb/Documents/GitHub/Calculator/lab2_design_top.ngc" [ get_property srcset [ current_run ] ]
-# add_files -norecurse { {C:/Users/seb/Documents/GitHub/Calculator} }
+# set_property edif_top_file "C:/Users/seb/Desktop/Calculator-RFB/lab2_design_top.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {C:/Users/seb/Desktop/Calculator-RFB} }
+# set_param project.pinAheadLayout  yes
 # set_property target_constrs_file "lab2_design_top.ucf" [current_fileset -constrset]
-Adding file 'C:/Users/seb/Documents/GitHub/Calculator/lab2_design_top.ucf' to fileset 'constrs_1'
+Adding file 'C:/Users/seb/Desktop/Calculator-RFB/lab2_design_top.ucf' to fileset 'constrs_1'
 # add_files [list {lab2_design_top.ucf}] -fileset [get_property constrset [current_run]]
 # link_design
 Design is defaulting to srcset: sources_1
@@ -34,7 +35,7 @@ Processing design ...
    Preping design's macros ...
   finished :Prep
 Writing EDIF netlist file lab2_design_top.edif ...
-ngc2edif: Total memory usage is 113696 kilobytes
+ngc2edif: Total memory usage is 113208 kilobytes
 
 Parsing EDIF File [./planAhead_run_2/Calculator.data/cache/lab2_design_top_ngc_zx.edif]
 Finished Parsing EDIF File [./planAhead_run_2/Calculator.data/cache/lab2_design_top_ngc_zx.edif]
@@ -48,21 +49,11 @@ Loading package from D:/SSD/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spart
 Loading io standards from D:/SSD/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
 Loading device configuration modes from D:/SSD/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
 Loading list of drcs for the architecture : D:/SSD/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
-Parsing UCF File [C:/Users/seb/Documents/GitHub/Calculator/lab2_design_top.ucf]
-Finished Parsing UCF File [C:/Users/seb/Documents/GitHub/Calculator/lab2_design_top.ucf]
+Parsing UCF File [C:/Users/seb/Desktop/Calculator-RFB/lab2_design_top.ucf]
+Finished Parsing UCF File [C:/Users/seb/Desktop/Calculator-RFB/lab2_design_top.ucf]
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   BUFGP => BUFGP (IBUF, BUFG): 1 instances
 
-Phase 0 | Netlist Checksum: 45025ff8
-link_design: Time (s): elapsed = 00:00:13 . Memory (MB): peak = 704.613 ; gain = 226.367
-exit
-ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
-HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
-HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
-HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
-HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
- (See C:/Users/seb/Documents/GitHub/Calculator\planAhead_pid13620.debug)
-ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
-INFO: [Common 17-206] Exiting PlanAhead at Mon May 08 03:46:11 2017...
-INFO: [Common 17-83] Releasing license: PlanAhead
+Phase 0 | Netlist Checksum: c9f7fc19
+link_design: Time (s): elapsed = 00:00:13 . Memory (MB): peak = 662.328 ; gain = 190.680

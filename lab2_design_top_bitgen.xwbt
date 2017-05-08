@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\phil\Documents\GitHub\Calculator\lab2_design_top.ncd
-OUTFILE=C:\Users\phil\Documents\GitHub\Calculator\lab2_design_top.bit
+INFILE=C:\Users\seb\Desktop\Calculator-RFB\lab2_design_top.ncd
+OUTFILE=C:\Users\seb\Desktop\Calculator-RFB\lab2_design_top.bit
 FAMILY=Spartan6
 PART=xc6slx9-2csg324
-WORKINGDIR=C:\Users\phil\Documents\GitHub\Calculator
+WORKINGDIR=C:\Users\seb\Desktop\Calculator-RFB
 LICENSE=WebPack
-USER_INFO=211308535_0_0_174
+USER_INFO=211306183_0_0_217

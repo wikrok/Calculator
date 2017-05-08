@@ -40,7 +40,7 @@ architecture structural of lab2_design_top is
 	signal muxSel : STD_LOGIC_VECTOR(1 downto 0) := b"00";
 		
 -- State Machine
-	signal signedResult : SIGNED (1 to 29) := X"0000000" & b"0";
+	signal signedResult : SIGNED (1 to 30) := X"0000000" & b"00";
 	signal startSerialiser : STD_LOGIC := 'U';
 	signal serialiserDone : STD_LOGIC := 'U';
 	signal errorString : STRING (1 to 22);

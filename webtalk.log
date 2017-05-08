@@ -3,14 +3,14 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 Project Information
 --------------------
-ProjectID=6AAA050689854337984A574BF7F46479
-ProjectIteration=12
+ProjectID=42113819E11C4DAC94C99F60CE4B155F
+ProjectIteration=24
 
 WebTalk Summary
 ----------------
 INFO:WebTalk:1 - WebTalk is enabled because you are using a WebPACK license.
 
-INFO:WebTalk:8 - WebTalk Install setting is ON.
+INFO:WebTalk:9 - WebTalk Install setting is OFF.
 INFO:WebTalk:6 - WebTalk User setting is ON.
 
-INFO:WebTalk:5 - C:/Users/phil/Documents/GitHub/Calculator/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/14.7/ISE_DS/ISE/data/reports/webtalk_introduction.html
+INFO:WebTalk:5 - C:/Users/seb/Desktop/Calculator-RFB/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at D:/SSD/Xilinx/14.7/ISE_DS/ISE/data/reports/webtalk_introduction.html

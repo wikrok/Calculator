@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/seb/Documents/GitHub/Calculator/ClockDivider.vhd";
+static const char *ng0 = "C:/Users/seb/Desktop/Calculator-RFB/ClockDivider.vhd";
 extern char *IEEE_P_2592010699;
 
 unsigned char ieee_p_2592010699_sub_1690584930_503743352(char *, unsigned char );

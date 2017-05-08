@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/seb/Documents/GitHub/Calculator/stringSerialiser.vhd";
+static const char *ng0 = "C:/Users/seb/Desktop/Calculator-RFB/stringSerialiser.vhd";
 extern char *IEEE_P_2592010699;
 extern char *IEEE_P_1242562249;
 
